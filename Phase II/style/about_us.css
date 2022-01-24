@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+    margin: 0px;
+    display: flex;
+    height: 9%;
+    border: 1px solid rgb(0, 157, 219);
+    background-color: rgb(5, 157, 219);
+    opacity: 70%;
+    border-radius: 5px;
+    align-items: center;
+    position: fixed;
+    
+}
+.header:hover{
+    background-color: black;
+}
+
+nav{
+    display: flex;
+    padding: 15px 60px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+nav img{
+    width: 100px;
+}
+
+.nav_links {
+    flex: 1;
+    padding: 0px 260px ;
+    text-align: center;
+    
+}
+.nav_links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 2px;
+    position: relative;
+
+}
+.search{
+    padding: 0 0;
+    text-align: right;
+}
+
+.nav_links a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    color: white;
+}
+
+.nav_links a:hover {
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+}
+.main1{
+    min-height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../resources/images/main_background_2.jpg");
+    background-size: cover;
+    color: rgb(255, 255, 255);
+}
+.main1 img{
+    float: left;
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 100px;
+    padding: 4px;
+    height: 400px;
+    width: 400px;
+    border-radius: 200px;
+    
+}
+.inmain{
+    margin-top: 250px;
+    margin-right: 100px;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    opacity: 70%;
+    color: rgb(2, 2, 2);
+    padding: 10px;
+    width: 50%;
+    border-radius: 15px;
+    float: right;
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+}
+p{
+    font-size: 20px;
+}
+.main2{
+    
+    margin: 100px;
+    align-items: center;
+    height: 400px;
+}
+.png{
+   
+    padding-left: 30px;
+    display: inline-block;
+    border-radius: 10px;
+}
+.png img{
+    margin-top: 30px;
+    height: 400px;
+    width: 400px;
+}
+.inmain2{
+    margin-top: 30px;
+    margin-right: 100px;
+    padding: 50px;
+    display: inline-block;
+    float: right;
+    background-color: black;
+    opacity: 80%;
+    color: azure;
+    border-radius: 10px;
+    width: 350px;
+    height: 300px;
+    
+
+}
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+.inmain2 dd{
+    font-size: 20px;
+}
+.inmain3{
+     margin-top: 30px;
+    margin-left: 150px;
+    padding: 50px;
+    display: inline-block;
+    float: left;
+    background-color: rgb(37, 0, 245);
+    opacity: 80%;
+    color: azure;
+    border-radius: 10px;
+    width: 350px;
+    height: 300px;
+}
