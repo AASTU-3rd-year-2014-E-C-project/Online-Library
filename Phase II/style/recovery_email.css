@@ -1,0 +1,33 @@
+.email_form{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 220px;
+  width: 300px;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 10px ;
+  padding: 10px 20px 10px 20px;
+  
+}
+.email_form div{
+  margin-top: 20px;
+}
+.email_form .email input{
+  height: 30px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 5px;
+  outline: none;
+}
+.email_form .submit_btn a input{
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: #c99609f3;
+  color: #fff;
+}
+.email_form .submit_btn a input:hover{
+  background-color: #ff7200;
+
+}
