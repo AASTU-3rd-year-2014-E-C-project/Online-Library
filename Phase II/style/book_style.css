@@ -1,0 +1,60 @@
+.main h2 {
+    text-align: center;
+}
+
+.main img {
+    width: 100;
+    height: 200px;
+}
+
+.b1,
+.b2,
+.b3 {
+    float: left;
+    width: 26%;
+    padding: 50px;
+}
+
+.Phil::after,
+.Bio::after,
+.Phy::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.main {
+    color: bisque;
+    margin-top: 50px;
+}
+
+.goto {
+    margin-top: 50px;
+    float: left;
+    width: 20%;
+    height: 10%;
+    background-color: rgb(3, 3, 77);
+    opacity: 70%;
+    border-radius: 10px;
+    padding: 15px 60px;
+}
+
+h4 {
+    color: tomato;
+}
+
+.goto a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    color: white;
+}
+
+
+/* mouse over link */
+
+.goto a:hover {
+    transition: 0.5s;
+    color: black;
+    text-decoration: underline;
+}
