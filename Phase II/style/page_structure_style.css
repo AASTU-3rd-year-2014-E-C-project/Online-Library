@@ -50,7 +50,6 @@ ul li a{
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    text-align: center;
     padding: 30px;
     color: #fff;
     font-family: Arial;
@@ -75,7 +74,6 @@ li a:hover{
     height: 40px;
     background: transparent;
     border: 1px solid #c99609f3;
-    
     color: #fff;
     border-right: none;
     font-size: 16px;
