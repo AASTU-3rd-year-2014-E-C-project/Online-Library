@@ -7,55 +7,57 @@
     <meta name="keywords" content="Books">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="index.png" type="image/png">
-    <link rel="stylesheet" href="style/page_structure_style.css">
-    <link rel="stylesheet" href="style/index_style.css">
+    <link rel="stylesheet" href="../css/page_structure_style.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
-    <div class="header">
-        <nav>
-    
-            <a href="index.htm"><img src="" alt="log"></a>
-    
-            <div class="nav_links">
+        <div class="navbar">
+            <div class="logo">
+                <h2>My Library</h2>
+            </div>
+
+            <div class="menu">
                 <ul>
-                    <li> <a href="index.html">Home</a></li>
-                    <li> <a href="sign_up.html">Sign Up</a></li>
-                    <li><a href="upload.html">Donate Book</a></li>
-                    <li><a href="about_us.html">About us</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">DONATE BOOK</a></li>
+                    <li><a href="signup.html">SIGN UP</a></li>
                 </ul>
             </div>
-        </nav>
-        <div id="search">
-            <input type="text" placeholder="Search.."><button>Search</button>
-        </div>
-    </div>
-    <div class="main">
-        <div class="home_content">
-            <div class="welcome_text">
-                <h1 class="home_welcome_title">AASTU Online Library</h1>
-                <p class="home_welcome_description">Our digital Library is an open project: the software is open, the data are open, the documentation is open, and we welcome your contribution. Whether you fix a typo, add a book, or write a widget--it's all welcome. We have a small team
-                    of fantastic programmers who have accomplished a lot, but we can't do it alone!</p>
-                <br>
-                <a href="sign_up.html" class="home_register_button">REGISTER</a>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Search book...">
+                <a href="#"> <button class="btn">Search</button></a>
             </div>
         </div>
-        <div class="home_login">
-            <form>
-                <h1>LOGIN</h1>
-                <input type="text" name="username" placeholder="Username" class="input"><br>
-                <input type="password" name="password" placeholder="Password" class="input"><br>
-                <a href="book_list.html"><input type="button" value="LOG IN" class="login_button"></a><br>
-                <input type="checkbox" name="Remeber_me">Remember Me<br><br>
-                <a href="recovery_email.html"> Forget password</a><br>
-                <a href="sign_up.html" target="_blank">Register</a>
-            </form>
+
+        <div class="home_content">
+            <h1 >AASTU Online Library</h1>
+            <p >Our digital Library is an open project: the software is open, the data are open, the documentation is open, and <br>
+                we welcome your contribution. Whether you fix a typo, add a book, or write a widget it's all welcome. <br> 
+                We have a small team of  fantastic programmers <br> 
+                who have accomplished a lot, but we can't do it alone!</p>
+            <br>
+            <button class="cn"><a href="sign_up.html">JOIN US</a></button>
+        
         </div>
-        <div style="clear: both;"></div>
-    </div>
-    <div class="footer">
-        footer
-    </div>
+    
+        <div class="form">
+             <form>
+                    <img src="../image/login_icon.jpg" class="login_icon" />
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" placeholder="Enter email here">
+                    <input type="password" name="" placeholder="Enter password here">
+                    <button class="btn_login"> <a href="#">Login</a> </button>
+
+                    <p class="link">Don't have an account<br>
+                    <a href="signup.html">Sign up </a> here<br />  
+                    <a href="recovery_email.html" >Forget password?</a>                            
+             </form> 
+        </div>       
+ 
+
 </body>
 
 </html>
