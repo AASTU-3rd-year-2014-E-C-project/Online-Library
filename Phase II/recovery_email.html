@@ -1,41 +1,44 @@
-<!DOCTYPE html>
+
 <html lang="en" dir="ltr">
-
-<head>
+  <head>
     <title>Recovery Email</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Library Managment About us page">
-    <meta name="keywords" content="Books">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="index.png" type="image/png">
-    <link rel="stylesheet" href="style/page_structure_style.css">
-</head>
+    <link rel="stylesheet" href="../css/recovery_email.css" >
+    <link rel="stylesheet" href="../css/page_structure_style.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+          <h2>My Library</h2>
+      </div>
 
-<body>
-<div class="header">
-    <nav>
+      <div class="menu">
+          <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#">ABOUT</a></li>
+              <li><a href="#">DONATE BOOK</a></li>
+              <li><a href="#">SIGN UP</a></li>
+          </ul>
+      </div>
 
-        <a href="index.htm"><img src="" alt="log"></a>
+      <div class="search">
+          <input class="srch" type="search" name="" placeholder="Search book...">
+          <a href="#"> <button class="btn">Search</button></a>
+      </div>
+  </div>
+     
+  <div class="email_form">
 
-        <div class="nav_links">
-            <ul>
-                <li> <a href="index.html">Home</a></li>
-                <li> <a href="sign_up.html">Sign Up</a></li>
-                <li><a href="upload.html">Donate Book</a></li>
-                <li><a href="about_us.html">About us</a></li>
-            </ul>
+        <div class="email"> Enter recovery email:<br>
+          <input type="email" name="recovery_email" placeholder="email"> 
         </div>
-    </nav>
-    <div id="search">
-        <input type="text" placeholder="Search.."><button>Search</button>
-    </div>
-</div>
-    <div class="main">
-        main content
-    </div>
-    <div class="footer">
-        footer
-    </div>
-</body>
 
+        <div class="submit_btn">
+            <a href="recovery_code.html">
+            <input type="submit" value="Send"></a> 
+        </div>
+
+  </div>
+  
+  
+  </body>
 </html>
