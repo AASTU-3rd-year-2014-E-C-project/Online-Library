@@ -1,76 +1,80 @@
-<!DOCTYPE html>
-<html>
+body {
+    background-image: url("../resources/images/main_background.jpg");
+    background-color: white;
+}
 
-<head>
-    <title>The Philosophy of History</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Library Managment About us page">
-    <meta name="keywords" content="Books">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="index.png" type="image/png">
-    <link rel="stylesheet" href="style/page_structure_style.css">
-    <link rel="stylesheet" href="style/book_desc_style.css">
-</head>
+.main {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
 
-<body>
-    <div class="header ">
-        <div class="logo ">logo</div>
-        <div class="nav_links ">
-            <nav>
-                <a href="index.html ">Home</a>
-                <a href="sign_up.html ">Sign Up</a>
-                <a href="upload.html ">Donate Book</a>
-                <a href="about_us.html ">About us</a>
-            </nav>
-        </div>
-    </div>
-    <div class="main ">
+.desc {
+    display: flex;
+}
 
-        <div class="desc ">
-            <img src="resources/cover/the philosophy of history.jpg " alt="The Philosophy of History Cover " class=" book_cover ">
-            <div class=" title ">
-                <h1 class="book_title ">The Philosophy of History</h1>
-                <p class=" book_desc ">Hegel wrote this classic as an introduction to a series of lectures on the "philosophy of history " — a novel concept in the early nineteenth century. With this work, he created the history of philosophy as a scientific study. He reveals
-                    philosophical theory as neither an accident nor an artificial construct, but as an exemplar of its age, fashioned by its antecedents and contemporary circumstances, and serving as a model for the future. The author himself appears
-                    to have regarded this book as a popular introduction to his philosophy as a whole, and it remains the most readable and accessible of all his philosophical writings.</p>
+.book_title {
+    margin-left: 5%;
+}
 
-            </div>
-        </div>
-        <p class=" book_author ">by Georg Wilhelm Friedrich Hegel, James Sibree (Translator), C.J. Friedrich (Introduction), Charles Hegel (Preface by)</p>
-        <div class="buttons">
-            <a href="book1.html "><button class="read_online_btn ">Read Online</button></a>&nbsp;
-            <a href="resources/Books/the_philosophy_of_history.pdf " Download><button class="download_btn ">Download</button></a>
-        </div>
-        <div class="related">
-            <h2>Related books</h2>
-            <hr>
-            <div class="Phil">
-                <div class="b1">
-                    <a href="book1_desc.html"><img src="resources/cover/the philosophy of history.jpg"></a>
-                    <div class="related_title">The Philosophy of History</div>
-                </div>
-                <div class="b1">
-                    <div class="book">
-                        <img src="resources/cover/the myth.jpg">
-                        <div class="related_title">The Myth of Sisyphus</div>
-                    </div>
+.book_desc {
+    margin-left: 5%;
+    padding-top: 10px;
+}
 
-                </div>
-                <div class="b1">
+.desc {
+    margin-top: 50px;
+}
 
-                    <img src="resources/cover/the art of war.jpg">
-                    <div class="related_title">The Art of War</div>
+.book_author {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-                </div>
-                <div class="b1">
+.book_cover {
+    width: 15%;
+    height: 200px;
+}
 
-                    <img src="resources/cover/the song of the dodo.jpg">
-                    <div class="related_title">The Song of The Dodo</div>
+.buttons {
+    margin-top: 20px;
+}
 
-                </div>
-            </div>
-        </div>
+.buttons button {
+    border: 1px solid rgb(0, 157, 219);
+    background-color: rgb(0, 157, 219);
+    padding: 5px;
+    font-size: 19px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-</body>
+.related {
+    margin-top: 50px;
+}
 
-</html>
+.Phil {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+}
+
+.b1 {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 30%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.related_title {
+    font-weight: bold;
+    margin-left: 50px;
+}
