@@ -7,35 +7,54 @@
     <meta name="description" content="Library Managment About us page">
     <meta name="keywords" content="Books">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="index.png" type="image/png">
-    <link rel="stylesheet" href="style/page_structure_style.css">
+    <link rel="shortcut icon" href="resources/images/index.png" type="image/png">
+    <link rel="stylesheet" href="style/upload.css">
 </head>
 
 <body>
-    <div class="header">
-        <nav>
+    <section class="header">
     
-            <a href="index.htm"><img src="" alt="log"></a>
     
-            <div class="nav_links">
-                <ul>
-                    <li> <a href="index.html">Home</a></li>
-                    <li> <a href="sign_up.html">Sign Up</a></li>
-                    <li><a href="upload.html">Donate Book</a></li>
-                    <li><a href="about_us.html">About us</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div id="search">
-            <input type="text" placeholder="Search.."><button>Search</button>
+        <div class="logo">
+            <a href="index.html">
+                <h2>My Library</h2>
+            </a>
         </div>
+    
+        <div class="nav_links">
+            <ul>
+                <li> <a href="index.html">Home</a></li>
+                <li> <a href="sign_up.html">Sign Up</a></li>
+                <li><a href="upload.html">Donate Book</a></li>
+                <li><a href="about_us.html">About us</a></li>
+            </ul>
+        </div>
+    
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Search book...">
+            <a href="#"> <button class="btn">Search</button></a>
+        </div>
+    </Section>
+    <div class="form">
+    
+        <img src="resources/images/login_icon.jpg" class="login_icon" />
+        <h2>To Donate us Please enter the below information</h2>
+        
+        <input type="text" name="first_name" placeholder="First Name"><br><br>
+        
+        <input type="text" name="last_name" placeholder="Last Name"><br><br>
+        <input type="email " name="email " placeholder="Enter email here "><br><br>
+        
+        Enter Url or Select a file :
+        <input type="url" id="myfile" name="myfile">
+        <div id="browse">
+        <input type="file" id="myfile" name="myfile" accept=".pdf"><br><br>
+        </div>
+        <button class="btn_login">Submit</button>
+    
+    
     </div>
-    <div class="main">
-        main content
-    </div>
-    <div class="footer">
-        footer
-    </div>
+    
 </body>
 
 </html>
