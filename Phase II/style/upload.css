@@ -162,7 +162,7 @@
     outline: none;
 }
 
-.btn_login {
+.btn_submit {
     width: 100%;
     height: 40px;
     background: #c99609f3;
@@ -174,12 +174,12 @@
     transition: 0.4s ease;
 }
 
-.btn_login:hover {
+.btn_submit:hover {
     background: #fff;
     color: #ff7200;
 }
 
-.btn_login a {
+.btn_submit a {
     text-decoration: none;
     color: #000;
     font-weight: bold;
