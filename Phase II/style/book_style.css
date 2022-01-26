@@ -2,13 +2,31 @@ body {
     background: url("resources/images/backlib.jpg") !important;
 }
 
+.main {
+    color: bisque;
+    margin: 0px;
+}
+
 .main h2 {
     text-align: center;
 }
 
 .main img {
-    width: 100;
+    width: 100px;
     height: 200px;
+}
+
+.main .goto {
+    width: 250px;
+    height: 200px;
+    margin: 10 20px;
+    background-color: rgba(3, 3, 77, 0.7);
+    border-radius: 10px;
+}
+
+.main .goto .li ul li a {
+    display: inline-flex;
+    display: block;
 }
 
 .b1,
@@ -27,20 +45,8 @@ body {
     display: table;
 }
 
-.main {
-    color: bisque;
-    margin-top: 60px;
-}
-
-.goto {
-    margin-top: 50px;
-    float: left;
-    width: 20%;
-    height: 10%;
-    background-color: rgb(3, 3, 77);
-    opacity: 70%;
-    border-radius: 10px;
-    padding: 15px 60px;
+.books {
+    margin-top: 100px;
 }
 
 h4 {
