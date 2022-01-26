@@ -166,12 +166,21 @@ p{
    
     padding-left: 30px;
     display: inline-block;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 .png img{
     margin-top: 30px;
     height: 400px;
     width: 400px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.png img:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+     background: white;
+     font-size: 20px;
+     margin-top: -1px;
 }
 .objective{
     margin-top: 30px;
@@ -188,6 +197,13 @@ p{
     
 
 }
+.objective:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+     background: rgb(26, 25, 25);
+     font-size: 20px;
+     margin-top: -1px;
+}
 h2{
     font-size: 30px;
     text-align: center;
@@ -201,10 +217,18 @@ h2{
     padding: 50px;
     display: inline-block;
     float: left;
-    background-color: rgb(37, 0, 245);
+    background-color: #fff3f3;
     opacity: 80%;
-    color: azure;
+    color: rgb(5, 5, 5);
     border-radius: 10px;
     width: 350px;
     height: 300px;
+    box-sizing: border-box;
+}
+.donate:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+     background: white;
+     font-size: 20px;
+     margin-top: -1px;
 }
