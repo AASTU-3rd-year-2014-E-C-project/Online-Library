@@ -47,7 +47,7 @@
 .form{
     width: 250px;
     height: 380px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9)50%,rgba(0,0,0,0.9)50%);
+    background: rgba(0,0,0,0.9);
     position: absolute;
     margin: 5% 76%;
     border-radius: 10px;
