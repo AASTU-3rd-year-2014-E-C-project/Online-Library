@@ -4,7 +4,7 @@
 }
 
 body{
-    background: url(../image/background_bright.jpg);
+    background: url(resources/image/background_bright.jpg);
     background-position: center;
     background-size: cover;
 }
