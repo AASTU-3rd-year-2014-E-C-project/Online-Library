@@ -1,3 +1,7 @@
+body {
+    background: url("resources/images/backlib.jpg") !important;
+}
+
 .main h2 {
     text-align: center;
 }
@@ -25,7 +29,7 @@
 
 .main {
     color: bisque;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .goto {
