@@ -1,49 +1,49 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
-    background: url(resources/image/background_bright.jpg);
+body {
+    background: url("resources/images/background_bright.jpg");
     background-position: center;
     background-size: cover;
 }
 
-.navbar{
+.header {
     box-sizing: border-box;
     height: 70px;
     background-color: black;
 }
 
-.logo{
+.logo {
     float: left;
     height: 70px;
     margin-left: 1%;
 }
 
-.logo h2{
+.logo h2 {
     float: left;
     margin-top: 15px;
     color: #c99609f3;
     font-size: 35px;
-    font-family: Arial;   
+    font-family: Arial;
 }
 
-.menu{
+.menu {
     height: 70px;
 }
 
-ul{
+ul {
     list-style: none;
     margin-left: 20%;
 }
 
- li{
+li {
     float: left;
     font-size: 14px;
 }
 
-ul li a{
+ul li a {
     display: inline-block;
     text-align: center;
     text-decoration: none;
@@ -55,20 +55,19 @@ ul li a{
     transition: 0.4s ease-in-out;
 }
 
-li a:hover{
+li a:hover {
     color: #c99609f3;
 }
 
-.search{
+.search {
     float: left;
     width: 330px;
     margin-left: 23%;
     margin-top: -50px;
     height: 40px;
-    
 }
 
-.search .srch{
+.search .srch {
     font-family: 'Times New Roman';
     width: 200px;
     height: 40px;
@@ -80,10 +79,9 @@ li a:hover{
     padding: 12px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    
 }
 
-.search .btn{
+.search .btn {
     width: 100px;
     height: 40px;
     margin-top: -2px;
@@ -97,16 +95,16 @@ li a:hover{
     transition: 0.2s ease;
     cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
     color: #000;
 }
 
-:focus{
+:focus {
     outline: none;
 }
 
-::placeholder{
+::placeholder {
     color: #fff;
     font-family: Arial;
 }
-
