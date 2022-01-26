@@ -4,35 +4,32 @@
 }
 
 body{
-    background: url(resources/image/background_bright.jpg);
+    background: url(../image/background_bright.jpg);
     background-position: center;
     background-size: cover;
 }
 
 .navbar{
+    box-sizing: border-box;
     height: 70px;
-    margin: auto;
     background-color: black;
 }
 
 .logo{
     float: left;
     height: 70px;
+    margin-left: 1%;
 }
 
 .logo h2{
+    float: left;
+    margin-top: 15px;
     color: #c99609f3;
     font-size: 35px;
-    font-family: Arial;
-    padding-left: 20px;
-    float: left;
-    padding-top: 10px;
-    margin-top: 5px
+    font-family: Arial;   
 }
 
 .menu{
-    width: 40%;
-    float: left;
     height: 70px;
 }
 
@@ -63,10 +60,12 @@ li a:hover{
 }
 
 .search{
-    width: 330px;
     float: left;
-    margin-left: 400px;
-    margin-top: 17px;
+    width: 330px;
+    margin-left: 23%;
+    margin-top: -50px;
+    height: 40px;
+    
 }
 
 .search .srch{
@@ -75,30 +74,31 @@ li a:hover{
     height: 40px;
     background: transparent;
     border: 1px solid #c99609f3;
-    
     color: #fff;
     border-right: none;
     font-size: 16px;
-    float: left;
-    padding: 10px;
+    padding: 12px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    
 }
 
 .search .btn{
     width: 100px;
     height: 40px;
+    margin-top: -2px;
+    margin-left: -4px;
     background: #c99609f3;
-    border: 2px solid #c99609f3;
+    border: 1px solid #c99609f3;
     color: #fff;
     font-size: 15px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     transition: 0.2s ease;
     cursor: pointer;
 }
 .btn:hover{
-    color: blue;
+    color: #000;
 }
 
 :focus{
