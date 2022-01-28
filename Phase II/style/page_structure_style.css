@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url("resources/images/background_bright.jpg");
+    background: url("../resources/images/background_bright.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -13,6 +13,13 @@ body {
     box-sizing: border-box;
     height: 70px;
     background-color: black;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+}
+.header:hover{
+    opacity: 85%;
 }
 
 .logo {
