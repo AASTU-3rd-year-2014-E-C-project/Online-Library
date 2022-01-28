@@ -12,16 +12,15 @@
 </head>
 
 <body>
-    <div class="header">
+    <section class="header">
         <div class="logo">
             <h2>My Library</h2>
         </div>
-
         <div class="menu">
             <ul>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about_us.html">ABOUT</a></li>
-                <li><a href="#">DONATE BOOK</a></li>
+                <li><a href="upload.html">DONATE BOOK</a></li>
             </ul>
         </div>
 
@@ -29,90 +28,90 @@
             <input class="srch" type="search" name="" placeholder="Search book...">
             <a href="#"> <button class="btn">Search</button></a>
         </div>
-    </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="#phil">Philosophy</a>
+                <a href="#bio">Biology</a>
+                <a href="#phy">Physics</a>
+                <!-- <a href="#Math">Maths</a>
+                <a href="#fic">Fiction</a> -->
+            </div>
+          </div>
+    </section>
 
 
     <div class="main">
-        <div class="goto">
-            <h4> GOTO:-</h4>
-            <div class="li">
-                <ul>
-                    <li><a href="#phil">Philosophy</a></li>
-                    <li><a href="#bio">Biology</a></li>
-                    <li><a href="#phy">Physics</a></li>
-                    <li><a href="#Math">Maths</a></li>
-                    <li><a href="#fic">Fiction</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="books">
-            <div class="Phil">
-                <h2 id="phil"><em><b>Philosophy </em></b>
-                </h2><br>
-                <div class="b1">
-                    <figure>
-                        <a href="book1_desc.html"><img src="resources/cover/the philosophy of history.jpg"></a>
-                        <figcaption><i>The Philosophy of History<i></figcaption>
-            </figure>
-           </div>
-           <div class="b1">
-            <figure >
-                <img src="resources/cover/the myth.jpg" >
-                  <figcaption><i>The Myth of Sisyphus<i></figcaption>
-            </figure>
-           </div>
-           <div class="b1">
-            <figure>
-                <img src="resources/cover/the art of war.jpg" >
-                <figcaption><i>The Art of War<i></figcaption>
-            </figure>
-           </div>
-        </div>
+        <div class="Phil">
+            <h2 id="phil"><em><b>Philosophy </em></b></h2>
+            <div class="b1">
+                <a target="_blank" href="book1_desc.html">
+                  <img src="resources/cover/the philosophy of history.jpg"" alt="the philosophy of history" width="600" height="400">
+                </a>
+                <div class="desc">The philosophy of history</div>
+              </div>
+              
+              <div class="b1">
+                <a target="_blank" href="resources/cover/the myth.jpg">
+                  <img src="resources/cover/the myth.jpg" alt="The Myth of Sisyphus" width="600" height="400">
+                </a>
+                <div class="desc">The Myth of Sisyphus</div>
+              </div>
+              
+              <div class="b1">
+                <a target="_blank" href="resources/cover/the art of war.jpg">
+                  <img src="resources/cover/the art of war.jpg" alt="the art of war" width="600" height="400">
+                </a>
+                <div class="desc">The Art of War</div>
+              </div>
+            </div>
             <div class="Bio">
-                <h2 id="bio"><em><b>Biology </em></b>
-                </h2><br>
-                <div class="b2">
-                    <figure>
-                        <img src="resources/cover/the song of the dodo.jpg" >
-                        <figcaption><i>The Song of The Dodo <i></figcaption>
-                </figure>
-               </div>
-               <div class="b2">
-                <figure >
-                    <img src="resources/cover/the vital question.jpg">
-                    <figcaption><i>The Vital Question <i></figcaption>
-                </figure>
-               </div>
-               <div class="b2">
-                <figure>
-                    <img src="resources/cover/biology psychology and medicine.jpg" width="100">
-                    <figcaption><i>Biology Psychology and Medicine <i></figcaption>
-                </figure>
-               </div>
-                </div>
-                <div class="Phy">
-                    <h2 id="phy"><em><b>Physics </em></b>
-                    </h2><br>
-                    <div class="b3">
-                        <figure>
-                            <img src="resources/cover/string theory.jpg">
-                            <figcaption><i>String Theory<i></figcaption>
-                    </figure>
-                   </div>
-                   <div class="b3">
-                    <figure >
-                        <img src="resources/cover/quantum physics.jpg" width="100">
-                        <figcaption><i>Quantum Physics<i></figcaption>
-                    </figure>
-                   </div>
-                   <div class="b3">
-                    <figure>
-                        <img src="resources/cover/principles of physics.jpg" width="100">
-                        <figcaption><i>Principles of Physics<i></figcaption>
-                    </figure>
-                   </div>
-                    </div>
-    
+                <h2 id="bio"><em><b>Biology </em></b></h2>
+              <div class="b2">
+                <a target="_blank" href="resources/cover/the song of the dodo.jpg">
+                  <img src="resources/cover/the song of the dodo.jpg" alt="the song of the dodo" width="600" height="400">
+                </a>
+                <div class="desc">The Song of The Dodo</div>
+              </div>
+              
+              <div class="b2">
+                <a target="_blank" href="resources/cover/the vital question.jpg">
+                  <img src="resources/cover/the vital question.jpg" alt="the vital question" width="600" height="400">
+                </a>
+                <div class="desc">The Vital Question</div>
+              </div>
+              
+              <div class="b2">
+                <a target="_blank" href="resources/cover/biology psychology and medicine.jpg">
+                  <img src="resources/cover/biology psychology and medicine.jpg" alt="biology psychology and medicine" width="600" height="400">
+                </a>
+                <div class="desc">Biology Psychology and Medicine</div>
+              </div>
+            </div>
+            <div class="Phy">
+                <h2 id="phy"><em><b>Physics </em></b></h2>     
+            <div class="b3">
+                <a target="_blank" href="resources/cover/string theory.jpg">
+                  <img src="resources/cover/string theory.jpg" alt="string theory" width="600" height="400">
+                </a>
+                <div class="desc">String Theory</div>
+              </div>
+              
+              <div class="b3">
+                <a target="_blank" href="resources/cover/quantum physics.jpg">
+                  <img src="resources/cover/quantum physics.jpg" alt="quantum physics" width="600" height="400">
+                </a>
+                <div class="desc">Quantum Physics</div>
+              </div>
+              
+              <div class="b3">
+                <a target="_blank" href="resources/cover/principles of physics.jpg">
+                  <img src="resources/cover/principles of physics.jpg" alt="principles of physics" width="600" height="400">
+                </a>
+                <div class="desc">Principles of Physics</div>
+              </div>
+            </div>
         </div>
     </div>
     
