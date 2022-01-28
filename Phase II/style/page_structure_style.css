@@ -13,13 +13,9 @@ body {
     box-sizing: border-box;
     height: 70px;
     background-color: black;
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
+    z-index: 1;
     top: 0;
-    padding: 5px;
-}
-.header:hover{
-    opacity: 85%;
 }
 
 .logo {
@@ -28,12 +24,14 @@ body {
     margin-left: 1%;
 }
 
-.logo h2 {
+.logo a {
     float: left;
     margin-top: 15px;
     color: #c99609f3;
     font-size: 35px;
     font-family: Arial;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .menu {
@@ -67,9 +65,8 @@ li a:hover {
 }
 
 .search {
-    float: left;
+    float: right;
     width: 330px;
-    margin-left: 23%;
     margin-top: -50px;
     height: 40px;
 }
