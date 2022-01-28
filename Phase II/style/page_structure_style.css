@@ -22,11 +22,11 @@ body {
     float: left;
     height: 70px;
     margin-left: 1%;
+    margin-top: 15px;
 }
 
 .logo a {
-    float: left;
-    margin-top: 15px;
+    float: left;   
     color: #c99609f3;
     font-size: 35px;
     font-family: Arial;
