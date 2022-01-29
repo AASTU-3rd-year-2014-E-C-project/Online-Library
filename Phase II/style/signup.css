@@ -11,21 +11,15 @@
     overflow: hidden;
 }
 
-.signUp_form .form_input {
-    padding: 10px 20px 10px 20px;
-    margin-left: -1px;
-}
-
 .signUp_form .form_title {
-    width: 300px;
-    border-bottom: 1px solid #c99609f3;
+    height: 40px;
     text-align: center;
     color: white;
     background-color: #c99609f3;
-    border-radius: 10px 10px 0 0;
-    padding: 10px;
 }
-
+.signUp_form .form_input {
+    padding: 10px 20px;
+}
 .signUp_form .input input {
     height: 30px;
     margin-bottom: 15px;
