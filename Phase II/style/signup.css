@@ -58,13 +58,12 @@
     margin-right: 8px;
     margin-left: 15px;
     padding-left: 5px;
-    color: blue;
 }
 
 .signUp_form .radio_btn input:checked:after {
     width: 10px;
     height: 10px;
-    background-color: #c99609f3;
+    background-color: blue;
     content: '';
     display: inline-block;
     border: 2px solid white;
