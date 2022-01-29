@@ -8,9 +8,13 @@
     box-sizing: border-box;
     height: 70px;
     background-color: black;
+    opacity: 85%;
     position: fixed;
     z-index: 1;
     top: 0;
+}
+.header:hover{
+opacity: 95%;
 }
 
 .logo {
