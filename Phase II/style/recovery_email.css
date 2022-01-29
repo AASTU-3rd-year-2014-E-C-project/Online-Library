@@ -1,33 +1,57 @@
-.email_form{
+
+.formBox {
+  
   margin-left: auto;
   margin-right: auto;
-  margin-top: 220px;
+  margin-top: 200px;
   width: 300px;
   height: auto;
-  border: 2px solid black;
-  border-radius: 10px ;
-  padding: 10px 20px 10px 20px;
-  
+  border: 2px solid #c99609f3;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-.email_form div{
-  margin-top: 20px;
+
+.formBox .formTitle {
+  height: 40px;
+  text-align: center;
+  color: white;
+  background-color: #c99609f3;
 }
-.email_form .email input{
+
+.formBox .form_input {
+  padding: 10px 20px;
+}
+.formBox .form_input input {
   height: 30px;
-  margin-top: 10px;
   width: 100%;
-  padding: 5px;
+  margin-bottom: 10px;
   outline: none;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 14px;
+  padding-left: 10px;
 }
-.email_form .submit_btn a input{
-  width: 100%;
+
+.formBox .submit_btn {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.formBox .submit_btn input {
   height: 30px;
-  border-radius: 8px;
-  border: none;
+  width: 100%;
   background-color: #c99609f3;
   color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.4s;
+  
 }
-.email_form .submit_btn a input:hover{
-  background-color: #ff7200;
 
+.formBox .submit_btn input:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid;
 }
