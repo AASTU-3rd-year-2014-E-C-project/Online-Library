@@ -3,12 +3,6 @@
     padding: 0;
 }
 
-body {
-    background: url("../resources/images/background_bright.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
 .header {
     width: 100%;
     box-sizing: border-box;
@@ -27,7 +21,7 @@ body {
 }
 
 .logo a {
-    float: left;   
+    float: left;
     color: #c99609f3;
     font-size: 35px;
     font-family: Arial;
