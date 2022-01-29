@@ -95,7 +95,7 @@ p{
      margin-top: -1px;
 
 }
-#list p:hover{
+#list a:hover{
     font-size: 30px;
      margin-top: -1px;
 }
