@@ -63,8 +63,21 @@
         <div id="browse">
             <input type="file" id="myfile" name="myfile" accept=".pdf"><br><br>
         </div>
-        <button class="btn_donate">Donate</button>
+        <div id="overlay" onclick="off()">
+            <div id="text">We Thank you very much for your book Donation</div>
+        </div>
+        <button class="btn_donate" onclick="on()">Donate</button>
     </div>
+
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script> 
     
         <div class="other">
         <font size="7">Other ways to Donate Us</font><br>
