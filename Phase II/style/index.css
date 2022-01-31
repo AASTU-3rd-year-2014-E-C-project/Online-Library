@@ -4,29 +4,42 @@
 }
 
 body {
-    background: url("../resources/images/background_bright.jpg");
+    background: url("../resources/images/pexels-ann-h-1762851.jpg");
     background-position: center;
     background-size: cover;
 }
 
-.home_content {
-    padding-top: 12%;
-    padding-left: 20px;
-    margin-top: 70px;
-    width: 73%;
-    position: absolute;
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
-
+.home_content {
+    background: rgba(7, 231, 164, 0.7);
+    padding-left: 20px;
+    margin-top: 200px;
+    margin-right: 500px;
+    margin-left: 20px;
+    border-radius: 15px;
+    position: absolute;
+    opacity: 60%;
+}
+.text{
+    color: #000;
+    opacity: 100%;
+}
 .home_content h1 {
     font-size: 50px;
-    color: #458a8f;
+    color: #080808;
 }
 
 .home_content p {
     font-size: 23px;
     margin-top: 15px;
     line-height: 30px;
-    color: rgb(97, 92, 92);
+    color: rgb(0, 0, 0);
 }
 
 .home_content .cn {
@@ -50,20 +63,48 @@ body {
 }
 
 .cn:hover {
-    background-color: rgb(88, 82, 82);
+    background-color: #585252;
 }
 
-.form {
-    width: 250px;
-    height: 380px;
-    background: rgba(0, 0, 0, 0.9);
+.contains{    
+    width: 350px;
+    height: 500px;
     position: relative;
     float: right;
     border-radius: 10px;
-    padding: 25px;
     top: 15%;
     right: 50px;
-    margin-top: 70px;
+    margin-bottom: 100px;
+    box-shadow: 0 0 40px 20px rgba(0,0,0,0.36);
+    perspective: 1000px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+.forms{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d ;
+    transition: transform 1s;
+    
+}
+
+.form1, .form2{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 1);
+    background-size: cover;
+    padding: 7%;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 890px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+.form2{
+    transform: rotateY(180deg);
+    
 }
 
 .login_icon {
@@ -75,7 +116,7 @@ body {
     left: calc(50% - 50px);
 }
 
-.form h2 {
+h2 {
     text-align: center;
     color: #c99609f3;
     font-size: 22px;
@@ -85,7 +126,8 @@ body {
     margin-bottom: 10px;
 }
 
-.form input {
+
+.form1 input {
     width: 100%;
     height: 35px;
     background: transparent;
@@ -96,12 +138,71 @@ body {
     letter-spacing: 1px;
     margin-top: 20px;
 }
+.input input{
+    width: 100%;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e48d0af3;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+.radio_btn{
+    color: white;
+}
+.radio_btn input{
+    font-size: 14px;
+    margin-right: 8px;
+    margin-left: 15px;
+    padding-left: 5px;
 
-.form input:focus {
+}
+.radio_btn input:checked:after {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    content: '';
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+.input{
+    justify-content: left;
+    color:#fff;
+}
+.input2 input{
+    float: right;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 50%;
+    outline: none;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.input2 select{
+    display: inline-block;
+     float: right;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 50%;
+    outline: none;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.input2{
+    align-items: center;
+    color: #fff;
+}
+.form1 input:focus {
     outline: none;
 }
 
 .btn_login {
+    
     width: 100%;
     height: 40px;
     background: #c99609f3;
@@ -124,24 +225,71 @@ body {
     font-weight: bold;
 }
 
-.form .link {
+
+.form1 a{
     font-size: 17px;
     padding-top: 20px;
     text-align: center;
     color: white;
+    text-decoration: none;
     margin-top: 30px;
 }
 
-.form .link a {
-    text-decoration: none;
-    color: #3778c2;
-    margin-bottom: 10px;
-}
-
-.form .link a:hover {
+.form1 a:hover {
     color: #e48d0af3;
 }
 
 ::placeholder {
     color: #fff;
 }
+.btn{
+    color: white;
+}
+.btn:hover{
+    color: rgb(110, 110, 247);
+
+}
+button{
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: 1px solid #fff;
+    margin: 35px 0 10px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+
+}
+.submit_btn1:hover{
+    background-color: #ff7200;
+}
+.submit_btn1, .submit_btn2{
+    display: inline-block;
+    width: 45%;
+    background: transparent;
+    color: white;
+    border: 1px solid #fff;
+    margin: 35px 0 10px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;    
+}
+.submit_btn1{
+    float: left;
+    margin-right: 1px;
+}
+.submit_btn2{
+    float: right;
+}
+.submit_btn2:hover{
+     background-color: #ff7200;
+}
+
