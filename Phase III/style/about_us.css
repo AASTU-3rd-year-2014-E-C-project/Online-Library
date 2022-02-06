@@ -1,0 +1,109 @@
+
+
+.main1{
+    min-height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../resources/images/back_book3.jpg");
+    background-size: cover;
+    color: rgb(255, 255, 255);
+}
+.main1 img{
+    float: left;
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 100px;
+    padding: 4px;
+    height: 400px;
+    width: 400px;
+    border-radius: 200px;
+    
+}
+.about{
+    margin-top: 250px;
+    margin-right: 100px;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    opacity: 70%;
+    color: rgb(2, 2, 2);
+    padding: 10px;
+    width: 50%;
+    border-radius: 15px;
+    float: right;
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+}
+p{
+    font-size: 20px;
+}
+/*---------------------------------------------------------------------------------------*/
+.about_us{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+.about_us h1{
+  font-size: 36px;
+  font-weight: 600;
+}
+.about_us p{
+  color: #777;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+.row{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.content{
+  flex-basis: 31%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  
+}
+.content a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+.about_us h3{
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.content:hover{
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+     background: white;
+     font-size: 20px;
+     margin-top: -1px;
+}
+.content a:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+
+     background: white;
+     font-size: 22px;
+     margin-top: -1px;
+
+}
+#list a:hover{
+    font-size: 30px;
+     margin-top: -1px;
+}
+
+@media(max-width: 700px) {
+  .row{
+    flex-direction: column;
+  }
+}
+/*------------------------------------------------------------------------------------*/
+
