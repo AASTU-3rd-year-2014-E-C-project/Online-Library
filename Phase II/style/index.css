@@ -81,6 +81,15 @@ body {
     overflow-y: scroll;
     
 }
+.contains::-webkit-scrollbar{
+    width: 7px;
+}
+.contains::-webkit-scrollbar-track{
+    background: #000;
+}
+.contains::-webkit-scrollbar-thumb{
+    background: #723601;
+}
 .forms{
     position: relative;
     width: 100%;
