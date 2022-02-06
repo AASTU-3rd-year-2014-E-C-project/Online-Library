@@ -86,13 +86,14 @@ p{
      background: white;
      font-size: 20px;
      margin-top: -1px;
-}
+  }
 .content a:hover{
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 
      background: white;
      font-size: 22px;
      margin-top: -1px;
+     transition: 0.5s;
 
 }
 #list a:hover{
