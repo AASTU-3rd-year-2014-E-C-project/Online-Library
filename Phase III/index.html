@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Library Managment About us page">
+    <meta name="keywords" content="Books">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="index.png" type="image/png">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/page_structure_style.css">
+    <link rel="stylesheet" href="style/recoverPassword.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"> My Library</a>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="about_us.html">ABOUT</a></li>
+                <li><a href="upload.html">DONATE BOOK</a></li>
+                <li><a class="signup" id="list" onclick="change(1)">SIGN UP</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" id="homePage" >
+        <div class="home_content">
+            <div class="text">
+                <h1>AASTU Online Library</h1>
+                <p>Our digital Library is an open project: the software is open, the data are open, the documentation is open, and <br> we welcome your contribution. Whether you fix a typo, add a book, or write a widget it's all welcome. <br> We have a small team
+                 of fantastic programmers <br> who have accomplished a lot, but we can't do it alone!</p>
+                 <br>
+                 <button id="cn" class="signup" onclick="change(2)">JOIN US</button>
+            </div>
+
+        </div>
+    
+        <div class="contains" >              
+           <div class="forms" id="card">  
+            <div class="form1">
+                <h2 id="top">Login</h2>
+                <form>
+                <div class="inputBox">
+                    <input type="email"  placeholder="email here ">
+                    <input type="password"  placeholder="password here" id="myPassword">
+                </div>
+                <div class="showPsw"> 
+                    <input type="checkbox" onclick="showPassword()" id="showBox" >
+                    <label for="showBox">Show Password</label>
+                </div>
+              </form>
+                    <a href="book_list.html"><button class="btnLogin">Login</button></a>   
+                    <button class="accountBtn" onclick="openRegister()">Don't have an account</button>
+                    <a id="forgetTag" onclick="openForm1()">Forget password?</a>
+
+            </div>
+
+            <div class="form2" title="scroll down the form">
+        
+        <h2 id="top">Create New Account</h2>
+                <form>
+                    
+                        <div class="nameInput">
+                            <input type="text" id="fname" name="fname" placeholder="first name"
+                                required><br>
+                            <input type="text" id="lname" name="lname" placeholder="last name"
+                                required><br>
+                            <input type="text" id="username" name="username"
+                                placeholder="user name" required><br>
+                        </div>
+                        <div class="radio_btn">
+                            <label>Sex:</label>
+                            <input type="radio" name="radSize" id="male" value="male" checked="checked" /><label for="male">male</label>
+                            <input type="radio" name="radSize" id="female" value="female" /><label for="female">female</label><br /><br>
+                        </div>
+                        <br>
+                        <div class="selectInput">
+                           <label for="">Date of birth:</label> <input type="date" name="date" required><br><br><br>
+
+                           <label for="">Birth place: </label> <select name="selecter">
+                                <option value="addis">Addis Ababa</option>
+                                <option value="gondar" selected>Gondar</option>
+                                <option value="bahirdar">Bahir Dar</option>
+                                <option value="hawasa">Hawassa</option>
+                            </select>
+                        </div>
+                             <br>
+                         <div class="addressInput">
+                            <input type="email" id="email" name="email" placeholder="email: youremail@gmail.com">
+                            <input type="tel" name="phone" placeholder="phone: 0900-11-11-11"
+                                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br /> 
+                            <input type="password" name="newPassword" required placeholder="password:"> 
+                            <input type="password" name="cPassword" placeholder="confirm password:" required><br />
+                         </div>
+                        <div class="submit_btn">
+                            <button class="submit_btn1">Submit</button>
+                            <input type="reset" class="submit_btn2">
+                        </div>
+           
+                </form>
+            <button class="accountBtn" id="a" onclick="openLogin()" >I Aready Have An Account</button>
+           
+            </div>
+           </div>
+        </div>
+    </div>
+ <div id="popup"></div>
+    <div class="formBox" id="Box1">
+        <div class="formTitle">
+            <h2>Change Password</h2>
+            <button class="closeBtn" onclick="closeForm()"><p>&times </p> </button>
+        </div>
+        <div >
+            <div class="formInput"> Enter recovery email:<br>
+                <input type="email" name="recovery_email" placeholder="email">
+            </div>
+
+            <div class="btn">
+                <button  onclick="openForm2()">send code</button>
+            </div>
+        </div>
+    </div>
+
+     
+    <div class="formBox" id="Box2">
+        <div class="formTitle">
+            <h2>Change Password</h2>
+            <button class="closeBtn" onclick="closeForm()"><p>&times </p> </button>
+        </div>
+        
+        <div>
+             <div class="formInput"> Enter recovery code:<br>
+                <input type="email" name="recovery_email" placeholder="email">
+            </div>
+
+            <div class="btn">
+                <button  onclick="openForm3()">submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="formBox" id="Box3">
+        <div>
+            <div class="formTitle">
+                <h2>Change Password</h2>
+                <button class="closeBtn" onclick="closeForm()"><p>&times </p> </button>
+            </div>
+        <div class="formInput">
+            <label for="new_password">Enter New Password</label>
+            <input type="password" name="new_password" placeholder="Enter New Password" />
+
+            <label for="confirm_password">Confirm New Password</label><br>
+            <input type="password" name="confirm_password" placeholder="Confirm New Password" />
+        </div>
+        <div class="changePasswordBtns">
+            <input type="submit" value="CHANGE"  onclick="openForm1()" /> <input type="reset" value="RESET">
+        </div>
+        </div>
+    </div>
+
+     </div>
+
+    <script src="javascript/index.js">  </script>
+
+</body>
+
+</html>
