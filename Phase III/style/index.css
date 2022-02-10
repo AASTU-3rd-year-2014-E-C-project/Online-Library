@@ -16,8 +16,8 @@ body {
     max-width: 1020px;
     background: rgba(7, 231, 164, 0.7);
     padding: 20px;
-    /* border-radius: 15px; */
-    margin-top: 330px;
+    border-radius: 15px;
+    margin-top: 150px;
     margin-right: 450px;
 }
 .contains{   
