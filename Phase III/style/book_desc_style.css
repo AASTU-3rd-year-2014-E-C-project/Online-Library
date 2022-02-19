@@ -1,80 +1,199 @@
-body {
-    background-image: url("../resources/images/main_background.jpg");
-    background-color: white;
+body{
+    overflow-x: hidden;
+}
+
+body.dark .darkify::before{
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 43, 43, 0.6);
 }
 
 .main {
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 110px;
-    margin-bottom: 50px;
-    border: solid white;
+    align-self: center;
     background-color: white;
-    border-radius: 20px;
-    padding: 20px;
+    width: 90vw;
+    min-width: 50vw;
+    margin: 20px 30px;
 }
 
-.desc {
-    display: flex;
+
+.book .title{
+    display: inline-block;
+    background-color: red;
 }
 
-.book_title {
-    margin-left: 5%;
+.book .book_title {
+    margin: 20px 0;
+    display: block;
 }
 
-.book_desc {
-    margin-left: 5%;
-    padding-top: 10px;
+.book .book_desc {
+    margin: 20px 0;
+    display: block;
 }
 
-.desc {
-    margin-top: 50px;
-}
-
-.book_author {
+.book .book_author {
     font-size: 20px;
     font-weight: bold;
-    margin-top: 10px;
+    margin: 20px 0;
 }
 
-.book_cover {
-    width: 15%;
-    height: 200px;
+.book .cover-container{
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+    display: inline-block;
 }
+
+.book .cover-container img{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
 
 .buttons {
-    margin-top: 20px;
+    margin: 10px 0;
 }
 
-.buttons button {
+.read-btn:active{
+    transform: scale(0.8);
+}
+
+.download-btn:active{
+    transform: scale(0.8);
+}
+
+.buttons a {
+    text-decoration: none;
+    color: #000;
     border: 1px solid rgb(0, 157, 219);
     background-color: rgb(0, 157, 219);
-    padding: 5px;
     font-size: 19px;
     border-radius: 7px;
     cursor: pointer;
+    padding: 7px;
     font-weight: bold;
+    margin-left: 8px;
 }
 
-.related {
+.other {
     margin-top: 50px;
 }
 
-.Phil {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+.related-books{
+    padding: 20px;
 }
 
-.b1 {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 30%;
-    margin-top: 30px;
-    text-align: center;
+.comments{
+    padding: 0 15px;
+    transition: 0.4s ease;
 }
 
-.related_title {
+.comment{
+    background-color: #faebd7;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.profile-pic-container{
+    height: 40px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.profile-pic-container img{
+    max-width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.comment-giver-name{
+    display: block;
+}
+
+.date-and-time{
+    display: block;
+    font-style: italic;
+    font-weight: 100;
+    font-size: smaller;
+}
+
+.name-date{
+    display: inline-block;
+}
+
+.comment-text{
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+#addCommentBtn{
+    margin: 10px 15px;
+    border: none;
+    background-color: antiquewhite;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
     font-weight: bold;
-    margin-left: 50px;
 }
+
+.add-comment-form{
+    display: none;
+}
+
+.add-comment-form.show{
+    display: block;
+    position: fixed;
+    top: 15%;
+    left: 35%;
+    z-index: 9;
+    background-color: #faebd7;
+    padding: 25px;
+    max-width: 400px;
+}
+
+.add-comment-form .comment-add-title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.add-comment-form input{
+    display: block;
+    width: 100%;
+    margin: 20px 0 ;
+    font-size: 16px;
+}
+
+.add-comment-form .comment-text-area{
+    resize: none;
+    font-size: 17px;
+}
+
+.add-comment-form .comment-field{
+    border: none;
+    border-radius: 10px;
+    padding: 7px 15px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-add-btn{
+    text-align: right;
+}
+
+.comment-btn{
+    border: 0;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: burlywood;
+    cursor: pointer;
+}
+
+

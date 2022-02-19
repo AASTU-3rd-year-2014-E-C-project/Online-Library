@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>The Philosophy of History - Read Online</title>
+    <link rel="shortcut icon" href="resources/images/index.png" type="image/png">
     <link rel="stylesheet" href="style/page_structure_style.css">
     <link rel="stylesheet" href="style/read_online_style.css">
+    <link rel="stylesheet" href="_fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -21,18 +23,15 @@
                 <li><a href="upload.html">DONATE BOOK</a></li>
             </ul>
         </div>
-
-        <div class="search">
-            <input class="srch" type="search" name="" placeholder="Search book...">
-            <a href="#"> <button class="btn">Search</button></a>
-        </div>
+        <i class="fas fa-bars" id="menu-dropdown-btn"></i>
     </div>
     <div class="main">
         <div class="read_online">
             <h1 class="book_title">The Philosophy of History - Read Online</h1>
-            <iframe src="resources/Books/the_philosophy_of_history.pdf" />
+            <iframe src="resources/Books/the_philosophy_of_history.pdf" style="pointer-events: none;"></iframe>
         </div>
     </div>
+    <script src="javascript/dropdown.js">  </script>
 </body>
 
 </html>

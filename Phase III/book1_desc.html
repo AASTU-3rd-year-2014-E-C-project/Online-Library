@@ -7,12 +7,14 @@
     <meta name="description" content="Library Managment About us page">
     <meta name="keywords" content="Books">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="index.png" type="image/png">
+    <link rel="shortcut icon" href="resources/images/index.png" type="image/png">
     <link rel="stylesheet" href="style/page_structure_style.css">
     <link rel="stylesheet" href="style/book_desc_style.css">
+    <link rel="stylesheet" href="_fontawesome/css/all.min.css">
 </head>
 
-<body>
+<body class="body">
+    <div class="darkify">
     <div class="header">
         <div class="logo">
             <a href="index.html"> My Library</a>
@@ -24,60 +26,79 @@
                 <li><a href="about_us.html">ABOUT</a></li>
                 <li><a href="upload.html">DONATE BOOK</a></li>
             </ul>
-        </div>
-
-        <div class="search">
-            <input class="srch" type="search" name="" placeholder="Search book...">
-            <a href="#"> <button class="btn">Search</button></a>
-        </div>
+        </div>        
+        <i class="fas fa-bars" id="menu-dropdown-btn"></i>
     </div>
     <div class="main">
-        <div class="desc ">
-            <img src="resources/cover/the philosophy of history.jpg " alt="The Philosophy of History Cover " class=" book_cover ">
+        <div class="book">
+            <div class="cover-container">
+                <img src="resources/covers/the-philosophy-of-history.jpg" alt="The Philosophy of History Cover ">
+            </div>
             <div class=" title ">
                 <h1 class="book_title ">The Philosophy of History</h1>
-                <p class=" book_desc ">Hegel wrote this classic as an introduction to a series of lectures on the "philosophy of history " — a novel concept in the early nineteenth century. With this work, he created the history of philosophy as a scientific study. He reveals
-                    philosophical theory as neither an accident nor an artificial construct, but as an exemplar of its age, fashioned by its antecedents and contemporary circumstances, and serving as a model for the future. The author himself appears
+                <p class=" book_desc ">Hegel wrote this classic as an introduction to a series of lectures on the "philosophy of history " — a novel concept in the early nineteenth century. With this work, he created the history of philosophy as a scientific study. He reveals philosophical theory as neither an accident nor an artificial construct, but as an exemplar of its age, fashioned by its antecedents and contemporary circumstances, and serving as a model for the future. The author himself appears
                     to have regarded this book as a popular introduction to his philosophy as a whole, and it remains the most readable and accessible of all his philosophical writings.</p>
+            </div>
 
+            
+            <h3 class="book_author">by Georg Wilhelm Friedrich Hegel, James Sibree (Translator), C.J. Friedrich (Introduction), Charles Hegel (Preface by)</h3>
+            
+            <div class="buttons">
+                <a href="book1.html " class="read-btn">Read Online</button></a>
+                <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a>
             </div>
         </div>
-        <p class=" book_author ">by Georg Wilhelm Friedrich Hegel, James Sibree (Translator), C.J. Friedrich (Introduction), Charles Hegel (Preface by)</p>
-        <div class="buttons">
-            <a href="book1.html "><button class="read_online_btn ">Read Online</button></a>&nbsp;
-            <a href="resources/Books/the_philosophy_of_history.pdf " Download><button class="download_btn ">Download</button></a>
+        <div class="other comments-container">
+            <h2>Comments</h2>
+            <hr>
+            <div class="comments">
+                <div class="comment">
+                    <div class="profile-pic-container">
+                        <img src="resources/covers/default-cover.png" alt="" class="profile-pic">
+                    </div>
+                    <div class="name-date">
+                        <h3 class="comment-giver-name">Nahom Habtamu</h3>
+                        <h4 class="date-and-time">Feb 17, 2022 @ 8:07</h4>
+                    </div>
+                    <p class="comment-text">Great book! I recommend it for anyone interested in the same genre.</p>
+                </div>
+
+                <div class="comment">
+                    <div class="profile-pic-container">
+                        <img src="resources/covers/default-cover.png" alt="" class="profile-pic">
+                    </div>
+                    <div class="name-date">
+                        <h3 class="comment-giver-name">Nahom Habtamu</h3>
+                        <h4 class="date-and-time">Feb 17, 2022 @ 8:07</h4>
+                    </div>
+                    <p class="comment-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae a libero in quisquam at iure optio perferendis sequi veritatis porro, molestias explicabo quia consectetur ipsam ab, ex odio? Cumque repellendus ipsa ex alias cum nostrum deserunt fugit odit aperiam magnam! Corporis, similique, reprehenderit perspiciatis, fuga quasi quisquam veritatis expedita ipsam iusto animi praesentium repudiandae quia ullam omnis asperiores suscipit modi ducimus odit quas accusantium non facilis sed sequi eum. Voluptate dignissimos nulla sint, nam quo saepe alias possimus voluptatibus excepturi ut dolorum expedita, cum minima vero eos, blanditiis voluptatum molestiae numquam quam? Atque, delectus dicta deserunt voluptatibus neque eos!</p>
+                </div>
+            </div>
+            <button id="addCommentBtn" onclick="commentPopup()">Add Comment</button>
         </div>
-        <div class="related">
+        <div class="other related-container">
             <h2>Related books</h2>
             <hr>
-            <div class="Phil">
-                <div class="b1">
-                    <a href="book1_desc.html"><img src="resources/cover/the philosophy of history.jpg"></a>
-                    <div class="related_title">The Philosophy of History</div>
-                </div>
-                <div class="b1">
-                    <div class="book">
-                        <img src="resources/cover/the myth.jpg">
-                        <div class="related_title">The Myth of Sisyphus</div>
-                    </div>
+            <div class="related-books">
 
-                </div>
-                <div class="b1">
-
-                    <img src="resources/cover/the art of war.jpg">
-                    <div class="related_title">The Art of War</div>
-
-                </div>
-                <div class="b1">
-
-                    <img src="resources/cover/the song of the dodo.jpg">
-                    <div class="related_title">The Song of The Dodo</div>
-
-                </div>
             </div>
         </div>
     </div>
 
+    <div class="add-comment-form">
+        <h3 class="comment-add-title">Comment</h3>
+        <input type="text" class="comment-field first-name-input" placeholder="First Name">
+        <input type="text" class="comment-field last-name-input">
+        <textarea name="" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
+
+        <div class="comment-add-btn">            
+            <button id="addCommBtn" class="comment-btn add-comment-btn">Comment</button>
+            <button id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
+        </div>
+    </div>
+    <script src="javascript/book_desc.js"></script>
+    <script src="javascript/dropdown.js"></script>
+</div>
 </body>
 
 </html>

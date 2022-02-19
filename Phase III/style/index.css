@@ -247,3 +247,11 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+#forgetTag{
+    cursor: pointer;
+}
+
+#list{
+    cursor: pointer;
+}
