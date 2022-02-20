@@ -68,7 +68,14 @@ newPassword.onkeyup = function() {
 
 }
 
-//check password confirmaconfirmPassword.onblur = function() {
+//check password confirmation
+confirmPassword.onfocus = function() {
+ 
+    changeBorder.classList.remove("pswStyle_onblur");
+    changeBorder.classList.add("pswStyle_focus");
+  
+}
+confirmPassword.onblur = function() {
   changeBorder.classList.remove("pswStyle_focus");
   changeBorder.classList.add("pswStyle_onblur");
   
