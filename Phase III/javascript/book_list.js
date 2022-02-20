@@ -1,13 +1,10 @@
 /************************ Display Books **********************/
 const book_container = document.querySelector('.book-container')
 
-
 var booksList = [
                 {cover: 'infinite-powers.jpg', title: 'Infinite Powers', author: 'Steven Strogatz', desc: 'Without calculus, we wouldn’t have cell phones, TV, GPS, or ultrasound. We wouldn\'t have unraveled DNA or discovered Neptune or figured out how to put 5,000 songs in your pocket.', genre: 'Science'}, 
                 
                 {cover: 'mathematics-and-its-history.jpg', title: 'Mathematics and its History', author: 'John Stillwell', desc: '[This book] can be described as a collection of critical historical essays dealing with a large variety of mathematical disciplines and issues, and intended for a broad audience we know of no book on mathematics and its history that covers half as much nonstandard material. Even when dealing with standard material, Stillwell manages to dramatize it and to make it worth rethinking. In short, his book is a splendid addition to the genre of works that build royal roads to mathematical culture for the many.', genre: 'Science'}, 
-                
-                {cover: 'principles-of-physics.jpg', title: 'Principles of Physics', author: 'Halliday Resnick', desc: 'hello', genre: 'Science'}, 
                 
                 {cover: 'proofs-and-refutations.jpg', title: 'Proofs and Refutations', author: 'Imre Lakatos', desc: 'Proofs and Refutations is essential reading for all those interested in the methodology, the philosophy and the history of mathematics. Much of the book takes the form of a discussion between a teacher and his students. They propose various solutions to some mathematical problems and investigate the strengths and weaknesses of these solutions. Their discussion (which mirrors certain real developments in the history of mathematics) raises some philosophical problems and some problems about the nature of mathematical discovery or creativity. Imre Lakatos is concerned throughout to combat the classical picture of mathematical development as a steady accumulation of established truths. He shows that mathematics grows instead through a richer, more dramatic process of the successive improvement of creative hypotheses by attempts to \'prove\' them and by criticism of these attempts: the logic of proofs and refutations.', genre: 'Philosophy'}, 
                 
@@ -31,42 +28,59 @@ var booksList = [
                 
                 {cover: 'wuthering-heights.jpg', title: 'Wuthering Heights', author: 'Emily Bronte', desc: 'Five major critical interpretations of Wuthering Heights are included, three of them new to the Fourth Edition. A Stuart Daley considers the importance of chronology in the novel. J. Hillis Miller examines Wuthering Heights\'s problems of genre and critical reputation. Sandra M. Gilbert assesses the role of Victorian Christianity plays in the novel, while Martha Nussbaum traces the novel\'s romanticism. Finally, Lin Haire-Sargeant scrutinizes the role of Heathcliff in film adaptations of Wuthering Heights.', genre: 'Fiction'}, ]
 
-                    
-book_container.innerHTML = ''
-for(var i = 0; i<booksList.length; i++){
-    var cover = document.createElement('img')
-    cover.src = 'covers/default-cover.png'
-    
-    var cover_container = document.createElement('div')
-    cover_container.classList.add('cover-container')
 
-    var title = document.createElement('div')
-    title.classList.add('title')
-    title.innerHTML = 'default-title'
+// function displayBooks(){
+    console.log('ehefw')
+    book_container.innerHTML = ''
+    for(var i = 0; i<booksList.length; i++){
+        var cover = document.createElement('img')
+        cover.src = 'covers/default-cover.png'
+        
+        var cover_container = document.createElement('div')
+        cover_container.classList.add('cover-container')
 
-    var author = document.createElement('div')
-    author.classList.add('author')
-    author.innerHTML = 'hello'
+        var title = document.createElement('div')
+        title.classList.add('title')
+        title.innerHTML = 'default-title'
 
-    book_card = document.createElement('div')
-    book_card.classList.add('book-card')
-    book_card.classList.add(i)
+        var author = document.createElement('div')
+        author.classList.add('author')
+        author.innerHTML = 'hello'
 
-    title.innerHTML = booksList[i].title
-    author.innerHTML = booksList[i].author
-    cover.src = 'resources/covers/' + booksList[i].cover
+        book_card = document.createElement('div')
+        book_card.classList.add('book-card')
+        book_card.classList.add(i)
 
-    cover_container.innerHTML = ''
-    book_card.innerHTML = ''
+        title.innerHTML = booksList[i].title
+        author.innerHTML = booksList[i].author
+        cover.src = 'resources/covers/' + booksList[i].cover
 
-    cover_container.append(cover)
-    book_card.append(cover_container, title, author)
+        cover_container.innerHTML = ''
+        book_card.innerHTML = ''
 
-    book_container.append(book_card)
+        cover_container.append(cover)
+        book_card.append(cover_container, title, author)
 
+        book_container.append(book_card)
+    // }
+
+    // displayBooks()
+
+    function donateBook(){
+        const donateTitle = document.getElementById('donateTitle').value
+        const donateAuthor = document.getElementById('donateAuthor').value
+        const donateDesc = document.getElementById('donateDesc').value
+        const donateGenre = document.getElementById('donateGenre').value
+
+        booksList.add({cover: 'resources/covers/default-cover.png', title: donateTitle, author: donateAuthor, desc: donateDesc, genre: donateGenre})
+
+        // displayBooks()
+
+    }
 }
 /************************ End of Display Books *********************************/
 
+/**********************Function for book description ********************/
 function bookDescOnLoad(selectedBookTitle){
     for(let i = 0; i<booksList.length; i++){
         if(booksList[i].title == selectedBookTitle){
@@ -78,13 +92,14 @@ function bookDescOnLoad(selectedBookTitle){
 
 const book_card_list = document.querySelectorAll('.book-card')
 
+var indexx = 2
 book_card_list.forEach(book => {
     book.addEventListener('click', () => {
+        indexx = bookDescOnLoad(book.childNodes[1].innerText)
         window.open('book1_desc.html?' + bookDescOnLoad(book.childNodes[1].innerText), '_blank')
     })
 })
 
-/**********************Function for book description ********************/
 function onLoadFunction(){
     var index = location.search.substring(1)
     //book information
@@ -115,5 +130,15 @@ function onLoadFunction(){
 </div>
     `
     
+}
+
+function readOnLoad(){
+    console.log('herw')
+    const htmlTitle = document.getElementById('htmlTitle')
+    const bookTitle = document.querySelector('.book_title_read')
+
+    htmlTitle.innerText = booksList[indexx].title + ' - Read Online'
+    bookTitle.innerHTML = ' - Read Online'
+
 }
 
