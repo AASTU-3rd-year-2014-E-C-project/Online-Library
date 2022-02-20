@@ -8,22 +8,29 @@
     background-size: cover;
     color: rgb(255, 255, 255);
 }
-.main1 img{
-    float: left;
+.image{
+  float:left;
+  box-sizing: border-box;
+
+}
+.image img{
+  box-sizing: border-box;
+   float: left;
     display: inline-block;
     margin-top: 100px;
-    margin-left: 100px;
-    padding: 4px;
     height: 400px;
     width: 400px;
     border-radius: 200px;
+    justify-content: space-between;
+    z-index: -1;
     
 }
 .about{
+  
     margin-top: 250px;
     margin-right: 100px;
     display: inline-block;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(225, 225, 225);
     opacity: 70%;
     color: rgb(2, 2, 2);
     padding: 10px;
