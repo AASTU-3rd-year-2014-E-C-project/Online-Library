@@ -12,6 +12,7 @@
     opacity: 85%;
     position: sticky;
     top: 0;
+    z-index: 3;
 }
 .header:hover{
 opacity: 95%;
@@ -22,6 +23,7 @@ opacity: 95%;
     height: 70px;
     margin-left: 1%;
     margin-top: 15px;
+    z-index: 4;
 }
 
 .logo a {
@@ -41,6 +43,7 @@ opacity: 95%;
 ul {
     list-style: none;
     margin-left: 20%;
+    z-index: 4;
 }
 
 li {
