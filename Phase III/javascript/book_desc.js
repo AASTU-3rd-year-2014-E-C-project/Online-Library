@@ -28,10 +28,6 @@ addBtn.addEventListener('click', () => {
         <div class="profile-pic-container">
             <img src="resources/covers/default-cover.png" alt="" class="profile-pic">
         </div>
-        <div class="name-date">
-            <h3 class="comment-giver-name">${firstName.value + ' ' + lastName.value}</h3>
-            <h4 class="date-and-time">Feb 17, 2022 @ 8:07</h4>
-        </div>
         <p class="comment-text">${commentText.value}</p>
     `
     comments.append(singleComment)
