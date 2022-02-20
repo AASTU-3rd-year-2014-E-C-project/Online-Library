@@ -6,8 +6,6 @@ var booksList = [
                 
                 {cover: 'mathematics-and-its-history.jpg', title: 'Mathematics and its History', author: 'John Stillwell', desc: '[This book] can be described as a collection of critical historical essays dealing with a large variety of mathematical disciplines and issues, and intended for a broad audience we know of no book on mathematics and its history that covers half as much nonstandard material. Even when dealing with standard material, Stillwell manages to dramatize it and to make it worth rethinking. In short, his book is a splendid addition to the genre of works that build royal roads to mathematical culture for the many.', genre: 'Science'}, 
                 
-                {cover: 'principles-of-physics.jpg', title: 'Principles of Physics', author: 'Halliday Resnick', desc: 'hello', genre: 'Science'}, 
-                
                 {cover: 'proofs-and-refutations.jpg', title: 'Proofs and Refutations', author: 'Imre Lakatos', desc: 'Proofs and Refutations is essential reading for all those interested in the methodology, the philosophy and the history of mathematics. Much of the book takes the form of a discussion between a teacher and his students. They propose various solutions to some mathematical problems and investigate the strengths and weaknesses of these solutions. Their discussion (which mirrors certain real developments in the history of mathematics) raises some philosophical problems and some problems about the nature of mathematical discovery or creativity. Imre Lakatos is concerned throughout to combat the classical picture of mathematical development as a steady accumulation of established truths. He shows that mathematics grows instead through a richer, more dramatic process of the successive improvement of creative hypotheses by attempts to \'prove\' them and by criticism of these attempts: the logic of proofs and refutations.', genre: 'Philosophy'}, 
                 
                 {cover: 'quantum-physics.jpg', title: 'Quantum Physics', author: 'Carl J. Pratt', desc: 'Award-winner scientist, Carl J. Pratt, presents the most exhaustive and clear introduction to the topic. “Quantum Physics for Beginners” peels away layers of mystery to reveal what is behind most modern technological innovations. Even if this is the first time that you are hearing these terms don\'t be discouraged by these big words. This book is written specifically for people approaching this topic for the first time. Professor Pratt will take you by the hand on a two-century journey to discover the principles that govern the universe.', genre: 'Science'}, 
@@ -76,7 +74,7 @@ var booksList = [
 
         booksList.add({cover: 'resources/covers/default-cover.png', title: donateTitle, author: donateAuthor, desc: donateDesc, genre: donateGenre})
 
-        displayBooks()
+        // displayBooks()
 
     }
 }
@@ -94,8 +92,10 @@ function bookDescOnLoad(selectedBookTitle){
 
 const book_card_list = document.querySelectorAll('.book-card')
 
+var indexx = 2
 book_card_list.forEach(book => {
     book.addEventListener('click', () => {
+        indexx = bookDescOnLoad(book.childNodes[1].innerText)
         window.open('book1_desc.html?' + bookDescOnLoad(book.childNodes[1].innerText), '_blank')
     })
 })
@@ -130,5 +130,15 @@ function onLoadFunction(){
 </div>
     `
     
+}
+
+function readOnLoad(){
+    console.log('herw')
+    const htmlTitle = document.getElementById('htmlTitle')
+    const bookTitle = document.querySelector('.book_title_read')
+
+    htmlTitle.innerText = booksList[indexx].title + ' - Read Online'
+    bookTitle.innerHTML = ' - Read Online'
+
 }
 
