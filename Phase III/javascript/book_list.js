@@ -101,6 +101,27 @@ book_card_list.forEach(book => {
     })
 })
 
+function onLoadFunction(){
+    var index = location.search.substring(1)
+    //book information
+    const cover = booksList[index].cover
+    const title = booksList[index].title
+    const author = booksList[index].author
+    const description = booksList[index].desc
+    const genre = booksList[index].genre
+
+    const bookDescContainer = document.querySelector('.book')
+    bookDescContainer.innerHTML = ''
+    bookDescContainer.innerHTML = `
+    <div class="cover-container">
+    <img src="${'resources/covers/' + cover}" alt="${title}">
+</div>
+<div class=" title ">
+    <h1 class="book_title ">${title}</h1>
+<h4 class="book_genre">${'Genre: ' + genre}</h4>
+    <p class=" book_desc ">${description}</p>
+</div>
+
 
 <h3 class="book_author">${'by: ' + author}</h3>
 
