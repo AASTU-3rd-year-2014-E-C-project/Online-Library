@@ -1,3 +1,4 @@
+/******* Add Comment Function ***************/
 const form = document.querySelector('.add-comment-form')
 const b = document.querySelector('.body')
 function commentPopup(){
@@ -45,3 +46,5 @@ addBtn.addEventListener('click', () => {
 cancelBtn.addEventListener('click', () => {
     closePopup()
 })
+//////////////////////////// End of Add Comment //////////////////////
+

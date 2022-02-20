@@ -20,8 +20,9 @@ body.dark .darkify::before{
 
 
 .book .title{
-    display: inline-block;
-    background-color: red;
+    width: 70%;
+    display:inline-block;
+    vertical-align: top;
 }
 
 .book .book_title {
@@ -32,6 +33,7 @@ body.dark .darkify::before{
 .book .book_desc {
     margin: 20px 0;
     display: block;
+    font-style: italic;
 }
 
 .book .book_author {
