@@ -96,8 +96,16 @@
                             <input type="email" id="email" name="email" placeholder="email: youremail@gmail.com">
                             <input type="tel" name="phone" placeholder="phone: 0900-11-11-11"
                                 pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br /> 
-                            <input type="password" name="newPassword" required placeholder="password:"> 
-                            <input type="password" name="cPassword" placeholder="confirm password:" required><br />
+                            <input type="password" name="newPassword" required placeholder="password:" id="newPsw"> 
+                                    <div id="message">
+                                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                        <p id="capital" class="invalid">A <b>uppercase</b> letter</p>
+                                        <p id="number" class="invalid">A <b>number</b></p>
+                                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                                    </div> 
+                            <div class="pswStyle_onblur" id="pswBorder">                          
+                                <input type="password" name="cPassword" placeholder="confirm password:" required id="confirmPsw" ><br />
+                            </div> 
                          </div>
                         <div class="submit_btn">
                             <button class="submit_btn1">Submit</button>
@@ -111,7 +119,7 @@
            </div>
         </div>
     </div>
- <div id="popup"></div>
+    <div id="popup"></div>
     <div class="formBox" id="Box1">
         <div class="formTitle">
             <h2>Change Password</h2>
@@ -165,13 +173,11 @@
         </div>
     </div>
 
-     </div>
+    
 
-     <script>
-        console.log('hello')
-    </script>
     <script src="javascript/index.js">  </script>
     <script src="javascript/dropdown.js">  </script>
+    <script src="javascript/passwordValidation.js">  </script>
 
 </body>
 
