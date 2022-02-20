@@ -1,6 +1,7 @@
 /************************ Display Books **********************/
 const book_container = document.querySelector('.book-container')
 
+
 var booksList = [
                 {cover: 'infinite-powers.jpg', title: 'Infinite Powers', author: 'Steven Strogatz', desc: 'Without calculus, we wouldn’t have cell phones, TV, GPS, or ultrasound. We wouldn\'t have unraveled DNA or discovered Neptune or figured out how to put 5,000 songs in your pocket.', genre: 'Science'}, 
                 
@@ -27,9 +28,10 @@ var booksList = [
                 {cover: 'the-vital-question.jpg', title: 'The Vital Question', author: 'Nick Lane', desc: 'The Earth teems with life: in its oceans, forests, skies and cities. Yet there’s a black hole at the heart of biology. We do not know why complex life is the way it is, or, for that matter, how life first began. In The Vital Question, award-winning author and biochemist Nick Lane radically reframes evolutionary history, putting forward a solution to conundrums that have puzzled generations of scientists.', genre: 'Science'}, 
                 
                 {cover: 'wuthering-heights.jpg', title: 'Wuthering Heights', author: 'Emily Bronte', desc: 'Five major critical interpretations of Wuthering Heights are included, three of them new to the Fourth Edition. A Stuart Daley considers the importance of chronology in the novel. J. Hillis Miller examines Wuthering Heights\'s problems of genre and critical reputation. Sandra M. Gilbert assesses the role of Victorian Christianity plays in the novel, while Martha Nussbaum traces the novel\'s romanticism. Finally, Lin Haire-Sargeant scrutinizes the role of Heathcliff in film adaptations of Wuthering Heights.', genre: 'Fiction'}, ]
+    
+        
 
-
-// function displayBooks(){
+function displayBooks(){
     console.log('ehefw')
     book_container.innerHTML = ''
     for(var i = 0; i<booksList.length; i++){
@@ -62,21 +64,20 @@ var booksList = [
         book_card.append(cover_container, title, author)
 
         book_container.append(book_card)
-    // }
-
-    // displayBooks()
-
-    function donateBook(){
-        const donateTitle = document.getElementById('donateTitle').value
-        const donateAuthor = document.getElementById('donateAuthor').value
-        const donateDesc = document.getElementById('donateDesc').value
-        const donateGenre = document.getElementById('donateGenre').value
-
-        booksList.add({cover: 'resources/covers/default-cover.png', title: donateTitle, author: donateAuthor, desc: donateDesc, genre: donateGenre})
-
-        // displayBooks()
-
     }
+    
+}
+// displayBooks()
+
+function donateBook(){
+    const donateTitle = document.getElementById('donateTitle').value
+    const donateAuthor = document.getElementById('donateAuthor').value
+    const donateDesc = document.getElementById('donateDesc').value
+    const donateGenre = document.getElementById('donateGenre').value
+
+    console.log(donateTitle + ', ' + donateAuthor + ', ' + donateDesc)
+
+    booksList.push({cover: 'resources/covers/default-cover.png', title: donateTitle, author: donateAuthor, desc: donateDesc, genre: donateGenre})
 }
 /************************ End of Display Books *********************************/
 
