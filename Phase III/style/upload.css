@@ -62,7 +62,6 @@
     font-size: 15px;
     color: #fff;
     float: left;
-  
 }
 
 
@@ -96,10 +95,19 @@
     letter-spacing: 1px;
     margin-top: 20px;
 }
+
 #donateDesc{
-  height: 200px;
-  border: #fff solid;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgb(19, 18, 18);
+  color: #fff;
+  padding: 15px;
+  resize: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 20px;
 }
+
 .form input:focus {
     outline: none;
 }
