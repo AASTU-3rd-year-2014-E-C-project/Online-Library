@@ -1,7 +1,6 @@
 /************************ Display Books **********************/
 const book_container = document.querySelector('.book-container')
 
-
 var booksList = [
                 {cover: 'infinite-powers.jpg', title: 'Infinite Powers', author: 'Steven Strogatz', desc: 'Without calculus, we wouldn’t have cell phones, TV, GPS, or ultrasound. We wouldn\'t have unraveled DNA or discovered Neptune or figured out how to put 5,000 songs in your pocket.', genre: 'Science'}, 
                 
@@ -32,7 +31,6 @@ var booksList = [
         
 
 function displayBooks(){
-    console.log('ehefw')
     book_container.innerHTML = ''
     for(var i = 0; i<booksList.length; i++){
         var cover = document.createElement('img')
