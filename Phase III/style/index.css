@@ -255,3 +255,12 @@ body {
 #list{
     cursor: pointer;
 }
+
+.pswStyle_focus input{
+    border: 1px solid red;
+}
+
+.pswStyle_onblur input{
+  border: none;
+  border-bottom: 1px solid #e48d0af3;
+}
