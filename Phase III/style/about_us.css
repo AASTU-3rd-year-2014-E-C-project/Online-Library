@@ -16,6 +16,8 @@
 }
 
 .image-container{
+  margin-top: 100px;
+  float: left;
   display: inline-block;
   border-radius: 50%;
   padding: 15px;
@@ -25,19 +27,22 @@
 
 .image-container img{
   background-size: cover;
-  width: 100%;
-  border-radius: 50%;
+  width: 90%;
+  border-radius: 250px;
 }
 
 .about{
+  float: right;
     display: inline-block;
     background-color: rgb(225, 225, 225);
-    width: 800px;
+    opacity: 70%;
+    width: 700px;
     color: rgb(2, 2, 2);
     padding: 50px;
     border-radius: 15px;
     transform: translateY(-250px);
-    margin-left: 60px;
+    margin-top: 500px;
+    margin-right: 60px;
 }
 h1{
     font-size: 30px;
