@@ -62,7 +62,9 @@
     font-size: 15px;
     color: #fff;
     float: left;
+  
 }
+
 
 .donate_icon {
     width: 100px;
@@ -94,7 +96,10 @@
     letter-spacing: 1px;
     margin-top: 20px;
 }
-
+#donateDesc{
+  height: 200px;
+  border: #fff solid;
+}
 .form input:focus {
     outline: none;
 }
