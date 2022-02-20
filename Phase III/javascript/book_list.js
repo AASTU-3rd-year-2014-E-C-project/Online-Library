@@ -46,12 +46,14 @@ function filterFunc(filterText){
 filterFunc('')
 
 function searchText(){
-    const searchInput = document.getElementById('search-box').value
-    console.log(searchInput)
-    filterFunc(searchInput)
+    const searchInput = document.getElementById('search-box')
+    console.log(searchInput.value)
+    filterFunc(searchInput.value)
     displayBooks()
 }
 function resetText(){
+    const searchInput = document.getElementById('search-box')
+    searchInput.value = ''
     filterFunc('')
     displayBooks()
 }
