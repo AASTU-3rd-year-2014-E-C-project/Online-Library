@@ -203,3 +203,29 @@
 
 /*-----------------------------------------------------------------------------------*/
 
+
+@media screen and (min-width: 580px){
+  form{
+width: 50%;
+box-sizing: border-box;
+  }
+  .other{
+    width: 70%;
+box-sizing: border-box;
+  height: 700px;
+  
+  }
+  
+}
+@media screen and (min-width: 400px){
+  form{
+width: 50%;
+box-sizing: border-box;
+  }
+  .other{
+    width: 50%;
+    box-sizing: border-box;
+  height: 700px;
+  }
+
+}
