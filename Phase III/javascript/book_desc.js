@@ -24,13 +24,15 @@ addBtn.addEventListener('click', () => {
     const singleComment = document.createElement('div')
     singleComment.classList.add('comment')
 
+    const d = new Date()
+
     singleComment.innerHTML = `
         <div class="profile-pic-container">
             <img src="resources/covers/default-cover.png" alt="" class="profile-pic">
         </div>
         <div class="name-date">
             <h3 class="comment-giver-name">${firstName.value + ' ' + lastName.value}</h3>
-            <h4 class="date-and-time">Feb 17, 2022 @ 8:07</h4>
+            <h4 class="date-and-time">${d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear()} @ ${d.getHours() + ':' + d.getMinutes()}</h4>
         </div>
         <p class="comment-text">${commentText.value}</p>
     `
