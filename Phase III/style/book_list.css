@@ -73,6 +73,7 @@ body{
     color: #fff;
     border-radius: 5px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .search-container .search-box{
