@@ -93,8 +93,8 @@ function displayBooks(){
         book_container.append(book_card)
     }
     function bookDescOnLoad(selectedBookTitle){
-        for(let i = 0; i<filterList.length; i++){
-            if(filterList[i].title == selectedBookTitle){
+        for(let i = 0; i<booksList.length; i++){
+            if(booksList[i].title == selectedBookTitle){
                 return i
             }
         }
@@ -128,7 +128,7 @@ function donateBook(){
 function onLoadFunction(){
     var index = location.search.substring(1)
     //book information
-    console.log(filterList[0].title)
+    console.log(booksList[index].title)
     const cover = filterList[index].cover
     const title = filterList[index].title
     const author = filterList[index].author
