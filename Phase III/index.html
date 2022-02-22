@@ -45,47 +45,47 @@
     
         <div class="contains" >              
            <div class="forms" id="card">  
-            <div class="form1">
+            <div class="form1" id="f">
                 <h2 id="top">Login</h2>
-                <form>
+                <form action="book_list.html">
                 <div class="inputBox">
-                    <input type="email"  placeholder="email here ">
-                    <input type="password"  placeholder="password here" id="myPassword">
+                    <input type="text"  placeholder="Username" id="myUsername" required>
+                    <input type="password"  placeholder="Password" id="myPassword" required>
                 </div>
                 <div class="showPsw"> 
                     <input type="checkbox" onclick="showPassword()" id="showBox" >
                     <label for="showBox">Show Password</label>
                 </div>
-              </form>
-                    <a href="book_list.html"><button class="btnLogin">Login</button></a>   
+                    <input type="submit" class="btnLogin" value="Login" id="loginBtn">   
                     <button class="accountBtn" onclick="openRegister()">Don't have an account</button>
                     <a id="forgetTag" onclick="openForm1()">Forget password?</a>
+                </form>
 
             </div>
 
-            <div class="form2" title="scroll down the form">
-        
-        <h2 id="top">Create New Account</h2>
-                <form>
-                    
+            <div class="form2" title="scroll down the form">      
+              <h2 id="top">Create New Account</h2>
+                <form>                  
                         <div class="nameInput">
-                            <input type="text" id="fname" name="fname" placeholder="first name"
+                            <input type="text" id="fname" name="fname" placeholder="First Name"
                                 required><br>
-                            <input type="text" id="lname" name="lname" placeholder="last name"
+                            <input type="text" id="lname" name="lname" placeholder="Last Name"
                                 required><br>
-                            <input type="text" id="username" name="username"
-                                placeholder="user name" required><br>
+                            <input type="text" id="username" name="Username"
+                                placeholder="Username" required><br>
                         </div>
                         <div class="radio_btn">
                             <label>Sex:</label>
-                            <input type="radio" name="radSize" id="male" value="male" checked="checked" /><label for="male">male</label>
-                            <input type="radio" name="radSize" id="female" value="female" /><label for="female">female</label><br /><br>
+                            <input type="radio" name="radSize" id="male" value="male" checked="checked" /><label for="male">Male</label>
+                            <input type="radio" name="radSize" id="female" value="memale" /><label for="female">Female</label><br /><br>
                         </div>
                         <br>
                         <div class="selectInput">
-                           <label for="">Date of birth:</label> <input type="date" name="date" required><br><br><br>
+                           <label for="">Date of birth:</label> 
+                           <input type="date" name="date" style="padding: 5px;" required><br><br><br>
 
-                           <label for="">Birth place: </label> <select name="selecter">
+                           <label for="">Birth place: </label> 
+                           <select name="selecter" style="padding: 5px; cursor: pointer;">
                                 <option value="addis">Addis Ababa</option>
                                 <option value="gondar" selected>Gondar</option>
                                 <option value="bahirdar">Bahir Dar</option>
@@ -128,7 +128,7 @@
         </div>
         <div >
             <div class="formInput"> Enter recovery email:<br>
-                <input type="email" name="recovery_email" placeholder="email">
+                <input type="email" name="recovery_email" placeholder="email" required>
             </div>
 
             <div class="btn">
