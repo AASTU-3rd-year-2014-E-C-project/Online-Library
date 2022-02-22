@@ -50,10 +50,11 @@ function openRegister(){
 }
 
 function openLogin(){
+
     var element = document.getElementById("top");
     element.scrollIntoView();
     card.style.transform="rotateY(0deg)"; 
-
+    
     var temp = document.getElementById("list");
        temp.classList.remove("login");
        temp.classList.add("signup");  
@@ -63,6 +64,7 @@ function openLogin(){
        temp.classList.remove("login");
        temp.classList.add("signup");  
        document.getElementById("cn").innerHTML="JOIN US"
+
 }
 
 function change(n){
