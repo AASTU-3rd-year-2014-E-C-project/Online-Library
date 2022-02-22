@@ -35,70 +35,107 @@
         <div class="text-box">
             <h1>Donate Us</h1>
             <h3>Dear AASTU online library partners</h3>
-            <p>Right now, we need your help. As a project of the Internet Archive—a nonprofit internet library dedicated to promoting
-            Access to All posible Knowledge—our site is working to make digital books available to everyone, everywhere. And we're
-            tring to move faster.
-            <br>
-            This site won't be possible if it is not with you. so we ask you here for your generosity to donate in what ever you
-            have.
+            <p>Right now, we need your help. As a project of the Internet Archive—a nonprofit internet library dedicated
+                to promoting
+                Access to All posible Knowledge—our site is working to make digital books available to everyone,
+                everywhere. And we're
+                tring to move faster.
+                <br>
+                This site won't be possible if it is not with you. so we ask you here for your generosity to donate in
+                what ever you
+                have.
             </p>
             <a href="#donate_1" class="donate-button">I will Donate</a>
         </div>
 
     </section>
 
-<section class="content">
+    <section class="content">
 
-    <div class="form">
-    
-        <img src="resources/images/upload_icon.jpg" class="donate_icon" />
-        <h2 id="donate_1">To Donate us Please enter the below information</h2>
-    
-        <input type="text" name="first_name" placeholder="First Name"><br><br>
-    
-        <input type="text" name="last_name" placeholder="Last Name"><br><br>
-        <input type="email " name="email " placeholder="Enter email here "><br><br> Enter Url or Select a file :
-        <input type="url" id="myfile" name="myfile">
-        <div id="browse">
-            <input type="file" id="myfile" name="myfile" accept=".pdf"><br><br>
+        <div class="form">
+
+            <img src="resources/images/upload_icon.jpg" class="donate_icon" />
+            <h2 id="donate_1">To Donate us Please enter the below information</h2>
+
+            <input type="text" id="name" name="first_name" placeholder="First Name"><br><br>
+
+            <input type="text" id="name" name="last_name" placeholder="Last Name"><br><br>
+            <input type="email " id="txtEmail" name="email " placeholder="Enter email here "><br><br>
+
+            Enter Url or Select a file :
+            <input type="url" id="myfile" name="myfile">
+            <div id="browse">
+                <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
+            </div>
+            <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
+            <input type="text" name="Author" id="donateAuthor" placeholder="Author"><br><br>
+            <input type="text" name="Genre" id="donateGenre" placeholder="Genre"><br><br>
+            <input type="description" name="description" id="donateDesc" placeholder="Description"><br><br>
+            <div id="overlay" onclick="off()">
+                <div id="text">We Thank you very much for your book Donation</div>
+            </div>
+            <button class="btn_donate" onclick="on()">Donate</button>
         </div>
-        <input type="text" name="Title" id="donateTitle"placeholder="Title"><br><br>
-        <input type="text" name="Author" id="donateAuthor" placeholder="Author"><br><br>
-        <input type="text" name="Genre" id="donateGenre" placeholder="Genre"><br><br>
-        <textarea name="donateDesc" id="donateDesc" rows="10" placeholder="Book Description"></textarea>
-        <br><br>
-        <div id="overlay" onclick="off()">
-            <div id="text">We Thank you very much for your book Donation</div>
-        </div>
-        <button class="btn_donate" onclick="on();donateBook()">Donate</button>
-    </div>
 
-    <script>
-        function on() {
-            document.getElementById("overlay").style.display = "block";
-        }
+        <script>
 
-        function off() {
-            document.getElementById("overlay").style.display = "none";
-        }
-    </script> 
-    
+            function on() {
+                var email = document.getElementById('txtEmail');
+                var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                var d = document.getElementById("myfile").value;
+                var d2 = document.getElementById("myfile1").value;
+                var t = document.getElementById("donateTitle").value;
+                var a = document.getElementById("donateAuthor").value;
+                var g = document.getElementById("donateGenre").value;
+                var str = document.getElementById("name").value;
+                var ptr = /^[A-z]+$/;
+                var x = ptr.test(str);
+                var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+                if (str.trim().length == 0)
+                    alert("name can not be empty");
+
+                else if (x == 0)
+                    alert("name can only be alphabet");
+                else if (!emailFilter.test(email.value)) {
+                    alert('Please provide a valid email address');
+                    email.focus;
+                    return false;
+                }
+                else if (d.trim().length == 0 && d2.trim().length == 0) {
+                    alert("Please Insert the book");
+                }
+                else if (d.trim().length != 0 && !regexp.test(d))
+                    alert("Please enter valid url.");
+
+                else if (t.trim().length == 0 || a.trim().length == 0 || g.trim().length == 0)
+                    alert("Book Title, Author or Genre can't be Empty");
+                else
+                    document.getElementById("overlay").style.display = "block";
+
+            }
+
+            function off() {
+                document.getElementById("overlay").style.display = "none";
+            }
+        </script>
+
         <div class="other">
-        <font size="7">Other ways to Donate Us</font><br>
-        <dt>
-            Bank:
-        </dt>
-        <dd>&nbsp;Ethiopian commercial bank: 100015646289<br>
-            &nbsp; Dashin Bank: 524562088251</dd>
-        <dt>Call on our Phone: </dt>
-        <dd>&nbsp;&nbsp;&nbsp;+251941606496<br>
-            &nbsp;&nbsp;&nbsp;+251939656144</dd>
+            <font size="7">Other ways to Donate Us</font><br>
+            <dt>
+                Bank:
+            </dt>
+            <dd>&nbsp;Ethiopian commercial bank: 100015646289<br>
+                &nbsp; Dashin Bank: 524562088251</dd>
+            <dt>Call on our Phone: </dt>
+            <dd>&nbsp;&nbsp;&nbsp;+251941606496<br>
+                &nbsp;&nbsp;&nbsp;+251939656144</dd>
 
-    </div>
-</section>
+        </div>
+    </section>
 
 
-<script src="javascript/book_list.js"></script>
+
 </body>
 
 </html>
