@@ -49,17 +49,18 @@
                 <h2 id="top">Login</h2>
                 <form action="book_list.html">
                 <div class="inputBox">
-                    <input type="text"  placeholder="Username" required>
+                    <input type="text"  placeholder="Username" id="myUsername" required>
                     <input type="password"  placeholder="Password" id="myPassword" required>
                 </div>
                 <div class="showPsw"> 
                     <input type="checkbox" onclick="showPassword()" id="showBox" >
                     <label for="showBox">Show Password</label>
                 </div>
-                    <input type="submit" class="btnLogin" value="Login">   
+                    <input type="submit" class="btnLogin" value="Login" id="loginBtn">   
                     <button class="accountBtn" onclick="openRegister()">Don't have an account</button>
                     <a id="forgetTag" onclick="openForm1()">Forget password?</a>
                 </form>
+
             </div>
 
             <div class="form2" title="scroll down the form">      
