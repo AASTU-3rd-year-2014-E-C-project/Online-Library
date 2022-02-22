@@ -49,8 +49,8 @@
                 <h2 id="top">Login</h2>
                 <form action="book_list.html">
                 <div class="inputBox">
-                    <input type="email"  placeholder="email here " required>
-                    <input type="password"  placeholder="password here" id="myPassword" required>
+                    <input type="text"  placeholder="Username" required>
+                    <input type="password"  placeholder="Password" id="myPassword" required>
                 </div>
                 <div class="showPsw"> 
                     <input type="checkbox" onclick="showPassword()" id="showBox" >
@@ -66,23 +66,25 @@
               <h2 id="top">Create New Account</h2>
                 <form>                  
                         <div class="nameInput">
-                            <input type="text" id="fname" name="fname" placeholder="first name"
+                            <input type="text" id="fname" name="fname" placeholder="First Name"
                                 required><br>
-                            <input type="text" id="lname" name="lname" placeholder="last name"
+                            <input type="text" id="lname" name="lname" placeholder="Last Name"
                                 required><br>
-                            <input type="text" id="username" name="username"
-                                placeholder="user name" required><br>
+                            <input type="text" id="username" name="Username"
+                                placeholder="Username" required><br>
                         </div>
                         <div class="radio_btn">
                             <label>Sex:</label>
-                            <input type="radio" name="radSize" id="male" value="male" checked="checked" /><label for="male">male</label>
-                            <input type="radio" name="radSize" id="female" value="female" /><label for="female">female</label><br /><br>
+                            <input type="radio" name="radSize" id="male" value="male" checked="checked" /><label for="male">Male</label>
+                            <input type="radio" name="radSize" id="female" value="memale" /><label for="female">Female</label><br /><br>
                         </div>
                         <br>
                         <div class="selectInput">
-                           <label for="">Date of birth:</label> <input type="date" name="date" required><br><br><br>
+                           <label for="">Date of birth:</label> 
+                           <input type="date" name="date" style="padding: 5px;" required><br><br><br>
 
-                           <label for="">Birth place: </label> <select name="selecter">
+                           <label for="">Birth place: </label> 
+                           <select name="selecter" style="padding: 5px; cursor: pointer;">
                                 <option value="addis">Addis Ababa</option>
                                 <option value="gondar" selected>Gondar</option>
                                 <option value="bahirdar">Bahir Dar</option>
