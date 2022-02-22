@@ -25,6 +25,12 @@ body.dark .darkify::before{
     vertical-align: top;
 }
 
+.book .book_genre {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+}
+
 .book .book_title {
     margin: 20px 0;
     display: block;
@@ -33,13 +39,14 @@ body.dark .darkify::before{
 .book .book_desc {
     margin: 20px 0;
     display: block;
-    font-style: italic;
+    font-weight: 400;
 }
 
 .book .book_author {
     font-size: 20px;
     font-weight: bold;
     margin: 20px 0;
+    font-style: italic;
 }
 
 .book .cover-container{
@@ -58,7 +65,7 @@ body.dark .darkify::before{
 
 
 .buttons {
-    margin: 10px 0;
+    margin: 50px 0;
 }
 
 .read-btn:active{
@@ -80,6 +87,7 @@ body.dark .darkify::before{
     padding: 7px;
     font-weight: bold;
     margin-left: 8px;
+    color: #fff;
 }
 
 .other {
@@ -88,6 +96,7 @@ body.dark .darkify::before{
 
 .related-books{
     padding: 20px;
+    background-color:antiquewhite;
 }
 
 .comments{
@@ -196,6 +205,84 @@ body.dark .darkify::before{
     margin-left: 10px;
     background-color: burlywood;
     cursor: pointer;
+}
+
+
+.book-card{
+    background-color:#fff;
+    height: 350px;
+    min-width: 190px;
+    max-width: 210px;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 1em;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.book-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    padding: 0 50px;
+    justify-items: center;
+}
+
+.cover-container{
+    height: 200px;
+    padding: 10px;
+}
+
+.cover-container img{
+    max-width: 100%;
+    height: 100%;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px;
+}
+
+.author{
+    font-style: italic;
+    margin: 5px 5px;
+}
+
+.genre{
+    font-size: smaller;
+    margin-top: 17px;
+}
+
+.book-card:hover{
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-container{
+    margin: 15px 0;
+    text-align: center;
+}
+
+@media(max-width: 950px){
+    .book-container{
+        grid-gap: 20px;
+        padding: 0 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 670px){
+    .book-container{
+        grid-gap: 20px;
+        padding: 0 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 400px){
+    .book-container{
+        grid-template-columns: 1fr;
+    }
 }
 
 

@@ -1,5 +1,5 @@
 /************************ Display Books **********************/
-const book_container = document.querySelector('.book-container')
+
 
 
 var booksList = [
@@ -49,65 +49,80 @@ function searchText(){
     const searchInput = document.getElementById('search-box')
     console.log(searchInput.value)
     filterFunc(searchInput.value)
-    displayBooks()
+    displayBooks(-1)
 }
 function resetText(){
     const searchInput = document.getElementById('search-box')
     searchInput.value = ''
     filterFunc('')
-    displayBooks()
+    displayBooks(-1)
 }
 
 
-function displayBooks(){
-    book_container.innerHTML = ''
-    for(var i = 0; i<filterList.length; i++){
-        var cover = document.createElement('img')
-        cover.src = 'covers/default-cover.png'
-        
-        var cover_container = document.createElement('div')
-        cover_container.classList.add('cover-container')
+function displayBooks(related){
+    if(related != -1){
+        filterList = []
+        booksList.forEach(book => {
+        if(book.genre.toLowerCase().includes(booksList[related].genre.toLowerCase())){
+            filterList.push(book)
+        }
 
-        var title = document.createElement('div')
-        title.classList.add('title')
-        title.innerHTML = 'default-title'
-
-        var author = document.createElement('div')
-        author.classList.add('author')
-        author.innerHTML = 'hello'
-
-        book_card = document.createElement('div')
-        book_card.classList.add('book-card')
-        book_card.classList.add(i)
-
-        title.innerHTML = filterList[i].title
-        author.innerHTML = filterList[i].author
-        cover.src = 'resources/covers/' + filterList[i].cover
-
-        cover_container.innerHTML = ''
-        book_card.innerHTML = ''
-
-        cover_container.append(cover)
-        book_card.append(cover_container, title, author)
-
-        book_container.append(book_card)
+        });
     }
-    function bookDescOnLoad(selectedBookTitle){
-        for(let i = 0; i<booksList.length; i++){
-            if(booksList[i].title == selectedBookTitle){
-                return i
+        const book_container = document.querySelector('.book-container')
+        book_container.innerHTML = ''
+        for(var i = 0; i<filterList.length; i++){
+            var cover = document.createElement('img')
+            cover.src = 'covers/default-cover.png'
+            
+            var cover_container = document.createElement('div')
+            cover_container.classList.add('cover-container')
+
+            var title = document.createElement('div')
+            title.classList.add('title')
+            title.innerHTML = 'default-title'
+
+            var author = document.createElement('div')
+            author.classList.add('author')
+            author.innerHTML = 'hello'
+
+            var genre = document.createElement('div')
+            genre.classList.add('genre')
+            genre.innerHTML = 'default-genre'
+
+            book_card = document.createElement('div')
+            book_card.classList.add('book-card')
+            book_card.classList.add(i)
+
+            title.innerHTML = filterList[i].title
+            author.innerHTML = filterList[i].author
+            cover.src = 'resources/covers/' + filterList[i].cover
+            genre.innerHTML = filterList[i].genre
+
+            cover_container.innerHTML = ''
+            book_card.innerHTML = ''
+
+            cover_container.append(cover)
+            book_card.append(cover_container, title, author, genre)
+
+            book_container.append(book_card)
+        }
+        function bookDescOnLoad(selectedBookTitle){
+            for(let i = 0; i<booksList.length; i++){
+                if(booksList[i].title == selectedBookTitle){
+                    return i
+                }
             }
         }
-    }
-    
-    const book_card_list = document.querySelectorAll('.book-card')
-    
-    book_card_list.forEach(book => {
-        book.addEventListener('click', () => {
-            console.log(book.childNodes[1].innerText)
-            window.open('book1_desc.html?' + bookDescOnLoad(book.childNodes[1].innerText), '_blank')
+        
+        const book_card_list = document.querySelectorAll('.book-card')
+        
+        book_card_list.forEach(book => {
+            book.addEventListener('click', () => {
+                console.log(book.childNodes[1].innerText)
+                window.open('book1_desc.html?' + bookDescOnLoad(book.childNodes[1].innerText), '_blank')
+            })
         })
-    })
 }
 
 function donateBook(){
@@ -115,8 +130,6 @@ function donateBook(){
     const donateAuthor = document.getElementById('donateAuthor').value
     const donateDesc = document.getElementById('donateDesc').value
     const donateGenre = document.getElementById('donateGenre').value
-
-    console.log(donateTitle + ', ' + donateAuthor + ', ' + donateDesc)
 
     booksList.push({cover: 'resources/covers/default-cover.png', title: donateTitle, author: donateAuthor, desc: donateDesc, genre: donateGenre})
 }
@@ -128,12 +141,15 @@ function donateBook(){
 function onLoadFunction(){
     var index = location.search.substring(1)
     //book information
-    console.log(booksList[index].title)
     const cover = filterList[index].cover
     const title = filterList[index].title
     const author = filterList[index].author
     const description = filterList[index].desc
     const genre = filterList[index].genre
+
+    document.title = title + ' - Book Description'
+
+    displayBooks(index)
 
     const bookDescContainer = document.querySelector('.book')
     bookDescContainer.innerHTML = ''
@@ -155,11 +171,11 @@ function onLoadFunction(){
     <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a>
 </div>
     `
-    
+
+    displayBooks(-1)
 }
 
 function readOnLoad(){
-    console.log('herw')
     const htmlTitle = document.getElementById('htmlTitle')
     const bookTitle = document.querySelector('.book_title_read')
 
