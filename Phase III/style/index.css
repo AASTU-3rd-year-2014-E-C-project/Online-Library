@@ -259,7 +259,7 @@ body {
     cursor: pointer;
 }
 
-/* validation message */
+/* validation message1 */
 #message {
     display:none;
     width: 100%;
@@ -286,15 +286,8 @@ body {
     left: -15px;
     content: "✖";
   }
-  .pswStyle_focus input{
-      border: 1px solid red;
-  }
 
-  .pswStyle_onblur input{
-    border: none;
-    border-bottom: 1px solid #e48d0af3;
-  }
-
+ 
   @media(max-width: 1150px){
       .home_content{
           display: block;
