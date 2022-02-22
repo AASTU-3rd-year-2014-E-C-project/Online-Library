@@ -45,6 +45,9 @@ function filterFunc(filterText){
 
 filterFunc('')
 
+
+
+
 function searchText(){
     const searchInput = document.getElementById('search-box')
     console.log(searchInput.value)
@@ -57,6 +60,13 @@ function resetText(){
     filterFunc('')
     displayBooks(-1)
 }
+
+const searchInput = document.getElementById('search-box')
+
+searchInput.addEventListener('keyup', (e) => {
+    if(e.key == 'Enter')
+        searchText()
+})
 
 
 function displayBooks(related){
