@@ -45,29 +45,26 @@
     
         <div class="contains" >              
            <div class="forms" id="card">  
-            <div class="form1">
+            <div class="form1" id="f">
                 <h2 id="top">Login</h2>
-                <form>
+                <form action="book_list.html">
                 <div class="inputBox">
-                    <input type="email"  placeholder="email here ">
-                    <input type="password"  placeholder="password here" id="myPassword">
+                    <input type="email"  placeholder="email here " required>
+                    <input type="password"  placeholder="password here" id="myPassword" required>
                 </div>
                 <div class="showPsw"> 
                     <input type="checkbox" onclick="showPassword()" id="showBox" >
                     <label for="showBox">Show Password</label>
                 </div>
-              </form>
-                    <a href="book_list.html"><button class="btnLogin">Login</button></a>   
+                    <input type="submit" class="btnLogin" value="Login">   
                     <button class="accountBtn" onclick="openRegister()">Don't have an account</button>
                     <a id="forgetTag" onclick="openForm1()">Forget password?</a>
-
+                </form>
             </div>
 
-            <div class="form2" title="scroll down the form">
-        
-        <h2 id="top">Create New Account</h2>
-                <form>
-                    
+            <div class="form2" title="scroll down the form">      
+              <h2 id="top">Create New Account</h2>
+                <form>                  
                         <div class="nameInput">
                             <input type="text" id="fname" name="fname" placeholder="first name"
                                 required><br>
@@ -128,7 +125,7 @@
         </div>
         <div >
             <div class="formInput"> Enter recovery email:<br>
-                <input type="email" name="recovery_email" placeholder="email">
+                <input type="email" name="recovery_email" placeholder="email" required>
             </div>
 
             <div class="btn">
