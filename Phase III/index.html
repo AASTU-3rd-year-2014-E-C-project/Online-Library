@@ -161,16 +161,26 @@
                 <h2>Change Password</h2>
                 <button class="closeBtn" onclick="closeForm()"><p>&times </p> </button>
             </div>
-        <div class="formInput">
-            <label for="new_password">Enter New Password</label>
-            <input type="password" name="new_password" placeholder="Enter New Password" />
+     <form action="index.html">
+        <div class="formInput">      
 
-            <label for="confirm_password">Confirm New Password</label><br>
-            <input type="password" name="confirm_password" placeholder="Confirm New Password" />
+            <label for="new_password">Enter New Password</label>
+            <input type="password" name="new_password" placeholder="Enter New Password" id="newPsw2" />
+                 <div id="message2">
+                    <p id="letter2" class="invalid2">A <b>lowercase</b> letter</p>
+                    <p id="capital2" class="invalid2">A <b>uppercase</b> letter</p>
+                    <p id="number2" class="invalid2">A <b>number</b></p>
+                    <p id="length2" class="invalid2">Minimum <b>8 characters</b></p>
+                 </div> 
+            <label for="confirm_password2">Confirm New Password</label><br>
+            <div class="pswStyle_onblur2" id="pswBorder2">                          
+                <input type="password" name="cPassword2" placeholder="confirm password:" required id="confirmPsw2" ><br />
+            </div> 
         </div>
         <div class="changePasswordBtns">
             <input type="submit" value="CHANGE"  onclick="openForm1()" /> <input type="reset" value="RESET">
         </div>
+     </form>
         </div>
     </div>
 
