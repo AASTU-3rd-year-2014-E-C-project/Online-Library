@@ -38,11 +38,12 @@ opacity: 95%;
 .menu {
     height: 70px;
     transition: 0.4s ease;
+    
 }
 
 ul {
     list-style: none;
-    margin-left: 20%;
+    margin-left: 70%;
     z-index: 4;
 }
 
