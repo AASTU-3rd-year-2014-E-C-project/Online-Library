@@ -47,9 +47,11 @@ function openRegister(){
        temp.classList.remove("signup");
        temp.classList.add("login"); 
        document.getElementById("cn").innerHTML="LOG IN"  
+       card.style.height= "840px";
 }
 
 function openLogin(){
+    var card=document.getElementById("card");
     var element = document.getElementById("top");
     element.scrollIntoView();
     card.style.transform="rotateY(0deg)"; 
@@ -63,6 +65,7 @@ function openLogin(){
        temp.classList.remove("login");
        temp.classList.add("signup");  
        document.getElementById("cn").innerHTML="JOIN US"
+        card.style.height= "350px";
 }
 
 function change(n){
