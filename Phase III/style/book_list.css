@@ -15,6 +15,7 @@ body{
     margin: 30px;
     text-align: center;
 }
+
 .book-card{
     background-color: #fff;
     height: 350px;
@@ -54,6 +55,11 @@ body{
 .author{
     font-style: italic;
     margin: 5px 5px;
+}
+
+.genre{
+    font-size: smaller;
+    margin-top: 17px;
 }
 
 .book-card:hover{
