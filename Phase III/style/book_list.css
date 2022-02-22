@@ -1,5 +1,5 @@
 body{
-    background-color: bisque;
+    background-color: rgb(212, 222, 228);
     overflow-x: hidden;
 }
 .container{
@@ -34,6 +34,7 @@ body{
     grid-gap: 30px;
     padding: 0 50px;
     justify-items: center;
+    margin: 50px 0;
 }
 
 .cover-container{
@@ -75,11 +76,12 @@ body{
     border: 0;
     padding: 10px;
     font-size: 15px;
-    background-color:chocolate;
-    color: #fff;
+    background-color:#fff;
+    color: #000;
     border-radius: 5px;
     margin-left: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .search-container .search-box{
@@ -88,7 +90,7 @@ body{
     padding: 10px;
     font-size: 15px;
     color: #000;
-    border-radius: 8px;
+    border-radius: 3px;
 }
 
 

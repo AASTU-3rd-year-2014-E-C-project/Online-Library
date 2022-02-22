@@ -96,7 +96,7 @@ body.dark .darkify::before{
 
 .related-books{
     padding: 20px;
-    background-color:antiquewhite;
+    background-color: #fff;
 }
 
 .comments{
@@ -209,7 +209,7 @@ body.dark .darkify::before{
 
 
 .book-card{
-    background-color:#fff;
+    background-color:rgb(212, 222, 228);
     height: 350px;
     min-width: 190px;
     max-width: 210px;
@@ -222,7 +222,7 @@ body.dark .darkify::before{
 
 .book-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 30px;
     padding: 0 50px;
     justify-items: center;
