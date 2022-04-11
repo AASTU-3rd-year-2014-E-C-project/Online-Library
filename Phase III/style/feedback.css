@@ -1,0 +1,71 @@
+.body{
+    display: flex;
+   margin-bottom: 70px;
+    align-items: center;
+    justify-content: center;
+}
+.feedback-container{
+    font-family: 'Poppins', sans-serif;
+    width: 360px;
+    background: #000;
+    box-shadow: 0 0 8px rgba(250,250,250,0.6);
+    opacity: 0.9;
+    border-radius: 10px;
+    color: white;
+}
+.feedback-container form{
+    width: 100%;
+    text-align: center;
+    padding: 25px 20px;
+}
+form h1{
+    padding: 10px 0;
+}
+form .id{
+    position: relative;
+}
+.id i{
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+form input{
+    width: 100%;
+    height: 50px;
+    margin: 4px 0;
+    border: 1px solid #5c5c5c;
+    border-radius: 3px;
+    background: #181717;
+    color: aliceblue;
+    padding: 0 15px;
+    padding-right: 45px;
+    font-size: 20px;
+}
+form textarea{
+    padding: 5px 15px;
+    border: 1px solid #5c5c5c;
+    border-radius: 3px;
+    background: #181717;
+    color: aliceblue;
+    padding: 0 15px;
+    font-size: 20px;
+    width: 100%;
+    margin: 4px 0;
+}
+form button{
+    margin-top: 5px;
+    border: none;
+    background: #c99609f3;
+    color: #222;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 3px;
+}
+form button:hover{
+    background: #ff7200;
+}
