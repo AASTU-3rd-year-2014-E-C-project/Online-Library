@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .top{
     background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("../resources/images/back_book2.jpg");
     background-position: center;
@@ -278,8 +281,8 @@ ________________________________________________________________________________
 .select-selected:after {
   position: absolute;
   content: "";
-  top: 14px;
-  right: 10px;
+  top: 700px;
+  right: 50px;
   width: 0;
   height: 0;
   border: 6px solid transparent;
@@ -289,7 +292,7 @@ ________________________________________________________________________________
 /*point the arrow upwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
   border-color: transparent transparent #fff transparent;
-  top: 7px;
+  top: 690px;
 }
 
 /*style the items (options), including the selected item:*/
@@ -307,7 +310,7 @@ ________________________________________________________________________________
 .select-items {
   position: absolute;
   background-color: #c99609f3;
-  top: 80%;
+  top: 81.14%;
   left: 6.2%;
   right: 0;
   width: 83.4%;
