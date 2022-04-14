@@ -1,4 +1,4 @@
-
+//This file is a css format for about us page
 
 .main1{
     min-height: 100vh;
@@ -17,7 +17,7 @@
     height: 400px;
     width: 400px;
     border-radius: 200px;
-    
+
 }
 .about{
     margin-top: 250px;
@@ -68,7 +68,7 @@ p{
   margin-bottom: 5%;
   padding: 20px 12px;
   box-sizing: border-box;
-  
+
 }
 .content a{
     color: black;
@@ -107,4 +107,3 @@ p{
   }
 }
 /*------------------------------------------------------------------------------------*/
-
