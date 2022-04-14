@@ -1,0 +1,108 @@
+
+body {
+     background: rgb(225, 226, 156);
+}
+
+.main {
+    color: rgb(46, 27, 4);
+    margin: 0px;
+}
+
+.main h2 {
+    text-align: center;
+    color: rgb(40, 9, 179);
+}
+img:hover {
+    border: 5px solid black;
+    box-shadow: 2px;
+  }
+
+.main img {
+    width: 150px;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+    margin-top: 5px;
+    background-color: #4CAF50;
+    color: white;
+    min-width: 160px;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+ 
+   
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #050101;
+    opacity: 85%;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+ 
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: rgb(235, 203, 203);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #857c7c
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+.b1, .b2, .b3 {
+    margin-left: 150px;
+    margin-bottom: 50px;
+    display: inline-block;
+    width: 300px;
+    padding: 25px;
+}
+.desc{
+  font-family: Verdana;
+  font-weight: bold;
+}
+.Phil::after,
+.Bio::after,
+.Phy::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.books {
+    margin-top: 100px;
+}
+h4 {
+    color: rgb(73, 13, 3);
+    
+}
+/* mouse over link */
+.goto a:hover {
+    transition: 0.5s;
+    color: black;
+    text-decoration: underline;
+}
