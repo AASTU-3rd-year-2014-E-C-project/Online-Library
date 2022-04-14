@@ -47,6 +47,7 @@ function openRegister(){
        temp.classList.remove("signup");
        temp.classList.add("login"); 
        document.getElementById("cn").innerHTML="LOG IN"  
+       card.style.height= "840px";
 }
 
 function openLogin(){
