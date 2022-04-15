@@ -109,11 +109,11 @@ li a:hover {
     color: #000;
 }
 
-:focus {
+.search .btn:focus {
     outline: none;
 }
 
-::placeholder {
+.search .btn::placeholder {
     color: #fff;
     font-family: Arial;
 }
