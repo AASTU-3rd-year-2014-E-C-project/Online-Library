@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="image/index.png" type="image/png">
     <link rel="stylesheet" href="css/{}index.css">
     <link rel="stylesheet" href="css/page_structure_style.css">
-    <link rel="stylesheet" href="css/recoverPassword.css">
     <link rel="stylesheet" href="_fontawesome/css/all.min.css">
     <script src="https://kit.fontawesome.com/72f71d06d5.js" crossorigin="anonymous"></script>
 </head>
@@ -25,7 +24,7 @@
             <ul>
                 <li><a href="public/about_us.html">ABOUT</a></li>
                 <li><a href="public/upload.html">DONATE BOOK</a></li>
-                <li><a class="signup" id="list" onclick="change(1)">SIGN UP</a></li>
+                <li><a  onclick="showPopUp()">SIGN IN</a></li>
             </ul>
         </div>
     </div>
@@ -47,6 +46,54 @@
                  <button id="cn" class="signup" onclick="change(2)">JOIN US</button>
             </div>
     </div>
+        <div class="pop" id="popup" >
+        <div class="form" >
+          <button onclick="closePopUp()" id="closeBtn">X</button> 
+          <div class="changeForm">
+            <button onclick="signinSwap()" id="toSignInBtn">Sign In</button>
+            <button onclick="signupSwap()" id="toSignUpBtn">Sign Up</button>
+          </div>
+           <div class="signIn" id="sIN">
+            <form >
+              <div class="inputBox">
+                <input type="text" placeholder="Username" id="myUsername" required/>
+                <input type="password" placeholder="Password" id="myPassword" required/>
+              </div>
+              <div class="showPsw">
+                <input type="checkbox" onclick="showPassword()" id="showBox" />
+                <label for="showBox">Show Password</label>
+                <a id="forgetTag">Forget password?</a>
+              </div>
+              <input type="submit" id="btn" value="Log In" id="loginBtn" />
+            </form>
+          </div>
+          <div class="signUp" id="sUP">
+            <form>
+                <div class="inputBox">
+                  <input type="text" id="fname" name="fname" placeholder="First Name"/>
+                  <input type="text" id="lname" name="lname" placeholder="Last Name"/>
+                  <input type="text" id="username" name="Username" placeholder="Username"/>
+                  <div class="rdBtn">
+                      <label>Gender:</label>
+                      <input type="radio" name="radSize" id="male" value="M"/>
+                      <label for="male">Male</label>
+                      <input type="radio" name="radSize" id="female" value="F"/>
+                      <label for="female">Female</label><br />
+                  </div>
+                    <input type="email" id="email" name="email" placeholder="email: youremail@gmail.com"/>
+                    <input type="tel" name="phone" placeholder="phone: 0911-11-11-11" pattern="[0][9][0-9]{8}"/>
+                    <input type="password"  name="newPassword"  placeholder="password:" id="newPsw" required/>
+                  </div>
+                  <div class="submitBtn">
+                    <input type="submit">
+                    <input type="reset"/>
+                  </div>
+                </form>
+          </dvi>
+          </div>
+        </div>
+      </div>
+          <script src="javascript/index.js"></script>
     <!----x---- main section ----x---->
     
    </section>
