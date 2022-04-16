@@ -43,10 +43,16 @@
                  or write a widget it's all welcome. <br> We have a small team
                  of fantastic programmers <br> who have accomplished a lot, but we can't do it alone!</p>
                  <br>
+                
                  <button id="cn" class="signup" onclick="showPopUp()">LOG IN</button>
             </div>
     </div>
         <div class="pop" id="popup" >
+           <?php
+             if(isset($_GET['error']) == 'invalid')
+              echo 'invalid password or username';
+
+              ?>
         <div class="form" >
           <button onclick="closePopUp()" id="closeBtn">X</button> 
           <div class="changeForm">
@@ -54,12 +60,13 @@
             <button onclick="signupSwap()" id="toSignUpBtn">Sign Up</button>
           </div>
            <div class="signIn" id="sIN">
-            <form >
+            <form action="inc/login.php" method="post">
               <div class="inputBox">
-                <input type="text" placeholder="Username" id="myUsername" required/>
-                <input type="password" placeholder="Password" id="myPassword" required/>
+                <input type="text" placeholder="Username" id="myUsername" name="logName" required/>
+                <input type="password" placeholder="Password" id="myPassword" name="logPassword" required/>
               </div>
               <div class="showPsw">
+      
                 <input type="checkbox" onclick="showPassword()" id="showBox" />
                 <label for="showBox">Show Password</label>
                 <a id="forgetTag">Forget password?</a>
