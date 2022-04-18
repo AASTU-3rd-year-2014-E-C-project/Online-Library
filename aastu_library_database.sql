@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 12:02 PM
+-- Generation Time: Apr 18, 2022 at 07:35 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -64,6 +64,19 @@ CREATE TABLE `donate_record` (
   `donate_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `resource_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `read_record`
+--
+
+CREATE TABLE `read_record` (
+  `read_record_id` int(11) NOT NULL,
+  `date_read` datetime NOT NULL,
+  `resource_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -149,6 +162,14 @@ ALTER TABLE `donate_record`
   ADD KEY `donate_with_resource_id` (`resource_id`);
 
 --
+-- Indexes for table `read_record`
+--
+ALTER TABLE `read_record`
+  ADD PRIMARY KEY (`read_record_id`),
+  ADD KEY `read_date_with_resource_id` (`resource_id`),
+  ADD KEY `read_date_with_user_id` (`user_id`);
+
+--
 -- Indexes for table `resource`
 --
 ALTER TABLE `resource`
@@ -197,6 +218,12 @@ ALTER TABLE `donate_record`
   MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `read_record`
+--
+ALTER TABLE `read_record`
+  MODIFY `read_record_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
@@ -231,6 +258,13 @@ ALTER TABLE `comment_and_rating`
 ALTER TABLE `donate_record`
   ADD CONSTRAINT `donate_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
   ADD CONSTRAINT `donate_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+
+--
+-- Constraints for table `read_record`
+--
+ALTER TABLE `read_record`
+  ADD CONSTRAINT `read_date_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
+  ADD CONSTRAINT `read_date_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `resource`
