@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 07:35 PM
+-- Generation Time: Apr 18, 2022 at 07:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -64,6 +64,19 @@ CREATE TABLE `donate_record` (
   `donate_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `resource_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `download_record`
+--
+
+CREATE TABLE `download_record` (
+  `download_record_id` int(11) NOT NULL,
+  `date_downloaded` datetime NOT NULL,
+  `resource_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -136,6 +149,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `gender`, `username`, `password`, `email`, `phone`) VALUES
+(1, 'Nahomh', 'aaaa', 'M', 'ETS0505/12', 'abcd', 'nhabtamu42@gmail.com', '0900111111');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -160,6 +180,14 @@ ALTER TABLE `donate_record`
   ADD PRIMARY KEY (`record_id`),
   ADD KEY `donate_with_user_id` (`user_id`),
   ADD KEY `donate_with_resource_id` (`resource_id`);
+
+--
+-- Indexes for table `download_record`
+--
+ALTER TABLE `download_record`
+  ADD PRIMARY KEY (`download_record_id`),
+  ADD KEY `download_record_with_user_id` (`user_id`),
+  ADD KEY `download_record_with_resource_id` (`resource_id`);
 
 --
 -- Indexes for table `read_record`
@@ -218,6 +246,12 @@ ALTER TABLE `donate_record`
   MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `download_record`
+--
+ALTER TABLE `download_record`
+  MODIFY `download_record_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `read_record`
 --
 ALTER TABLE `read_record`
@@ -239,7 +273,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -258,6 +292,13 @@ ALTER TABLE `comment_and_rating`
 ALTER TABLE `donate_record`
   ADD CONSTRAINT `donate_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
   ADD CONSTRAINT `donate_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+
+--
+-- Constraints for table `download_record`
+--
+ALTER TABLE `download_record`
+  ADD CONSTRAINT `download_record_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
+  ADD CONSTRAINT `download_record_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `read_record`
