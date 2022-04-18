@@ -1,10 +1,6 @@
 <?php
 
-    $host = "localhost";
-    $host_username = "root";
-    $host_password = "";
-    $db_name = "aastu-library";
-    $table_name = "user";
+include_once("conn.php");
 
     // user registration input
     $fName = $_POST['fname'];
@@ -20,6 +16,6 @@
     $query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
 
     mysqli_query($conn, $query);
-    header("Location: ../index.html");
+    header("Location: ../index.php");
 
 ?>

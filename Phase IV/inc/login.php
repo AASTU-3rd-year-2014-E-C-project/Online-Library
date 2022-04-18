@@ -1,9 +1,5 @@
 <?php
- $host = "localhost";
-    $host_username = "root";
-    $host_password = "";
-    $db_name = "aastu-library";
-    $table_name = "user";
+    include_once("conn.php");
 
      $username = $_POST['logName'];
      $password = $_POST['logPassword'];
