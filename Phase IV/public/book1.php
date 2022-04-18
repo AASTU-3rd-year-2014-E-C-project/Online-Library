@@ -1,3 +1,14 @@
+<?php
+
+    include_once("../inc/conn.php");
+
+    $resource_id = $_GET['resource_id'];
+    $user_id = 1;
+
+    $query = "INSERT INTO read_record(date_read, resource_id, user_id) VALUES (now(),$resource_id,$user_id)";
+    mysqli_query($conn, $query);
+
+?>
 <!DOCTYPE html>
 <html>
 

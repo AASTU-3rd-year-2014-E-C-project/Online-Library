@@ -11,8 +11,6 @@ include_once("conn.php");
     $phone = $_POST['phone'];
     $password = $_POST['newPassword'];
 
-    $conn = mysqli_connect($host, $host_username, $host_password, $db_name);
-
     $query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
 
     mysqli_query($conn, $query);

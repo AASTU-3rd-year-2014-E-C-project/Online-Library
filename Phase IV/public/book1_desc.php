@@ -1,3 +1,15 @@
+<?php
+
+                if(array_key_exists('read-online-btn', $_POST)) {
+                    header("Location: book1.php?resource_id=1");
+                }
+
+                if(array_key_exists('download-btn', $_POST)) {
+                    // button1();
+                }
+
+            ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -46,9 +58,35 @@
             <h3 class="book_author">by Georg Wilhelm Friedrich Hegel, James Sibree (Translator), C.J. Friedrich (Introduction), Charles Hegel (Preface by)</h3>
             <h4 class="book_genre">Action</h4>
             
+            
+
             <div class="buttons">
-                <a href="book1.html " class="read-btn">Read Online</button></a>
-                <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a>
+                <form method="POST">
+                <!-- <a href="book1.html" class="read-btn">Read Online</a> -->
+                <input type="submit" name="read-online-btn" class="read-btn" value="Read Online" style="text-decoration: none;
+                color: #000;
+                border: 1px solid rgb(0, 157, 219);
+                background-color: rgb(0, 157, 219);
+                font-size: 19px;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 7px;
+                font-weight: bold;
+                margin-left: 8px;
+                color: #fff;">
+                <!-- <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a> -->
+                <input type="submit" name="download-btn" class="download-btn" value="Download" style="text-decoration: none;
+                color: #000;
+                border: 1px solid rgb(0, 157, 219);
+                background-color: rgb(0, 157, 219);
+                font-size: 19px;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 7px;
+                font-weight: bold;
+                margin-left: 8px;
+                color: #fff;">
+                </form>
             </div>
         </div>
         <div class="other comments-container">

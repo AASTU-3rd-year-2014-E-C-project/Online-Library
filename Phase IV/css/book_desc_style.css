@@ -69,11 +69,11 @@ body.dark .darkify::before{
 }
 
 .read-btn:active{
-    transform: scale(0.8);
+    transform: scale(0.98);
 }
 
 .download-btn:active{
-    transform: scale(0.8);
+    transform: scale(0.98);
 }
 
 .buttons a {
@@ -89,6 +89,8 @@ body.dark .darkify::before{
     margin-left: 8px;
     color: #fff;
 }
+
+
 
 .other {
     margin-top: 50px;
