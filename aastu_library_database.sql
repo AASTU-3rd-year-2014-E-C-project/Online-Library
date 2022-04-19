@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2022 at 07:46 AM
+-- Generation Time: Apr 19, 2022 at 08:30 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -79,6 +79,14 @@ CREATE TABLE `download_record` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `download_record`
+--
+
+INSERT INTO `download_record` (`download_record_id`, `date_downloaded`, `resource_id`, `user_id`) VALUES
+(3, '0000-00-00 00:00:00', 1, 2),
+(4, '2022-04-19 09:23:51', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -117,6 +125,13 @@ CREATE TABLE `resource` (
   `resource_file` longblob NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `resource`
+--
+
+INSERT INTO `resource` (`resource_id`, `resource_type`, `resource_title`, `resource_author`, `resource_desc`, `resource_cover`, `resource_file`, `user_id`) VALUES
+(1, 'assignment', 'Harry Potter', 'J.K. Rowling', 'This is a very good book.', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -204,8 +219,8 @@ ALTER TABLE `download_record`
 --
 ALTER TABLE `read_record`
   ADD PRIMARY KEY (`read_record_id`),
-  ADD KEY `read_date_with_resource_id` (`resource_id`),
-  ADD KEY `read_date_with_user_id` (`user_id`);
+  ADD KEY `read_record_with_resource_id` (`resource_id`),
+  ADD KEY `read_record_with_user_id` (`user_id`);
 
 --
 -- Indexes for table `resource`
@@ -259,7 +274,7 @@ ALTER TABLE `donate_record`
 -- AUTO_INCREMENT for table `download_record`
 --
 ALTER TABLE `download_record`
-  MODIFY `download_record_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `download_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `read_record`
@@ -271,7 +286,7 @@ ALTER TABLE `read_record`
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `resource_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `resource_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tag`
@@ -309,6 +324,13 @@ ALTER TABLE `donate_record`
 ALTER TABLE `download_record`
   ADD CONSTRAINT `download_record_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
   ADD CONSTRAINT `download_record_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+
+--
+-- Constraints for table `read_record`
+--
+ALTER TABLE `read_record`
+  ADD CONSTRAINT `read_record_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
+  ADD CONSTRAINT `read_record_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `resource`
