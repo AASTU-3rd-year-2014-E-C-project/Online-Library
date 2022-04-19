@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 07:50 PM
+-- Generation Time: Apr 19, 2022 at 07:46 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -92,6 +92,15 @@ CREATE TABLE `read_record` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `read_record`
+--
+
+INSERT INTO `read_record` (`read_record_id`, `date_read`, `resource_id`, `user_id`) VALUES
+(1, '2022-04-18 23:36:01', 1, 1),
+(2, '2022-04-18 23:37:32', 1, 1),
+(3, '2022-04-19 00:20:10', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -153,7 +162,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `gender`, `username`, `password`, `email`, `phone`) VALUES
-(1, 'Nahomh', 'aaaa', 'M', 'ETS0505/12', 'abcd', 'nhabtamu42@gmail.com', '0900111111');
+(1, 'Nahomh', 'aaaa', 'M', 'ETS0505/12', 'abcd', 'nhabtamu42@gmail.com', '0900111111'),
+(2, 'Nahomh', 'rafsd', 'M', 'ETS0505/12', 'abcd', 'nhabtamu42@gmail.com', '0900111111');
 
 --
 -- Indexes for dumped tables
@@ -255,7 +265,7 @@ ALTER TABLE `download_record`
 -- AUTO_INCREMENT for table `read_record`
 --
 ALTER TABLE `read_record`
-  MODIFY `read_record_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `read_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `resource`
@@ -273,7 +283,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -299,13 +309,6 @@ ALTER TABLE `donate_record`
 ALTER TABLE `download_record`
   ADD CONSTRAINT `download_record_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
   ADD CONSTRAINT `download_record_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `read_record`
---
-ALTER TABLE `read_record`
-  ADD CONSTRAINT `read_date_with_resource_id` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`),
-  ADD CONSTRAINT `read_date_with_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `resource`
