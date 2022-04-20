@@ -1,5 +1,7 @@
 <?php
 
+include_once("../inc/session.php");
+
 if (array_key_exists('read-online-btn', $_POST)) {
     header("Location: book1.php?resource_id=1");
 }
@@ -7,6 +9,7 @@ if (array_key_exists('read-online-btn', $_POST)) {
 if (array_key_exists('download-btn', $_POST)) {
     // button1();
 }
+if(isset($_SESSION['user_id'])){
 
 ?>
 
@@ -190,3 +193,12 @@ if (array_key_exists('download-btn', $_POST)) {
 </body>
 
 </html>
+
+<?php 
+
+}
+
+else
+    header("Location: ../index.php");
+
+?>
