@@ -1,12 +1,15 @@
 <?php
 
     include_once("../inc/conn.php");
+    include_once("../inc/session.php");
 
     $resource_id = $_GET['resource_id'];
     $user_id = 1;
 
     $query = "INSERT INTO read_record(date_read, resource_id, user_id) VALUES (now(),$resource_id,$user_id)";
     mysqli_query($conn, $query);
+
+    if(isset($_SESSION['user_id'])){
 
 ?>
 <!DOCTYPE html>
@@ -48,3 +51,12 @@
 </body>
 
 </html>
+
+<?php 
+
+}
+
+else
+    header("Location: ../index.php");
+
+?>
