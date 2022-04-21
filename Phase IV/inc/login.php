@@ -5,7 +5,7 @@
      $username = $_POST['logName'];
      $password = $_POST['logPassword'];
 
-      $login= "SELECT * FROM $table_name WHERE username='$username'";
+      $login= "SELECT password, user_id FROM $table_name WHERE username='$username'";
         $result= mysqli_query($conn, $login);
 
         while($row = mysqli_fetch_assoc($result)){
