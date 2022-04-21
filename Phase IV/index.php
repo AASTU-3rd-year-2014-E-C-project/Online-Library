@@ -30,7 +30,7 @@
                 <li><a href="public/about_us.html">ABOUT</a></li>
                 <li><a href="public/upload.html">DONATE BOOK</a></li>
                 <li><a  onclick="showPopUp()">SIGN IN</a></li>
-                <li><a href="inc/file_management.php">File Management</a></li>
+                <li><a href="inc/file_management.php">FILE MANAGEMENT</a></li>
             </ul>
         </div>
     </div>
