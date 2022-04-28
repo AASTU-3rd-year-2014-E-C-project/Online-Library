@@ -22,7 +22,7 @@
     <section class="section">
     <div class="header">
         <div class="logo">
-            <a href="index.html"> My Library</a>
+            <a href="index.php"> My Library</a>
         </div>
 
         <div class="menu" id="menu-bar">
