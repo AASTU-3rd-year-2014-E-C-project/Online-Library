@@ -18,22 +18,29 @@ body{
     display: block;
     border: none;
     text-align: center;
+    background-color: white;
+    border: none;
 }
 
 .users_report h1{
     display: block;
 }
 
-.users_report table tr {
+/* .users_report table tr {
     display: table-row;
     background: #f6f6f6;
-}
+} */
 
 .users_report table thead th {
+    padding: 5px;
     font-weight: 900;
     color: #ffffff;
     background: #2980b9;
     width: 300px;
+}
+
+.users_report table tbody tr td{
+    padding: 5px;
 }
 
 tr:nth-of-type(odd) {
