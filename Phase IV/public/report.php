@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include_once("../inc/conn.php");
 
 if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
 ?>
@@ -47,16 +48,64 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                     <th>Uploaded</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nahom</td>
-                        <td>12</td>
-                        <td>2</td>
-                        <td>4</td>
-                    </tr>
+                    <?php
+
+                    $report_array = array(array('Username', 'Downloaded', 'Read', 'Uploaded'));
+
+                    $query = "SELECT user_id, username FROM $table_name";
+
+                    $user_result = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($user_result)) {
+
+                        $current_user_id = $row['user_id'];
+
+                        $downloaded = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM download_record WHERE user_id=$current_user_id"));
+
+                        $read = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM read_record WHERE user_id=$current_user_id"));
+
+                        $uploaded = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM donate_record WHERE user_id=$current_user_id"));
+
+                        array_push($report_array, [$row['username'], $downloaded['COUNT(*)'], $read['COUNT(*)'], $uploaded['COUNT(*)']]);
+
+                    ?>
+                        <tr>
+                            <td><?php echo $row['username'] ?></td>
+                            <td><?php echo $downloaded['COUNT(*)'] ?></td>
+                            <td><?php echo $read['COUNT(*)'] ?></td>
+                            <td><?php echo $uploaded['COUNT(*)'] ?></td>
+                        </tr>
+
+                    <?php } ?>
                 </tbody>
             </table>
 
-            <input type="submit" value="EXPORT" class="export-btn">
+            <?php
+
+            if (isset($_POST['export_report'])) {
+                header('Content-Type: application/csv; charset=UTF-8');
+                header('Content-Disposition: attachment; filename="website_report.csv";');
+
+                // clean output buffer
+                ob_end_clean();
+
+                $handle = fopen('php://output', 'w');
+
+                foreach ($report_array as $value) {
+                    fputcsv($handle, $value);
+                }
+
+                fclose($handle);
+
+                // use exit to get rid of unexpected output afterward
+                exit();
+            }
+
+            ?>
+
+            <form method="POST">
+                <input type="submit" name="export_report" value="EXPORT" class="export-btn">
+            </form>
         </div>
 
 
