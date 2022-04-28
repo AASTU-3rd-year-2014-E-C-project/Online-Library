@@ -90,7 +90,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                 ob_end_clean();
 
                 $handle = fopen('php://output', 'w');
-
+                
                 foreach ($report_array as $value) {
                     fputcsv($handle, $value);
                 }
