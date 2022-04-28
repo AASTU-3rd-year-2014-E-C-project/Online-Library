@@ -28,12 +28,12 @@
 <body onload="readOnLoad()">
     <div class="header">
         <div class="logo">
-            <a href="../index.html"> My Library</a>
+            <a href="../index.php"> My Library</a>
         </div>
 
         <div class="menu">
             <ul>
-                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../index.php">HOME</a></li>
                 <li><a href="about_us.html">ABOUT</a></li>
                 <li><a href="upload.html">DONATE BOOK</a></li>
             </ul>
