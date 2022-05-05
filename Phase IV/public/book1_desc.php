@@ -25,7 +25,7 @@ if(isset($_SESSION['user_id'])){
     <link rel="shortcut icon" href="../image/index.png" type="image/png">
     <link rel="stylesheet" href="../css/page_structure_style.css">
     <link rel="stylesheet" href="../css/book_desc_style.css">
-    <link rel="stylesheet" href="_fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../_fontawesome/css/all.min.css">
     <style>
         .star-container {
             width: 320px;
