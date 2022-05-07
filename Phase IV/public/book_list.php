@@ -1,5 +1,6 @@
 <?php
 
+include_once('../inc/conn.php');
 session_start();
 
 if (isset($_SESSION['user_id'])) {
@@ -52,6 +53,53 @@ if (isset($_SESSION['user_id'])) {
             </div>
 
             <div class="book-container">
+
+                <?php
+
+                    $query = "SELECT * FROM resource";
+                    $result = mysqli_query($conn, $query);
+
+                    while($row = mysqli_fetch_assoc($result)){
+
+                ?>
+
+                <div class="book-card <?php echo $row['resource_id']; ?>">
+                    <div class="cover-container">
+                        <img src="../uploads/resource_covers/<?= !empty($row['resource_cover']) ? $row['resource_cover'] : "no_cover.jpg" ?>" alt="<?=strtolower(str_replace(' ', '_', $row['resource_title']))?>_cover">
+                    </div>
+                    <div class="title"><?php echo $row['resource_title']; ?>
+                    </div>
+                    <div class="author"><?php echo $row['resource_author']; ?></div>
+                    <div class="genre">
+                        <?php 
+                        
+                            $genre_query = "SELECT * FROM tag INNER JOIN resource_tag ON tag.tag_id = resource_tag.tag_id WHERE resource_id=${row['resource_id']}";
+
+                            $genre_array = array();
+
+                            $genre_result = mysqli_query($conn, $genre_query);
+
+                            while($row = mysqli_fetch_assoc($genre_result)){
+                                array_push($genre_array, $row['tag_name']);                               
+                            }
+                            
+                            for($i = 0; $i < count($genre_array); $i++){
+                                if($i < count($genre_array) - 1){
+                                    echo $genre_array[$i];
+                                    echo ', ';
+                                }
+                                else{
+                                    echo $genre_array[$i];
+                                }
+                            }
+
+                            unset($genre_array);
+                        
+                        ?>
+                    </div>
+                </div>
+
+                <?php } ?>
 
             </div>
 
