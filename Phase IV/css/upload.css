@@ -178,10 +178,23 @@
     border: none;
     height: 50px;
     background:#c99609f3 ;
+    opacity: 70%;
+    margin-bottom: 50px;
 
 }
 #browse:hover{
     background: rgb(19, 18, 18);
+}
+#browse2 {
+  border: none;
+  height: 70px;
+  background: #c99609f3;
+  opacity: 70%;
+  margin-bottom: 50px;
+}
+
+#browse2:hover {
+  background: rgb(19, 18, 18);
 }
 /* ----other way to donate---- */
 .other{
@@ -281,7 +294,7 @@
 .select-selected:after {
   position: absolute;
   content: "";
-  top: 700px;
+  top: 800px;
   right: 50px;
   width: 0;
   height: 0;
@@ -301,7 +314,7 @@
   color: #ffffff;
   padding: 8px 16px;
   border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.4) transparent;
   cursor: pointer;
   
 }
@@ -310,10 +323,10 @@
 .select-items {
   position: absolute;
   background-color: #c99609f3;
-  top: 81.14%;
+  top: 83.14%;
   left: 6.2%;
   right: 0;
-  width: 83.4%;
+  width: 90.4%;
   z-index: 99;
 }
 
@@ -324,7 +337,7 @@
 
 .select-items div:hover,
 .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 /*-----------------------------------------------------------------------------------*/
 
