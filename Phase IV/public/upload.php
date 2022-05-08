@@ -63,10 +63,10 @@
 
 
             <h2 id="donate_1">To Donate us Please enter the below information</h2>
-
-            <input type="text" id="txtusername" name="username " placeholder="Enter your username here "><br><br>
+<br>
 
             <div id="browse">
+                &nbsp Enter the file to be Donated here: 
                 <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
             </div>
             <label class="container">Book
@@ -107,7 +107,7 @@
             </div>
             <br><br>
             <div id="browse2">
-                Cover Image
+                &nbsp Cover Image
                 <input type="file" id="cover" name="cover"><br><br>
             </div>
 
