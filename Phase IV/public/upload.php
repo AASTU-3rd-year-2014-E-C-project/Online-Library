@@ -1,3 +1,8 @@
+<?php
+
+  include_once("../inc/session.php");
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -64,19 +69,19 @@
                 <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
             </div>
             <label class="container">Book
-                <input type="radio" checked="checked" name="radio">
+                <input type="radio" checked="checked" name="radio" value="Book">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Assignment
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Assignment">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Research book
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Research book">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Test and Quiz
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Test and Quiz">
                 <span class="checkmark"></span>
             </label>
             <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
