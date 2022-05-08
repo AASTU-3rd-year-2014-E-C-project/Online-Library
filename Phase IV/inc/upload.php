@@ -82,5 +82,9 @@ $query = "INSERT INTO $table(resource_type, resource_title, resource_author, res
     header("Location: ../public/upload.php?uploadsuccess");
     }
 
+    else{
+        header("Location: ../public/upload.php");
+    }
+
 
 ?>
