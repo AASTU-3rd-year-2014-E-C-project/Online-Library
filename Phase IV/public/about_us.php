@@ -1,6 +1,6 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Library Managment About us page">
@@ -23,8 +23,20 @@
         <div class="menu">
             <ul>
                 <li> <a href="../index.php">HOME</a></li>
+                <?php
+
+                    if(isset($_SESSION['user_id'])){
+                
+                ?>
+
+                <li><a href="upload.php">DONATE BOOK</a></li>
+                <li><a href="../inc/logout.php">LOG OUT</a></li>
+
+                <?php }
+                else{
+                ?>
                 <li> <a href="../index.php">SIGN UP</a></li>
-                <li><a href="upload.html">DONATE BOOK</a></li>
+                <?php } ?>
             </ul>
         </div>
         <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -63,11 +75,11 @@
                 <dd>To develop in to a single access point library</dd>
             </div>
             <div class="content">
-                <a href="upload.html">
+                <a href="upload.php">
                     <h3>Donate US</h3>
                     <br>
                 </a>
-                <a href="upload.html">
+                <a href="upload.php">
                     <p>Our system work almost for free and for every one so helping as is much encouraged and also do forget they say “ Sharing is caring &#128519“.</p>
                 </a>
             </div>

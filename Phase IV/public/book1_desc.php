@@ -74,8 +74,8 @@ if(isset($_SESSION['user_id'])){
             <div class="menu">
                 <ul>
                     <li><a href="../index.php">HOME</a></li>
-                    <li><a href="about_us.html">ABOUT</a></li>
-                    <li><a href="upload.html">DONATE BOOK</a></li>
+                    <li><a href="about_us.php">ABOUT</a></li>
+                    <li><a href="upload.php">DONATE BOOK</a></li>
                 </ul>
             </div>
             <i class="fas fa-bars" id="menu-dropdown-btn"></i>

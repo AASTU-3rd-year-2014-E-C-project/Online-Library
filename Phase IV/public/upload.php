@@ -29,8 +29,9 @@
         <div class="menu">
             <ul>
                 <li> <a href="../index.php">HOME</a></li>
-                <li> <a href="../index.php">SIGN UP</a></li>
-                <li><a href="about_us.html">ABOUT US</a></li>
+                <li> <a href="../public/book_list.php">BOOK LIST</a></li>
+                <li><a href="about_us.php">ABOUT US</a></li>
+                <li> <a href="../inc/logout.php">LOG OUT</a></li>
             </ul>
         </div>
         <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -107,7 +108,7 @@
             <br><br>
             <div id="browse2">
                 Cover Image
-                <input type="file" id="cover" name="cover" accept="image/*"><br><br>
+                <input type="file" id="cover" name="cover"><br><br>
             </div>
 
             <script>

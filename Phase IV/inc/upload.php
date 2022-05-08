@@ -1,6 +1,10 @@
 <?php
 include_once("conn.php");
 include_once("session.php");
+
+$fileUploaded = false;
+$coverUploaded = false;
+
 if (isset($_POST['submit'])){
     
     $fileName = $_FILES['myfile']['name'];
@@ -17,9 +21,9 @@ if (isset($_POST['submit'])){
         if($fileError === 0){
             if($fileSize < 5000000){
                 $fileNameNew = uniqid('', true). "." . $fileActualExt;
-                $fileDestination = '../shared/uploaded_books/'. $fileNameNew;
+                $fileDestination = '../uploads/resource_files/'. $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                header("Location: ../public/upload.html?uploadsuccess");
+                $fileUploaded = true;
             }else{
                 echo "Your file is too big!";
             }
@@ -43,14 +47,15 @@ if (isset($_POST['submit'])){
     $fileExtI =  explode ('.', $fileNameI);
     $fileActualExtI= strtolower(end($fileExtI));
 
-    $allowedI = array('jpg, jpeg, png');
+
+    $allowedI = array('jpg', 'jpeg', 'png');
     if(in_array($fileActualExtI, $allowedI)){
         if($fileErrorI === 0){
             if($fileSizeI < 5000000){
                 $fileNameNewI = uniqid('', true). "." . $fileActualExtI;
-                $fileDestinationI = '../shared/'. $fileNameNewI;
+                $fileDestinationI = '../uploads/resource_covers/'. $fileNameNewI;
                 move_uploaded_file($fileTmpNameI, $fileDestinationI);
-                header("Location: ../public/upload.html?uploadsuccess");
+                $coverUploaded = true;
             }else{
                 echo "Your file is too big!";
             }
@@ -72,8 +77,10 @@ $user = $_SESSION['user_id'];
 
 $query = "INSERT INTO $table(resource_type, resource_title, resource_author, resource_desc, resource_cover, resource_file, user_id) VALUES ('$type', '$title', '$author', '$desc', '$fileNameNewI', '$fileNameNew', ' $user')";
 
-    mysqli_query($conn, $query);
-    header("Location: ../public/upload.php");
+    if($fileUploaded && $coverUploaded){
+        mysqli_query($conn, $query);
+    header("Location: ../public/upload.php?uploadsuccess");
+    }
 
 
 ?>
