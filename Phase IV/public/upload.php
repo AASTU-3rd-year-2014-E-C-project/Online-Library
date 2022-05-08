@@ -1,3 +1,8 @@
+<?php
+
+  include_once("../inc/session.php");
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -52,32 +57,31 @@
 
     <section class="content">
 
+        <form action="../inc/upload.php" method="POST" enctype="multipart/form-data">
         <div class="form">
 
 
             <h2 id="donate_1">To Donate us Please enter the below information</h2>
 
-            <input type="email " id="txtEmail" name="email " placeholder="Enter email here "><br><br>
+            <input type="text" id="txtusername" name="username " placeholder="Enter your username here "><br><br>
 
-            Enter Url or Select a file :
-            <input type="url" id="myfile" name="myfile">
             <div id="browse">
                 <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
             </div>
             <label class="container">Book
-                <input type="radio" checked="checked" name="radio">
+                <input type="radio" checked="checked" name="radio" value="Book">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Assignment
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Assignment">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Research book
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Research book">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Test and Quiz
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="Test and Quiz">
                 <span class="checkmark"></span>
             </label>
             <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
@@ -86,20 +90,24 @@
             <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
             <div class="custom-select" style="width:95%;">
                 <select aria-label="State">
-                    <option value="0">Select car:</option>
-                    <option value="1">&#128073 Audi</option>
-                    <option value="2">&#128073 BMW</option>
-                    <option value="3">&#128073 Citroen</option>
-                    <option value="4">&#128073 Ford</option>
-                    <option value="5">&#128073 Honda</option>
-                    <option value="6">&#128073 Jaguar</option>
-                    <option value="7">&#128073 Land Rover</option>
-                    <option value="8">&#128073 Mercedes</option>
-                    <option value="9">&#128073 Mini</option>
-                    <option value="10">&#128073 Nissan</option>
-                    <option value="11">&#128073 Toyota</option>
-                    <option value="12">&#128073 Volvo</option>
+                    <option value="0">Select Genre:</option>
+                    <option value="1">&#128073 Software</option>
+                    <option value="2">&#128073 Civil Engineering</option>
+                    <option value="3">&#128073 Biotech</option>
+                    <option value="4">&#128073 Electrical Engineering</option>
+                    <option value="5">&#128073 Computer Hardware</option>
+                    <option value="6">&#128073 Architecture</option>
+                    <option value="7">&#128073 City Plan</option>
+                    <option value="8">&#128073 Interior Design</option>
+                    <option value="9">&#128073 Mechanical Engineering</option>
+                    <option value="10">&#128073 Social Science</option>
+                    <option value="11">&#128073 Food Engineering</option>
                 </select>
+            </div>
+            <br><br>
+            <div id="browse2">
+                Cover Image
+                <input type="file" id="cover" name="cover" accept="image/*"><br><br>
             </div>
 
             <script>
@@ -188,13 +196,14 @@
             <div id="overlay" onclick="off()">
                 <div id="text">We Thank you very much for your book Donation</div>
             </div>
-            <button class="btn_donate" onclick="on()">Donate</button>
+            <button type="submit" name="submit" class="btn_donate" onclick="on()">Donate</button>
         </div>
+        </form>
 
         <script>
 
             function on() {
-                var email = document.getElementById('txtEmail');
+                var email = document.getElementById('txtusername');
                 var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 var d = document.getElementById("myfile").value;
                 var d2 = document.getElementById("myfile1").value;
