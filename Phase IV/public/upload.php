@@ -69,15 +69,20 @@
                 &nbsp Enter the file to be Donated here: 
                 <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
             </div>
+            <?php 
+
+                if($_SESSION['user_type'] == 'admin'){
+            ?>
             <label class="container">Book
                 <input type="radio" checked="checked" name="radio" value="Book">
                 <span class="checkmark"></span>
             </label>
+            <?php } ?>
             <label class="container">Assignment
                 <input type="radio" name="radio" value="Assignment">
                 <span class="checkmark"></span>
             </label>
-            <label class="container">Research book
+            <label class="container">Research Paper
                 <input type="radio" name="radio" value="Research book">
                 <span class="checkmark"></span>
             </label>
