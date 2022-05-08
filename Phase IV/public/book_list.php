@@ -123,7 +123,7 @@ if (isset($_SESSION['user_id'])) {
 
         </div>
 
-        <script src="javascript/book_list.js"></script>
+        <script src="../javascript/book_list.js"></script>
     </div>
     <script src="javascript/dropdown.js"> </script>
 
