@@ -28,8 +28,8 @@ if (isset($_SESSION['user_id'])) {
         <div class="menu">
             <ul>
                 <li><a href="../index.php">HOME</a></li>
-                <li><a href="about_us.html">ABOUT</a></li>
-                <li><a href="upload.html">DONATE BOOK</a></li>
+                <li><a href="about_us.php">ABOUT</a></li>
+                <li><a href="upload.php">DONATE BOOK</a></li>
                 <li><a href="../inc/logout.php">LOG OUT</a></li>
             </ul>
         </div>
@@ -77,8 +77,7 @@ if (isset($_SESSION['user_id'])) {
 
             <div class="book-card <?php echo $row['resource_id']; ?>">
                 <div class="cover-container">
-                    <img src="../uploads/resource_covers/<?= !empty($row['resource_cover']) ? $row['resource_cover'] : "
-                        no_cover.jpg" ?>" alt="
+                    <img src="../uploads/resource_covers/<?= !empty($row['resource_cover']) ? $row['resource_cover'] : "no_cover.jpg" ?>" alt="
                     <?=strtolower(str_replace(' ', '_', $row['resource_title']))?>_cover">
                 </div>
                 <div class="title">

@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
             <div class="menu">
                 <ul>
                     <li><a href="book_list.php">BOOK LIST</a></li>
-                    <li><a href="upload.html">ADD BOOK</a></li>
+                    <li><a href="upload.php">ADD BOOK</a></li>
                     <li><a href="../inc/logout.php">LOG OUT</a></li>
                 </ul>
             </div>

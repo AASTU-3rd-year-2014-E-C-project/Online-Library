@@ -2,6 +2,8 @@
 
   include_once("inc/session.php");
 
+  if(!isset($_SESSION['user_id'])){
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +29,7 @@
 
         <div class="menu" id="menu-bar">
             <ul>
-                <li><a href="public/about_us.html">ABOUT</a></li>
-                <li><a href="public/upload.html">DONATE BOOK</a></li>
+                <li><a href="public/about_us.php">ABOUT</a></li>
                 <li><a  onclick="showPopUp()">SIGN IN</a></li>
                 <li><a href="inc/file_management.php">FILE MANAGEMENT</a></li>
             </ul>
@@ -112,3 +113,11 @@
    </section>
 </body>
 </html>
+
+<?php
+
+  }else{
+    header("Location: public/book_list.php");
+  }
+
+  ?>
