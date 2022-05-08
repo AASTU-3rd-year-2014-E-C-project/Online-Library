@@ -218,5 +218,9 @@ var items = document.getElementById('items');
 
 const bookCards = document.querySelectorAll('.book-card');
 
-console.log(bookCards)
+bookCards.forEach(card => {
+    card.addEventListener('click', () => {
+        location.href = '../public/book1_desc.php?resource_id=' + card.classList[1];
+    })
+});
 

@@ -1,6 +1,7 @@
 <?php
 
 include_once("../inc/session.php");
+include_once("../inc/conn.php");
 
 if (array_key_exists('read-online-btn', $_POST)) {
     header("Location: book1.php?resource_id=1");
@@ -10,6 +11,15 @@ if (array_key_exists('download-btn', $_POST)) {
     // button1();
 }
 if(isset($_SESSION['user_id'])){
+
+    $resource_id = $_GET['resource_id'];
+    $query = "SELECT * FROM resource WHERE resource_id=$resource_id";
+
+    $result = mysqli_query($conn, $query);
+
+    if(mysqli_num_rows($result) == 1){
+
+        $row = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -83,17 +93,43 @@ if(isset($_SESSION['user_id'])){
         <div class="main">
             <div class="book">
                 <div class="cover-container">
-                    <img src="resources/covers/the-philosophy-of-history.jpg" alt="The Philosophy of History Cover ">
+                <img src="../uploads/resource_covers/<?= !empty($row['resource_cover']) ? $row['resource_cover'] : "no_cover.jpg" ?>" alt="
+                    <?=strtolower(str_replace(' ', '_', $row['resource_title']))?>_cover">
                 </div>
                 <div class=" title ">
-                    <h1 class="book_title ">The Philosophy of History</h1>
-                    <p class=" book_desc ">Hegel wrote this classic as an introduction to a series of lectures on the "philosophy of history " — a novel concept in the early nineteenth century. With this work, he created the history of philosophy as a scientific study. He reveals philosophical theory as neither an accident nor an artificial construct, but as an exemplar of its age, fashioned by its antecedents and contemporary circumstances, and serving as a model for the future. The author himself appears
-                        to have regarded this book as a popular introduction to his philosophy as a whole, and it remains the most readable and accessible of all his philosophical writings.</p>
+                    <h1 class="book_title "><?= $row['resource_title'] ?></h1>
+                    <p class=" book_desc "><?= $row['resource_desc'] ?></p>
                 </div>
 
 
-                <h3 class="book_author">by Georg Wilhelm Friedrich Hegel, James Sibree (Translator), C.J. Friedrich (Introduction), Charles Hegel (Preface by)</h3>
-                <h4 class="book_genre">Action</h4>
+                <h3 class="book_author">Author: <span style="font-weight: normal;"><?= $row['resource_author'] ?></span></h3>
+                <h4 class="book_genre">
+                <?php 
+                        
+                        $genre_query = "SELECT * FROM tag INNER JOIN resource_tag ON tag.tag_id = resource_tag.tag_id WHERE resource_id=${row['resource_id']}";
+
+                        $genre_array = array();
+
+                        $genre_result = mysqli_query($conn, $genre_query);
+
+                        while($row = mysqli_fetch_assoc($genre_result)){
+                            array_push($genre_array, $row['tag_name']);                               
+                        }
+                        
+                        for($i = 0; $i < count($genre_array); $i++){
+                            if($i < count($genre_array) - 1){
+                                echo $genre_array[$i];
+                                echo ', ';
+                            }
+                            else{
+                                echo $genre_array[$i];
+                            }
+                        }
+
+                        unset($genre_array);
+                    
+                    ?>
+                </h4>
 
 
 
@@ -195,7 +231,8 @@ if(isset($_SESSION['user_id'])){
 </html>
 
 <?php 
-
+    }else
+    header("Location: ../index.php");
 }
 
 else
