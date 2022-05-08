@@ -1,7 +1,5 @@
 /************************ Display Books **********************/
 
-
-
 var booksList = [
                 {cover: 'infinite-powers.jpg', title: 'Infinite Powers', author: 'Steven Strogatz', desc: 'Without calculus, we wouldn’t have cell phones, TV, GPS, or ultrasound. We wouldn\'t have unraveled DNA or discovered Neptune or figured out how to put 5,000 songs in your pocket.', genre: 'Science'}, 
                 
@@ -215,4 +213,11 @@ var items = document.getElementById('items');
         items.onblur = function(evt) {
             items.classList.remove('visible');
         }
+
+/*********************** When a book card is clicked ***********************************/
+
+const bookCards = querySelectorAll('.book-card');
+
+console.log('working')
+console.log(bookCards)
 
