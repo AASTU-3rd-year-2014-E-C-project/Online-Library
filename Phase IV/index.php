@@ -1,7 +1,7 @@
 <?php
 
   include_once("inc/session.php");
-
+  include 'inc/cookies.php';
   if(!isset($_SESSION['user_id'])){
 
 ?>

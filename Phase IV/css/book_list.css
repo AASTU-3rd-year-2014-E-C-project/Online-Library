@@ -169,6 +169,24 @@ body{
       color: goldenrod;
   }
 
+  textarea{
+      width:400px;
+      height: 80px;
+      background-color: #fff;
+      resize:none; 
+  }
+
+  button{
+      width:80px;
+      height:30px;
+      background-color:#898989;
+      border:none;
+      color:#fff;
+      font-family:arial;
+      font-weight: 400;
+      cursor:pointer;
+  }
+
 @media(max-width: 950px){
     .book-container{
         grid-gap: 20px;

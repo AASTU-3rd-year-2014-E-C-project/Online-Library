@@ -1,7 +1,28 @@
 <?php
 
+
 include_once('../inc/conn.php');
 session_start();
+
+if(isset($_POST['save'])){
+    $user_id = $_POST['user_id'];
+    $ratedIndex = $_POST['rate'];
+    $ratedIndex++;
+
+    if($user_id===0){
+    $conn->query("INSERT INTO comment_and_rating (rating) values ('$ratedIndex')");
+}else
+$conn->query("UPDATE comment_and_rating SET rating=$ratedIndex WHERE user_id=$uid");
+}
+
+$sql= $conn->query("SELECT user_id FROM comment_and_rating");
+// $numR = $sql->num_row;
+$numR=1;
+
+$sql = $conn->query("SELECT SUM(rating) AS total FROM comment_and_rating");
+$Data = $sql->fetch_array();
+$total = $Data['total'];
+$avg = $total / $numR;
 
 if (isset($_SESSION['user_id'])) {
 ?>
@@ -113,10 +134,68 @@ if (isset($_SESSION['user_id'])) {
                         
                         ?>
                 </div>
+                
                 <div class="rating">
-                    <i class="fas fa-star" style="color: goldenrod;"></i>
+                    <i class="fas fa-star fa-2x" data-index="0"></i>
+                    <br>
+                    <?php echo round($avg, 2) ?>
                     <em>3/10</em>
                 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+      var ratedIndex = -1;
+
+      if(localStorage.getItem['ratedIndex'] != null)
+      setStars(parseInt(localStorage.getItem(ratedIndex)));
+      $(document).ready(function () {
+        resetStarColors();
+        $('.fa-star').on('click'.function(){
+            ratedIndex= parseInt($(this).data('index'));
+            localStorage.setItem['ratedIndex'.ratedIndex];
+            saveToDb();
+        });
+
+          $('.fa-star').mouseover(function() {
+            resetStarColors();
+            var currentIndex = parseInt($(this).data('index'));
+            setStars(currentIndex);
+            
+          });
+          
+          $('.fa-star').mouseleave(function() {
+            resetStarColors();
+            if(ratedIndez!=-1)
+           setStars(ratedIndex);
+});
+      });
+
+      function saveToDb(){
+          $.ajax({
+              url:"book_list.php",
+              method:"POST",
+              dataType: 'json',
+              data:{
+                  save: 1,
+                  user_id: uid,
+                  rating: ratedIndex
+              }, success: function(r){
+                  user_id=r.uid;
+              }
+          });
+      } 
+
+      function setStars(max){
+        for(var i=0; i<= max; i++)
+            $('.fa-star:eq('+i+')').css('color','goldenrod');
+      }
+
+      function resetStarColors(){
+          $('.fa-star').css('color', 'white');
+      }
+  </script>
+
             </div>
 
             <?php } ?>
