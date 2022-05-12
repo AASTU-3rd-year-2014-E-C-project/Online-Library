@@ -114,6 +114,7 @@ body{
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 4px;
+    cursor: pointer;
     /* min-width: 20px;
     max-width: 100px; */
 }

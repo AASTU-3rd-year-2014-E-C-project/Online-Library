@@ -171,27 +171,37 @@ if (isset($_SESSION['user_id'])) {
                         <h2>Comments</h2>
                         <hr>
                         <div class="comments">
-                            <div class="comment">
-                                <div class="profile-pic-container">
-                                    <img src="../image/login_icon.jpg" alt="" class="profile-pic">
-                                </div>
-                                <div class="name-date">
-                                    <h3 class="comment-giver-name">Nahom Habtamu</h3>
-                                    <h4 class="date-and-time">17/2/2022 @ 8:07</h4>
-                                </div>
-                                <p class="comment-text">Great book! I recommend it for anyone interested in the same genre.</p>
-                            </div>
 
-                            <div class="comment">
-                                <div class="profile-pic-container">
-                                    <img src="../image/login_icon.jpg" alt="" class="profile-pic">
+                            <?php
+
+                            $comment_query = "SELECT * FROM comment_and_rating WHERE resource_id=$resource_id";
+                            $comment_result = mysqli_query($conn, $comment_query);
+
+                            while ($comm_info = mysqli_fetch_assoc($comment_result)) {
+
+                            ?>
+
+
+                                <div class="comment">
+                                    <div class="profile-pic-container">
+                                        <img src="../image/login_icon.jpg" alt="" class="profile-pic">
+                                    </div>
+                                    <div class="name-date">
+                                        <?php
+                                        $commenter_name_query = "SELECT first_name, last_name FROM user WHERE user_id={$comm_info['user_id']}";
+                                        $commenter_name_result = mysqli_query($conn, $commenter_name_query);
+                                        $commenter = mysqli_fetch_assoc($commenter_name_result);
+
+                                        ?>
+                                        <h3 class="comment-giver-name"><?= $commenter['first_name'] . ' ' . $commenter['last_name'] ?></h3>
+                                        <h4 class="date-and-time"><?= $comm_info['comment_date'] ?></h4>
+                                    </div>
+                                    <p class="comment-text"><?= $comm_info['comment'] ?></p>
                                 </div>
-                                <div class="name-date">
-                                    <h3 class="comment-giver-name">Nahom Habtamu</h3>
-                                    <h4 class="date-and-time">17/2/2022 @ 8:07</h4>
-                                </div>
-                                <p class="comment-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae a libero in quisquam at iure optio perferendis sequi veritatis porro, molestias explicabo quia consectetur ipsam ab, ex odio? Cumque repellendus ipsa ex alias cum nostrum deserunt fugit odit aperiam magnam! Corporis, similique, reprehenderit perspiciatis, fuga quasi quisquam veritatis expedita ipsam iusto animi praesentium repudiandae quia ullam omnis asperiores suscipit modi ducimus odit quas accusantium non facilis sed sequi eum. Voluptate dignissimos nulla sint, nam quo saepe alias possimus voluptatibus excepturi ut dolorum expedita, cum minima vero eos, blanditiis voluptatum molestiae numquam quam? Atque, delectus dicta deserunt voluptatibus neque eos!</p>
-                            </div>
+
+                            <?php } ?>
+
+
                         </div>
                         <button id="addCommentBtn" onclick="commentPopup()">Add Comment</button>
                     </div>
@@ -204,36 +214,37 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                 </div>
 
-<form action="comment.inc.php" method="POST">
-                <div class="add-comment-form">
-                    <h3 class="comment-add-title">Comment</h3>
-                    <div class="star-container">
-                        <div class="stars">
-                            <input type="radio" name="rate" id="rate-5" value="5">
-                            <label for="rate-5" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-4" value="4">
-                            <label for="rate-4" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-3" value="3">
-                            <label for="rate-3" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-2" value="2">
-                            <label for="rate-2" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-1" value="1">
-                            <label for="rate-1" class="fa fa-star"></label>
+                <form action="comment.inc.php" method="POST">
+                    <div class="add-comment-form">
+                        <h3 class="comment-add-title">Comment</h3>
+                        <div class="star-container">
+                            <div class="stars">
+                                <input type="radio" name="rate" id="rate-5" value="5">
+                                <label for="rate-5" class="fa fa-star"></label>
+                                <input type="radio" name="rate" id="rate-4" value="4">
+                                <label for="rate-4" class="fa fa-star"></label>
+                                <input type="radio" name="rate" id="rate-3" value="3">
+                                <label for="rate-3" class="fa fa-star"></label>
+                                <input type="radio" name="rate" id="rate-2" value="2">
+                                <label for="rate-2" class="fa fa-star"></label>
+                                <input type="radio" name="rate" id="rate-1" value="1">
+                                <label for="rate-1" class="fa fa-star"></label>
+                            </div>
+                        </div>
+                        <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
+
+                        <div class="comment-add-btn">
+                            <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
+                            <button id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
                         </div>
                     </div>
-                    <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
-
-                    <div class="comment-add-btn">
-                        <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
-                        <button id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
-                    </div>
-                </div>
-                <script src="../javascript/book_desc.js"></script>
-                <script src="../javascript/dropdown.js"></script>
-                <script src="../javascript/book_list.js"></script>
+                    <script src="../javascript/book_desc.js"></script>
+                    <script src="../javascript/dropdown.js"></script>
+                    <script src="../javascript/book_list.js"></script>
             </div>
         </body>
-</form>
+        </form>
+
         </html>
 
 <?php
