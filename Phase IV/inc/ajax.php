@@ -4,6 +4,10 @@ include_once("../inc/conn.php");
 
 $resource_type = $_REQUEST['resource_type'];
 $query = "SELECT * FROM resource WHERE resource_type=\"{$resource_type}\"";
+if(isset($_REQUEST['search'])){
+    $query .= " AND resource_title=\"{$_REQUEST['search']}\"";
+}
+
 $result = mysqli_query($conn, $query);
 
 $res = "";

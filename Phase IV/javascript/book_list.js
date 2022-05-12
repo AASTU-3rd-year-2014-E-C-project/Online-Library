@@ -233,6 +233,35 @@ $(document).ready(function () {
         location.href = '../public/book1_desc.php?resource_id=' + $(this)[0].classList[1];
     });
 
+    $('.search-input-btn').on('click', function () {
+        $.ajax({
+            type: "GET",
+            url: "../inc/ajax.php",
+            data: {
+                resource_type: "Book",
+                search: $('#search-box').val()
+            },
+            dataType: 'html',
+            success: function (response) {
+                bookContainer.innerHTML = response;
+            }
+        });
+    });
+
+    $('.reset-input-btn').on('click', function () {
+        $.ajax({
+            type: "GET",
+            url: "../inc/ajax.php",
+            data: {
+                resource_type: "Book"
+            },
+            dataType: 'html',
+            success: function (response) {
+                bookContainer.innerHTML = response;
+            }
+        });
+    });
+
     const bookContainer = document.querySelector('.book-container');
 
     $.ajax({
