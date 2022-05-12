@@ -236,7 +236,7 @@ $(document).ready(function () {
     $('.search-input-btn').on('click', function () {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Book",
                 search: $('#search-box').val()
@@ -251,7 +251,7 @@ $(document).ready(function () {
     $('.reset-input-btn').on('click', function () {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Book"
             },
@@ -266,7 +266,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "../inc/ajax.php",
+        url: "../inc/booklist_ajax.php",
         data: {
             resource_type: "Book"
         },
@@ -279,7 +279,7 @@ $(document).ready(function () {
     $(".books-tab-btn").click(function (e) {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Book"
             },
@@ -291,7 +291,7 @@ $(document).ready(function () {
     $(".research-tab-btn").click(function (e) {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Research book"
             },
@@ -303,7 +303,7 @@ $(document).ready(function () {
     $(".assignments-tab-btn").click(function (e) {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Assignment"
             },
@@ -315,7 +315,7 @@ $(document).ready(function () {
     $(".tests-tab-btn").click(function (e) {
         $.ajax({
             type: "GET",
-            url: "../inc/ajax.php",
+            url: "../inc/booklist_ajax.php",
             data: {
                 resource_type: "Test and Quiz"
             },
