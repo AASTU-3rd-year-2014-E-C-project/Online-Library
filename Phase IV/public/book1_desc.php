@@ -13,6 +13,7 @@ if (array_key_exists('download-btn', $_POST)) {
 if (isset($_SESSION['user_id'])) {
 
     $resource_id = $_GET['resource_id'];
+    $_SESSION['comment_resource_id'] = $resource_id;
     $query = "SELECT * FROM resource WHERE resource_id=$resource_id";
 
     $result = mysqli_query($conn, $query);
@@ -203,26 +204,27 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                 </div>
 
+<form action="comment.inc.php" method="POST">
                 <div class="add-comment-form">
                     <h3 class="comment-add-title">Comment</h3>
                     <div class="star-container">
                         <div class="stars">
-                            <input type="radio" name="rate" id="rate-5">
+                            <input type="radio" name="rate" id="rate-5" value="5">
                             <label for="rate-5" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-4">
+                            <input type="radio" name="rate" id="rate-4" value="4">
                             <label for="rate-4" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-3">
+                            <input type="radio" name="rate" id="rate-3" value="3">
                             <label for="rate-3" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-2">
+                            <input type="radio" name="rate" id="rate-2" value="2">
                             <label for="rate-2" class="fa fa-star"></label>
-                            <input type="radio" name="rate" id="rate-1">
+                            <input type="radio" name="rate" id="rate-1" value="1">
                             <label for="rate-1" class="fa fa-star"></label>
                         </div>
                     </div>
-                    <textarea name="" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
+                    <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
 
                     <div class="comment-add-btn">
-                        <button id="addCommBtn" class="comment-btn add-comment-btn">Comment</button>
+                        <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
                         <button id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
                     </div>
                 </div>
@@ -231,7 +233,7 @@ if (isset($_SESSION['user_id'])) {
                 <script src="../javascript/book_list.js"></script>
             </div>
         </body>
-
+</form>
         </html>
 
 <?php
