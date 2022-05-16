@@ -67,7 +67,7 @@
 
             <div id="browse">
                 &nbsp Enter the file to be Donated here: 
-                <input type="file" id="myfile1" name="myfile" accept=".pdf"><br><br>
+                <input type="file" id="myfile1" name="myfile" accept=".pdf" required><br><br>
             </div>
             <?php 
 
@@ -91,7 +91,7 @@
                 <span class="checkmark"></span>
             </label>
             <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
-            <input type="text" name="Author" id="donateAuthor" placeholder="Author"><br><br>
+            <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
             Genre
             <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
             <div class="custom-select" style="width:95%;">
@@ -198,7 +198,7 @@
             </script>
             <!-- ----------------------------------------------------------------------------------------------------------------------- -->
 
-            <input type="description" name="description" id="donateDesc" placeholder="Description"><br><br>
+            <input type="description" name="description" id="donateDesc" placeholder="Description" required><br><br>
             <div id="overlay" onclick="off()">
                 <div id="text">We Thank you very much for your book Donation</div>
             </div>
