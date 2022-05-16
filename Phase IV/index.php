@@ -76,7 +76,7 @@
       
                 <input type="checkbox" onclick="showPassword()" id="showBox" />
                 <label for="showBox">Show Password</label>
-                <a id="forgetTag">Forget password?</a>
+                <a href="phpmail/forgot.php" id="forgetTag">Forget password?</a>
               </div>
               <input type="submit" id="btn" value="Log In" id="loginBtn" />
             </form>
