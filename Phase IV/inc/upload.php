@@ -77,8 +77,17 @@ $user = $_SESSION['user_id'];
 
 $query = "INSERT INTO $table(resource_type, resource_title, resource_author, resource_desc, resource_cover, resource_file, user_id) VALUES ('$type', '$title', '$author', '$desc', '$fileNameNewI', '$fileNameNew', ' $user')";
 
-    if($fileUploaded && $coverUploaded){
-        mysqli_query($conn, $query);
+    if(1){
+    mysqli_query($conn, $query);
+    if(isset($_POST['genre'])){
+        $get_resource = "SELECT resource_id WHERE resource_type=$type AND resource_title=$title AND resource_author=$author AND resource_desc=$desc";
+        $row = mysqli_fetch_assoc(mysqli_query($conn, $get_resource));
+
+        foreach($_POST['genre'] as $genre){
+            $g = intval($genre);
+            mysqli_query($conn, "INSERT INTO resource_tag (resource_id, tag_id) VALUES ({$row['resource_id']},$g");
+        }
+    }
     header("Location: ../public/upload.php?uploadsuccess");
     }
 
