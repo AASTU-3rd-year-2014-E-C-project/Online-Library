@@ -10,42 +10,20 @@ $query = "INSERT INTO read_record(date_read, resource_id, user_id) VALUES (now()
 mysqli_query($conn, $query);
 
 if (isset($_SESSION['user_id'])) {
+    $resource_q = "SELECT resource_title, resource_file FROM resource WHERE resource_id=$resource_id";
+    $result = mysqli_query($conn, $resource_q);
+    $row = mysqli_fetch_assoc($result);
 
-?>
-    <!DOCTYPE html>
-    <html>
+    // The location of the PDF file
+    // on the server
+    $filename = "../uploads/resource_files/{$row['resource_file']}";
 
-    <head>
-        <meta charset="utf-8">
-        <title id="htmlTitle">The Philosophy of History - Read Online</title>
-        <link rel="shortcut icon" href="../image/index.png" type="image/png">
-        <link rel="stylesheet" href="../css/page_structure_style.css">
-        <link rel="stylesheet" href="../css/read_online_style.css">
-        <link rel="stylesheet" href="_fontawesome/css/all.min.css">
-        <script src="https://kit.fontawesome.com/72f71d06d5.js" crossorigin="anonymous"></script>
-    </head>
+    // Header content type
+    header("Content-type: application/pdf");
 
-    <body onload="readOnLoad()">
-        <?php
+    header("Content-Length: " . filesize($filename));
 
-        $filename = "/path/to/the/file.pdf";
-
-        // Header content type
-        header("Content-type: application/pdf");
-
-        header("Content-Length: " . filesize($filename));
-
-        // Send the file to the browser.
-        readfile($filename);
-
-        ?>
-    </body>
-
-    </html>
-
-<?php
-
+    // Send the file to the browser.
+    readfile($filename);
 } else
     header("Location: ../index.php");
-
-?>
