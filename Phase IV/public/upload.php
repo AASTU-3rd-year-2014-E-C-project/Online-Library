@@ -1,6 +1,7 @@
 <?php
 
-  include_once("../inc/session.php");
+include_once("../inc/session.php");
+include_once("../inc/conn.php");
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +37,7 @@
         </div>
         <i class="fas fa-bars" id="menu-dropdown-btn"></i>
     </div>
-    <script src="../javascript/dropdown.js">  </script>
+    <script src="../javascript/dropdown.js"> </script>
     <section class="top">
         <div class="text-box">
             <h1>Donate Us</h1>
@@ -59,155 +60,155 @@
     <section class="content">
 
         <form action="../inc/upload.php" method="POST" enctype="multipart/form-data">
-        <div class="form">
+            <div class="form">
 
 
-            <h2 id="donate_1">To Donate us Please enter the below information</h2>
-<br>
+                <h2 id="donate_1">To Donate us Please enter the below information</h2>
+                <br>
 
-            <div id="browse">
-                &nbsp Enter the file to be Donated here: 
-                <input type="file" id="myfile1" name="myfile" accept=".pdf" required><br><br>
-            </div>
-            <?php 
+                <div id="browse">
+                    &nbsp Enter the file to be Donated here:
+                    <input type="file" id="myfile1" name="myfile" accept=".pdf" required><br><br>
+                </div>
+                <?php
 
-                if($_SESSION['user_type'] == 'admin'){
-            ?>
-            <label class="container">Book
-                <input type="radio" checked="checked" name="radio" value="Book">
-                <span class="checkmark"></span>
-            </label>
-            <?php } ?>
-            <label class="container">Assignment
-                <input type="radio" name="radio" value="Assignment">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Research Paper
-                <input type="radio" name="radio" value="Research book">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Test and Quiz
-                <input type="radio" name="radio" value="Test and Quiz">
-                <span class="checkmark"></span>
-            </label>
-            <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
-            <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
-            Genre
-            <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
-            <div class="custom-select" style="width:95%;">
-                <select aria-label="State">
-                    <option value="0">Select Genre:</option>
-                    <option value="1">&#128073 Software</option>
-                    <option value="2">&#128073 Civil Engineering</option>
-                    <option value="3">&#128073 Biotech</option>
-                    <option value="4">&#128073 Electrical Engineering</option>
-                    <option value="5">&#128073 Computer Hardware</option>
-                    <option value="6">&#128073 Architecture</option>
-                    <option value="7">&#128073 City Plan</option>
-                    <option value="8">&#128073 Interior Design</option>
-                    <option value="9">&#128073 Mechanical Engineering</option>
-                    <option value="10">&#128073 Social Science</option>
-                    <option value="11">&#128073 Food Engineering</option>
-                </select>
-            </div>
-            <br><br>
-            <div id="browse2">
-                &nbsp Cover Image
-                <input type="file" id="cover" name="cover"><br><br>
-            </div>
+                if ($_SESSION['user_type'] == 'admin') {
+                ?>
+                    <label class="container">Book
+                        <input type="radio" checked="checked" name="radio" value="Book">
+                        <span class="checkmark"></span>
+                    </label>
+                <?php } ?>
+                <label class="container">Assignment
+                    <input type="radio" name="radio" value="Assignment">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Research Paper
+                    <input type="radio" name="radio" value="Research book">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Test and Quiz
+                    <input type="radio" name="radio" value="Test and Quiz">
+                    <span class="checkmark"></span>
+                </label>
+                <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
+                <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
+                Genre:
+                <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
+                <!-- <div class="custom-select" style="width:95%;"> -->
+                <div class="multiple-select" style="width:95%;">
+                    <select name="genre[]" multiple="multiple">
+                        <?php
 
-            <script>
-                var x, i, j, l, ll, selElmnt, a, b, c;
-                /*look for any elements with the class "custom-select":*/
-                x = document.getElementsByClassName("custom-select");
-                l = x.length;
-                for (i = 0; i < l; i++) {
-                    selElmnt = x[i].getElementsByTagName("select")[0];
-                    ll = selElmnt.length;
-                    /*for each element, create a new DIV that will act as the selected item:*/
-                    a = document.createElement("DIV");
-                    a.setAttribute("class", "select-selected");
-                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-                    x[i].appendChild(a);
-                    /*for each element, create a new DIV that will contain the option list:*/
-                    b = document.createElement("DIV");
-                    b.setAttribute("class", "select-items select-hide");
-                    for (j = 1; j < ll; j++) {
-                        /*for each option in the original select element,
-                        create a new DIV that will act as an option item:*/
-                        c = document.createElement("DIV");
-                        c.innerHTML = selElmnt.options[j].innerHTML;
-                        c.addEventListener("click", function (e) {
-                            /*when an item is clicked, update the original select box,
-                            and the selected item:*/
-                            var y, i, k, s, h, sl, yl;
-                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                            sl = s.length;
-                            h = this.parentNode.previousSibling;
-                            for (i = 0; i < sl; i++) {
-                                if (s.options[i].innerHTML == this.innerHTML) {
-                                    s.selectedIndex = i;
-                                    h.innerHTML = this.innerHTML;
-                                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                                    yl = y.length;
-                                    for (k = 0; k < yl; k++) {
-                                        y[k].removeAttribute("class");
+                        $genre_query = "SELECT * FROM tag";
+                        $result = mysqli_query($conn, $genre_query);
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+
+                            <option value="<?= $row['tag_id'] ?>">&#128073 <?= $row['tag_name'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <br><br>
+                <div id="browse2">
+                    &nbsp Cover Image
+                    <input type="file" id="cover" name="cover"><br><br>
+                </div>
+
+                <script>
+                    var x, i, j, l, ll, selElmnt, a, b, c;
+                    /*look for any elements with the class "custom-select":*/
+                    x = document.getElementsByClassName("custom-select");
+                    l = x.length;
+                    for (i = 0; i < l; i++) {
+                        selElmnt = x[i].getElementsByTagName("select")[0];
+                        ll = selElmnt.length;
+                        /*for each element, create a new DIV that will act as the selected item:*/
+                        a = document.createElement("DIV");
+                        a.setAttribute("class", "select-selected");
+                        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                        x[i].appendChild(a);
+                        /*for each element, create a new DIV that will contain the option list:*/
+                        b = document.createElement("DIV");
+                        b.setAttribute("class", "select-items select-hide");
+                        for (j = 1; j < ll; j++) {
+                            /*for each option in the original select element,
+                            create a new DIV that will act as an option item:*/
+                            c = document.createElement("DIV");
+                            c.innerHTML = selElmnt.options[j].innerHTML;
+                            c.addEventListener("click", function(e) {
+                                /*when an item is clicked, update the original select box,
+                                and the selected item:*/
+                                var y, i, k, s, h, sl, yl;
+                                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                                sl = s.length;
+                                h = this.parentNode.previousSibling;
+                                for (i = 0; i < sl; i++) {
+                                    if (s.options[i].innerHTML == this.innerHTML) {
+                                        s.selectedIndex = i;
+                                        h.innerHTML = this.innerHTML;
+                                        y = this.parentNode.getElementsByClassName("same-as-selected");
+                                        yl = y.length;
+                                        for (k = 0; k < yl; k++) {
+                                            y[k].removeAttribute("class");
+                                        }
+                                        this.setAttribute("class", "same-as-selected");
+                                        break;
                                     }
-                                    this.setAttribute("class", "same-as-selected");
-                                    break;
                                 }
-                            }
-                            h.click();
+                                h.click();
+                            });
+                            b.appendChild(c);
+                        }
+                        x[i].appendChild(b);
+                        a.addEventListener("click", function(e) {
+                            /*when the select box is clicked, close any other select boxes,
+                            and open/close the current select box:*/
+                            e.stopPropagation();
+                            closeAllSelect(this);
+                            this.nextSibling.classList.toggle("select-hide");
+                            this.classList.toggle("select-arrow-active");
                         });
-                        b.appendChild(c);
                     }
-                    x[i].appendChild(b);
-                    a.addEventListener("click", function (e) {
-                        /*when the select box is clicked, close any other select boxes,
-                        and open/close the current select box:*/
-                        e.stopPropagation();
-                        closeAllSelect(this);
-                        this.nextSibling.classList.toggle("select-hide");
-                        this.classList.toggle("select-arrow-active");
-                    });
-                }
-                function closeAllSelect(elmnt) {
-                    /*a function that will close all select boxes in the document,
-                    except the current select box:*/
-                    var x, y, i, xl, yl, arrNo = [];
-                    x = document.getElementsByClassName("select-items");
-                    y = document.getElementsByClassName("select-selected");
-                    xl = x.length;
-                    yl = y.length;
-                    for (i = 0; i < yl; i++) {
-                        if (elmnt == y[i]) {
-                            arrNo.push(i)
-                        } else {
-                            y[i].classList.remove("select-arrow-active");
-                        }
-                    }
-                    for (i = 0; i < xl; i++) {
-                        if (arrNo.indexOf(i)) {
-                            x[i].classList.add("select-hide");
-                        }
-                    }
-                }
-                /*if the user clicks anywhere outside the select box,
-                then close all select boxes:*/
-                document.addEventListener("click", closeAllSelect);
-            </script>
-            <!-- ----------------------------------------------------------------------------------------------------------------------- -->
 
-            <input type="description" name="description" id="donateDesc" placeholder="Description" required><br><br>
-            <div id="overlay" onclick="off()">
-                <div id="text">We Thank you very much for your book Donation</div>
+                    function closeAllSelect(elmnt) {
+                        /*a function that will close all select boxes in the document,
+                        except the current select box:*/
+                        var x, y, i, xl, yl, arrNo = [];
+                        x = document.getElementsByClassName("select-items");
+                        y = document.getElementsByClassName("select-selected");
+                        xl = x.length;
+                        yl = y.length;
+                        for (i = 0; i < yl; i++) {
+                            if (elmnt == y[i]) {
+                                arrNo.push(i)
+                            } else {
+                                y[i].classList.remove("select-arrow-active");
+                            }
+                        }
+                        for (i = 0; i < xl; i++) {
+                            if (arrNo.indexOf(i)) {
+                                x[i].classList.add("select-hide");
+                            }
+                        }
+                    }
+                    /*if the user clicks anywhere outside the select box,
+                    then close all select boxes:*/
+                    document.addEventListener("click", closeAllSelect);
+                </script>
+                <!-- ----------------------------------------------------------------------------------------------------------------------- -->
+
+                <input type="description" name="description" id="donateDesc" placeholder="Description" required><br><br>
+                <div id="overlay" onclick="off()">
+                    <div id="text">We Thank you very much for your book Donation</div>
+                </div>
+                <button type="submit" name="submit" class="btn_donate" onclick="on()">Donate</button>
             </div>
-            <button type="submit" name="submit" class="btn_donate" onclick="on()">Donate</button>
-        </div>
         </form>
 
         <script>
-
             function on() {
                 var email = document.getElementById('txtusername');
                 var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -230,11 +231,9 @@
                     alert('Please provide a valid email address');
                     email.focus;
                     return false;
-                }
-                else if (d.trim().length == 0 && d2.trim().length == 0) {
+                } else if (d.trim().length == 0 && d2.trim().length == 0) {
                     alert("Please Insert the book");
-                }
-                else if (d.trim().length != 0 && !regexp.test(d))
+                } else if (d.trim().length != 0 && !regexp.test(d))
                     alert("Please enter valid url.");
 
                 else if (t.trim().length == 0 || a.trim().length == 0 || g.trim().length == 0)
@@ -262,10 +261,10 @@
                     &nbsp;&nbsp;&nbsp;+251939656144</dd>
             </dl>
         </div>
-        </section>
+    </section>
 
 
 
-        </body>
+</body>
 
-        </html>
+</html>
