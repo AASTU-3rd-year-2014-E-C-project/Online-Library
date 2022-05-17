@@ -42,8 +42,17 @@
     </div>
     <div class="main">
         <div class="read_online">
-            <h1 class="book_title_read">The Philosophy of History - Read Online</h1>
-            <iframe src="resources/Books/the_philosophy_of_history.pdf" style="pointer-events: none;"></iframe>
+            <?php
+            $r_id = 14;
+            echo $_GET['resource_id'];
+
+            $resource_q = "SELECT resource_title, resource_file FROM resource WHERE resource_id=$r_id";
+            $result = mysqli_query($conn, $resource_q);
+            $row = mysqli_fetch_assoc($result);
+
+?>
+            <h1 class="book_title_read"><?= $row['resource_title'] ?> - Read Online</h1>
+            <iframe src="../uploads/resource_files/<?= $row['resource_file'] ?>" style="pointer-events: none;"></iframe>
         </div>
     </div>
     <script src="../javascript/dropdown.js">  </script>

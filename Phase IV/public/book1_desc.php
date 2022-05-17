@@ -4,7 +4,7 @@ include_once("../inc/session.php");
 include_once("../inc/conn.php");
 
 if (array_key_exists('read-online-btn', $_POST)) {
-    header("Location: book1.php?resource_id=1");
+    header("Location: book1.php?resource_id={$_GET['resource_id']}");
 }
 
 if (array_key_exists('download-btn', $_POST)) {
