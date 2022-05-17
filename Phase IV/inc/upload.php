@@ -48,7 +48,7 @@ if (isset($_POST['submit'])){
     $fileActualExtI= strtolower(end($fileExtI));
 
 
-    $allowedI = array('jpg', 'jpeg', 'png');
+    $allowedI = array('jpg', 'jpeg', 'png', '');
     if(in_array($fileActualExtI, $allowedI)){
         if($fileErrorI === 0){
             if($fileSizeI < 5000000){
@@ -75,17 +75,17 @@ $user = $_SESSION['user_id'];
 //$cover = $_POST['cover'];  cover file name is $fileNameNewI
 // $file = $_POST['myfile'];     the name of the file is $fileNameNew
 
-$query = "INSERT INTO $table(resource_type, resource_title, resource_author, resource_desc, resource_cover, resource_file, user_id) VALUES ('$type', '$title', '$author', '$desc', '$fileNameNewI', '$fileNameNew', ' $user')";
+$query = "INSERT INTO resource (resource_type, resource_title, resource_author, resource_desc, resource_cover, resource_file, user_id) VALUES ('$type', '$title', '$author', '$desc', '$fileNameNewI', '$fileNameNew', ' $user')";
 
     if(1){
     mysqli_query($conn, $query);
     if(isset($_POST['genre'])){
-        $get_resource = "SELECT resource_id WHERE resource_type=$type AND resource_title=$title AND resource_author=$author AND resource_desc=$desc";
-        $row = mysqli_fetch_assoc(mysqli_query($conn, $get_resource));
+        $get_resource = "SELECT resource_id FROM resource WHERE resource_title='$title' AND resource_author='$author' AND user_id=$user";
+        $res = mysqli_query($conn, $get_resource);
+        $row = mysqli_fetch_assoc($res);
 
         foreach($_POST['genre'] as $genre){
-            $g = intval($genre);
-            mysqli_query($conn, "INSERT INTO resource_tag (resource_id, tag_id) VALUES ({$row['resource_id']},$g");
+            mysqli_query($conn, "INSERT INTO resource_tag(resource_id, tag_id) VALUES ('{$row['resource_id']}','{$genre}')");
         }
     }
     header("Location: ../public/upload.php?uploadsuccess");
@@ -94,6 +94,3 @@ $query = "INSERT INTO $table(resource_type, resource_title, resource_author, res
     else{
         header("Location: ../public/upload.php");
     }
-
-
-?>
