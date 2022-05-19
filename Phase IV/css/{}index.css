@@ -305,3 +305,19 @@ input[type=submit]:hover,input[type=reset]:hover{
 ::placeholder{   
     font-weight: bold;
 }
+
+.user-type-radio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-type-radio .user-radio{
+    margin-right: 50px;
+}
+
+.user-type-radio .admin-radio{
+    margin-left: 50px;
+}
