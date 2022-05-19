@@ -233,12 +233,14 @@ $(document).ready(function () {
         location.href = '../public/book1_desc.php?resource_id=' + $(this)[0].classList[1];
     });
 
+    // search button clicked
     $('.search-input-btn').on('click', function () {
+        const resource_type = document.querySelector('.click').innerHTML;
         $.ajax({
             type: "GET",
             url: "../inc/booklist_ajax.php",
             data: {
-                resource_type: "Book",
+                resource_type: resource_type,
                 search: $('#search-box').val()
             },
             dataType: 'html',
@@ -248,12 +250,15 @@ $(document).ready(function () {
         });
     });
 
-    $('.reset-input-btn').on('click', function () {
+    // reset button clicked
+    $('.reset-search-btn').on('click', function () {
+        const resource_type = document.querySelector('.click').innerHTML;
         $.ajax({
             type: "GET",
             url: "../inc/booklist_ajax.php",
             data: {
-                resource_type: "Book"
+                resource_type: resource_type,
+                search: ""
             },
             dataType: 'html',
             success: function (response) {

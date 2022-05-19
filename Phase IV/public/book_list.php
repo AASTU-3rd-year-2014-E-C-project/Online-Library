@@ -63,16 +63,16 @@ if (isset($_SESSION['user_id'])) {
                         <li><input type="checkbox" />Tomato</li>
                     </ul>
                 </div>
-                <input type="button" class="search-input-btn btn" value="Search" onclick="searchText()">
-                <input type="button" class="reset-search-btn btn" id="resetBtn" value="Reset" onclick="resetText()">
+                <input type="button" class="search-input-btn btn" value="Search">
+                <input type="button" class="reset-search-btn btn" id="resetBtn" value="Reset">
             </div>
 
 
             <div class="paper-tab">
-                <a class="type-tab books-tab-btn">Books</a>
+                <a class="type-tab books-tab-btn click">Book</a>
                 <a class="type-tab research-tab-btn">Research</a>
-                <a class="type-tab assignments-tab-btn">Assignments</a>
-                <a class="type-tab tests-tab-btn">Test & Quizzes</a>
+                <a class="type-tab assignments-tab-btn">Assignment</a>
+                <a class="type-tab tests-tab-btn">Test and Quiz</a>
             </div>
 
             <div class="book-container">
