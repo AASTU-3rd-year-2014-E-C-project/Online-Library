@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id'])) {
             <h1 class="page-title">Book List</h1>
             <div class="search-container">
                 <input type="text" class="search-box" id="search-box" placeholder="Search...">
-                <div id="list1" class="dropdown-check-list" tabindex="100">
+                <div id="list1" class="dropdown-check-list" tabindex="100" style="display: none;">
                     <span class="anchor">Select Fruits</span>
                     <ul id="items" class="items">
                         <li><input type="checkbox" />Apple </li>

@@ -65,7 +65,7 @@ body.dark .darkify::before{
 
 
 .buttons {
-    margin: 50px 0;
+    margin: 20px 0;
 }
 
 .read-btn:active{
@@ -209,6 +209,27 @@ body.dark .darkify::before{
     cursor: pointer;
 }
 
+.rate-btn{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid rgb(0, 157, 219);
+    background-color: rgb(0, 157, 219);
+    font-size: 19px;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 7px;
+    font-weight: bold;
+    margin-left: 8px;
+    color: #fff;
+    transform: translateY(25px);
+}
+
+.rating-container{
+    display: flex;
+}
 
 .book-card{
     background-color:rgb(212, 222, 228);
