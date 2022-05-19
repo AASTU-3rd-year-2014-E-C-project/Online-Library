@@ -117,8 +117,8 @@ if (isset($_POST['verifyEmail'])) {
 
 // change Password
 if (isset($_POST['changePassword'])) {
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $confirmPassword = password_hash($_POST['confirmPassword'], PASSWORD_DEFAULT);
 
     if (strlen($_POST['password']) < 8) {
         $errors['password_error'] = 'Use 8 or more characters with a mix of letters, numbers & symbols';
