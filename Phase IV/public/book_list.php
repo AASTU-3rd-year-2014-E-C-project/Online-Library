@@ -29,6 +29,7 @@ if (isset($_SESSION['user_id'])) {
                     <li><a href="upload.php">DONATE BOOK</a></li>
                     <?php
 
+
                     if($_SESSION['user_type'] == 'user'){
                         $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
                     }else{
@@ -39,8 +40,21 @@ if (isset($_SESSION['user_id'])) {
                     $row = mysqli_fetch_assoc($result)['username'];
 
                     ?>
-                    <li><a href="#"><?= $row ?></a></li>
-                    <li><a href="../inc/logout.php">LOG OUT</a></li>
+                    <div class="dropdown">
+                    <li class="dropbtn"><?= $row ?>+</li>
+                    <div class="dropdown-content">
+                        <?php
+                        if ($_SESSION['user_type'] == 'admin'){
+                            ?>
+                        <a href="report.php">REPORT PAGE</a>
+                        <?php
+                        }
+                        ?>
+                   <a href="../inc/logout.php">LOG OUT</a>
+
+                    </div>
+                    </div>
+                    
                 </ul>
             </div>
 
