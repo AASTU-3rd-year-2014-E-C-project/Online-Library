@@ -8,7 +8,6 @@ if (array_key_exists('read-online-btn', $_POST)) {
 }
 
 if (array_key_exists('download-btn', $_POST)) {
-    // button1();
     $q = "SELECT resource_file FROM resource WHERE resource_id={$_GET['resource_id']}";
     $res = mysqli_query($conn, $q);
     $row = mysqli_fetch_assoc($res)['resource_file'];
