@@ -326,3 +326,14 @@ $(document).ready(function () {
     });
 });
 
+//resource types tab underlining
+const tabs = document.querySelectorAll('.type-tab')
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+            t.classList.remove('click')
+        })
+        tab.classList.add('click')
+    })
+})
+

@@ -1,3 +1,6 @@
+:root{
+--tab-color: green;
+}
 body{
     background-color: rgb(212, 222, 228);
     overflow-x: hidden;
@@ -119,12 +122,16 @@ body{
     max-width: 100px; */
 }
 
+.paper-tab a.click{
+    border-bottom: 6px solid var(--tab-color);
+}
+
 .paper-tab a:hover{
-    border-bottom: 6px solid brown;
+    border-bottom: 6px solid var(--tab-color);
 }
 
 .paper-tab .paper-border{
-    border-right: 2px solid brown;
+    border-right: 2px solid var(--tab-color);
 }
 
 .dropdown-check-list {
