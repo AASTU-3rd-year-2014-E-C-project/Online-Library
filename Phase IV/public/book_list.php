@@ -56,10 +56,10 @@ if (isset($_SESSION['user_id'])) {
 
 
             <div class="paper-tab">
-                <a class="books-tab-btn">Books</a>
-                <a class="research-tab-btn">Research</a>
-                <a class="assignments-tab-btn">Assignments</a>
-                <a class="tests-tab-btn">Test & Quizzes</a>
+                <a class="type-tab books-tab-btn">Books</a>
+                <a class="type-tab research-tab-btn">Research</a>
+                <a class="type-tab assignments-tab-btn">Assignments</a>
+                <a class="type-tab tests-tab-btn">Test & Quizzes</a>
             </div>
 
             <div class="book-container">
