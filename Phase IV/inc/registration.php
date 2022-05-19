@@ -9,7 +9,7 @@ include_once("conn.php");
     $gender = $_POST['radSize'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $password = $_POST['newPassword'];
+    $password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
 
     $query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
 

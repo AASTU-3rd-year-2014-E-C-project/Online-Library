@@ -10,7 +10,7 @@ $result = mysqli_query($conn, $login);
 
 while ($row = mysqli_fetch_assoc($result)) {
 
-    if ($row['password'] == $password) {
+    if (password_verify($password, $row['password'])) {
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['user_type'] = 'user';
         header('Location: ../public/book_list.php');
@@ -23,7 +23,7 @@ $result = mysqli_query($conn, $login);
 
 while ($row = mysqli_fetch_assoc($result)) {
 
-    if ($row['password'] == $password) {
+    if (password_verify($password, $row['password'])) {
         $_SESSION['user_id'] = $row['admin_id'];
         $_SESSION['user_type'] = 'admin';
         header('Location: ../public/report.php');
