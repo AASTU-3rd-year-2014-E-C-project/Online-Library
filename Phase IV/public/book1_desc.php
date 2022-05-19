@@ -8,7 +8,10 @@ if (array_key_exists('read-online-btn', $_POST)) {
 }
 
 if (array_key_exists('download-btn', $_POST)) {
-    // button1();
+    $q = "SELECT resource_file FROM resource WHERE resource_id={$_GET['resource_id']}";
+    $res = mysqli_query($conn, $q);
+    $row = mysqli_fetch_assoc($res)['resource_file'];
+    header("Location: ../uploads/resource_files/$row");
 }
 if (isset($_SESSION['user_id'])) {
 
@@ -40,13 +43,14 @@ if (isset($_SESSION['user_id'])) {
             <style>
                 .star-container {
                     width: 320px;
-                    background-color: #faebd7;
-                    padding: 20px 30px;
+                    background-color: #fff;
+                    padding: 10px 10px;
                     border-radius: 5px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-direction: row;
+                    display: inline-block;
                 }
 
                 .stars input {
@@ -136,6 +140,37 @@ if (isset($_SESSION['user_id'])) {
                             ?>
                         </h4>
 
+                        <?php
+
+                        $q_rating = "SELECT * FROM rating WHERE resource_id=$resource_id AND user_id={$_SESSION['user_id']}";
+                        $rating_res = mysqli_query($conn, $q_rating);
+                        $rating_no = 0;
+                        if (mysqli_num_rows($rating_res) > 0) {
+                            $rating_no = mysqli_fetch_assoc($rating_res)['rating'];
+                        }
+
+                        ?>
+                        <form action="../inc/rating.php?resource_id=<?= $resource_id ?>" method="POST">
+                            <div class="rating-container">
+                                <div class="star-container" style="margin-top: 15px;">
+                                    <div class="stars">
+                                        <input type="radio" name="rate" id="rate-5" value="5" <?php echo $rating_no == 5 ? 'checked' : '' ?>>
+                                        <label for="rate-5" class="fa fa-star"></label>
+                                        <input type="radio" name="rate" id="rate-4" value="4" <?php echo $rating_no == 4 ? 'checked' : '' ?>>
+                                        <label for="rate-4" class="fa fa-star"></label>
+                                        <input type="radio" name="rate" id="rate-3" value="3" <?php echo $rating_no == 3 ? 'checked' : '' ?>>
+                                        <label for="rate-3" class="fa fa-star"></label>
+                                        <input type="radio" name="rate" id="rate-2" value="2" <?php echo $rating_no == 2 ? 'checked' : '' ?>>
+                                        <label for="rate-2" class="fa fa-star"></label>
+                                        <input type="radio" name="rate" id="rate-1" value="1" <?php echo $rating_no == 1 ? 'checked' : '' ?>>
+                                        <label for="rate-1" class="fa fa-star"></label>
+                                    </div>
+                                </div>
+
+                                <input type="submit" name="rate-btn" class="rate-btn" value="Rate">
+                            </div>
+
+                        </form>
 
 
                         <div class="buttons">
@@ -174,7 +209,7 @@ if (isset($_SESSION['user_id'])) {
 
                             <?php
 
-                            $comment_query = "SELECT * FROM comment_and_rating WHERE resource_id=$resource_id";
+                            $comment_query = "SELECT * FROM comment WHERE resource_id=$resource_id";
                             $comment_result = mysqli_query($conn, $comment_query);
 
                             while ($comm_info = mysqli_fetch_assoc($comment_result)) {
@@ -217,25 +252,12 @@ if (isset($_SESSION['user_id'])) {
                 <form action="comment.inc.php" method="POST">
                     <div class="add-comment-form">
                         <h3 class="comment-add-title">Comment</h3>
-                        <div class="star-container">
-                            <div class="stars">
-                                <input type="radio" name="rate" id="rate-5" value="5">
-                                <label for="rate-5" class="fa fa-star"></label>
-                                <input type="radio" name="rate" id="rate-4" value="4">
-                                <label for="rate-4" class="fa fa-star"></label>
-                                <input type="radio" name="rate" id="rate-3" value="3">
-                                <label for="rate-3" class="fa fa-star"></label>
-                                <input type="radio" name="rate" id="rate-2" value="2">
-                                <label for="rate-2" class="fa fa-star"></label>
-                                <input type="radio" name="rate" id="rate-1" value="1">
-                                <label for="rate-1" class="fa fa-star"></label>
-                            </div>
-                        </div>
+
                         <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
 
                         <div class="comment-add-btn">
                             <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
-                            <button id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
+                            <button type="button" id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
                         </div>
                     </div>
                     <script src="../javascript/book_desc.js"></script>

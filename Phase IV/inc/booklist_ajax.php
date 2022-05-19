@@ -58,7 +58,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <i class=\"fas fa-star\" style=\"color: goldenrod;\"></i>
                             <em>";
 
-    $rating_avg_query = "SELECT AVG(rating) as avg FROM comment_and_rating WHERE resource_id=$resource_id";
+    $rating_avg_query = "SELECT AVG(rating) as avg FROM rating WHERE resource_id=$resource_id";
     $rating_avg_result = mysqli_query($conn, $rating_avg_query);
     $avg = number_format(mysqli_fetch_assoc($rating_avg_result)['avg'], 1);
     // $resource_rating_avg = mysqli_fetch_assoc($rating_avg_result);
