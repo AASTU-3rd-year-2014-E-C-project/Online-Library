@@ -2,18 +2,42 @@
 
 include_once("conn.php");
 
-    // user registration input
-    $fName = $_POST['fname'];
-    $lName = $_POST['lname'];
-    $username = $_POST['Username'];
-    $gender = $_POST['radSize'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+// user registration input
+$fName = $_POST['fname'];
+$lName = $_POST['lname'];
+$email = $_POST['email'];
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo ("$email is a valid email address");
+} else {
+    echo ("$email is not a valid email address");
+}
+$username = $_POST['Username'];
+$validUsername = true;
+$validEmail = true;
 
-    $query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
+$q = "SELECT * FROM user";
+$r = mysqli_query($conn, $q);
 
+while ($row = mysqli_fetch_assoc($r)) {
+    if ($row['username'] == $username) {
+        $validUsername = false;
+        header("location: ../index.php?error=invalid_signup");
+    }
+    if ($row['email'] == $email) {
+        $validEmail = false;
+        header("location: ../index.php?error=invalid_signup");
+    }
+}
+
+$gender = $_POST['radSize'];
+
+$phone = $_POST['phone'];
+$password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+
+$query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
+
+if ($validEmail && $validUsername) {
     mysqli_query($conn, $query);
-    header("Location: ../index.php");
-
-?>
+    header("location: ../index.php");
+}else
+header("location: ../index.php?error=invalid_signup");
