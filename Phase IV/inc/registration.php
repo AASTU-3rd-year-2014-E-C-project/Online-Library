@@ -6,14 +6,13 @@ include_once("conn.php");
 $fName = $_POST['fname'];
 $lName = $_POST['lname'];
 $email = $_POST['email'];
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo ("$email is a valid email address");
-} else {
-    echo ("$email is not a valid email address");
-}
 $username = $_POST['Username'];
 $validUsername = true;
 $validEmail = true;
+
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $validEmail = false;
+}
 
 $q = "SELECT * FROM user";
 $r = mysqli_query($conn, $q);
