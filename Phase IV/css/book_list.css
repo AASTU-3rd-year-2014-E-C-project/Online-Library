@@ -134,6 +134,11 @@ body{
     border-right: 2px solid var(--tab-color);
 }
 
+.rated-people-num{
+    margin-left: 5px;
+    opacity: 0.6;
+}
+
 .dropdown-check-list {
     display: inline-block;
   }
