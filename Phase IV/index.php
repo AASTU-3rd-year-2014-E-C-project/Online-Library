@@ -1,7 +1,7 @@
 <?php
 
 include_once("inc/session.php");
-include 'inc/cookies.php';
+
 if (!isset($_SESSION['user_id'])) {
 
 ?>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
           <img src="image/AASTU lib.jpg" alt="AASTU Library">
         </div>
         <div class="text">
-          <h1>AASTU Online Library - Welcome!</h1>
+          <h1>AASTU Online Library - Welcome!</h1><?php include 'inc/cookies.php'; ?>
           <p>Our digital Library is an open project: the software is open, the data<br>are open,
             the documentation is open, and we welcome your contribution.<br> Whether you fix a typo, add a book,
             or write a widget it's all welcome. <br> We have a small team
