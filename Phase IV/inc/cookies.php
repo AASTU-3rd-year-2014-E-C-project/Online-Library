@@ -10,6 +10,6 @@ if (!isset($_COOKIE['OnlineLib'])) {
 	$returning_visitor = true;
 }
 
-echo $returning_visitor ? 'Welcome back!' : 'Welcome to my website!';
+echo $returning_visitor ? 'Welcome back!' : 'Welcome to AASTU Library !';
 
 ?>
