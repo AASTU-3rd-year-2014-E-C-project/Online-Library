@@ -7,7 +7,7 @@ include ("../inc/conn.php");
         $uid =(int) $_SESSION['user_id'];
         $rid = (int)$_SESSION['comment_resource_id'];
         $comm = $_POST['comment'];
-        $sql = "INSERT INTO comment_and_rating (user_id, resource_id, comment_date, comment) 
+        $sql = "INSERT INTO comment (user_id, resource_id, comment_date, comment) 
         values ($uid, $rid, now(), '$comm')";
      mysqli_query($conn,$sql);
     
