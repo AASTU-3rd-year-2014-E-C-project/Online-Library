@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start(); 
+include_once('../inc/conn.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +33,33 @@
                 ?>
 
                 <li><a href="upload.php">DONATE BOOK</a></li>
-                <li><a href="../inc/logout.php">LOG OUT</a></li>
+                 <?php
 
+
+                    if($_SESSION['user_type'] == 'user'){
+                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
+                    }else{
+                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
+                    }
+
+                    $result = mysqli_query($conn, $qu);
+                    $row = mysqli_fetch_assoc($result)['username'];
+
+                    ?>
+                    <div class="dropdown">
+                    <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+                    <div class="dropdown-content">
+                        <?php
+                        if ($_SESSION['user_type'] == 'admin'){
+                            ?>
+                        <a href="report.php">REPORT PAGE</a>
+                        <?php
+                        }
+                        ?>
+                   <a href="../inc/logout.php">LOG OUT</a>
+
+                    </div>
+                    </div>
                 <?php }
                 else{
                 ?>
