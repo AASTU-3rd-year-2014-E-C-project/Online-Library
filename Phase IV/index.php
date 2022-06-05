@@ -109,9 +109,11 @@ if (!isset($_SESSION['user_id'])) {
                 <input type="email" id="email" name="email" placeholder="email: youremail@gmail.com" />
                 <input type="tel" name="phone" placeholder="phone: 0911-11-11-11" pattern="[0][9][0-9]{8}" maxlength="10" />
                 <input type="password" name="newPassword" placeholder="password:" id="newPsw" required />
+                <label for="file"> Enter your profile picture here </label><br><br>
+                <input type="file" name="profile" id="file" />
               </div>
               <div class="submitBtn">
-                <input type="submit">
+                <input type="submit" value="Submit" name="submit">
                 <input type="reset" />
               </div>
             </form>

@@ -1,0 +1,1 @@
+This folder is for profile pic of users.
