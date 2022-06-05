@@ -20,8 +20,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <div class=\"cover-container\">
                             <img src=\"../uploads/resource_covers/";
     $res .= !empty($row['resource_cover']) ? $row['resource_cover'] : "no_cover.jpg";
-    $res .=  "\" alt=\"
-                    <?= strtolower(str_replace(' ', '_', {$row['resource_title']})) ?>_cover\">
+    $res .=  "\" alt=\"";
+    $res .= strtolower(str_replace(' ', '_', $row['resource_title'])) . "_cover\">
                         </div>
                         <div class=\"title\">
                             {$row['resource_title']}
