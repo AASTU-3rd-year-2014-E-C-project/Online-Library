@@ -9,12 +9,12 @@ we created and export a My SQL query and this query have a sample data to log in
 
 # Sample Data
 
-# user Data               
+## user Data               
 
 username:-> ETS0505/12         
 
 password:->123456789          
-#  Admin Data
+##  Admin Data
 username: NahomHabtamu@admin
 
 password: 123456789
