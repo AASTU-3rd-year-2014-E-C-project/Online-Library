@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id'])) {
                 <ul>
                     <li><a href="../index.php">HOME</a></li>
                     <li><a href="about_us.php">ABOUT</a></li>
-                    <li><a href="upload.php">DONATE BOOK</a></li>
+                    <li><a href="upload.php">SHARE</a></li>
                     <?php
 
                     $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
