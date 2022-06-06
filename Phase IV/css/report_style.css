@@ -67,3 +67,7 @@ tr:nth-of-type(odd) {
 .export-btn:active{
     transform:scale(0.91);
 }
+
+.r_graph{
+    margin-top: 50px;
+}
