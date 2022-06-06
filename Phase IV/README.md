@@ -6,7 +6,8 @@ The project is worked in a team.
 ### The first page to open is index page.
 
 we created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
-Sample Data
+
+# Sample Data
 
 # user Data               
 
