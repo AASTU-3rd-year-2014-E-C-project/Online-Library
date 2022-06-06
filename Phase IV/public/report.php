@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
 
         <div class="header">
             <div class="logo">
-                <a href="../index.php"> My Library</a>
+                <a href="../index.php"> AASTU Digital Library</a>
             </div>
             <div class="menu">
                 <ul>
