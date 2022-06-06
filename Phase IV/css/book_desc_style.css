@@ -16,8 +16,19 @@ body.dark .darkify::before{
     width: 90vw;
     min-width: 50vw;
     margin: 20px 30px;
+    margin: auto;
+    width: 85%;
 }
 
+.comments-container{
+    width: 85%;
+    margin: auto;
+}
+
+.flex-book{
+    display: flex;
+    width: 100%;
+}
 
 .book .title{
     width: 70%;
