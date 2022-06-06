@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id'])) {
     <section class="section">
       <div class="header">
         <div class="logo">
-          <a href="index.php"> My Library</a>
+          <a href="index.php"> AASTU Digital Library</a>
         </div>
 
         <div class="menu" id="menu-bar">
@@ -73,16 +73,6 @@ if (!isset($_SESSION['user_id'])) {
               <div class="inputBox">
                 <input type="text" placeholder="Username" id="myUsername" name="logName" required />
                 <input type="password" placeholder="Password" id="myPassword" name="logPassword" required />
-              </div>
-              <div class="user-type-radio">
-                <div class="user-radio">
-                  <input type="radio" name="user-type" id="user" value="user" checked>
-                  <label for="user">User</label>
-                </div>
-                <div class="admin-radio">
-                  <input type="radio" name="user-type" id="admin" value="admin">
-                  <label for="admin">Admin</label>
-                </div>
               </div>
               <div class="showPsw">
 

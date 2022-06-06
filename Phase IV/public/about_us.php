@@ -20,7 +20,7 @@ include_once('../inc/conn.php');
 <body>
     <div class="header">
         <div class="logo">
-            <a href="../index.php"> My Library</a>
+            <a href="../index.php"> AASTU Digital Library</a>
         </div>
 
         <div class="menu">

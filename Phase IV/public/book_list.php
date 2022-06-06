@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
     <body>
         <div class="header">
             <div class="logo">
-                <a href="../index.php"> My Library</a>
+                <a href="../index.php"> AASTU Digital Library</a>
             </div>
             <div class="menu">
                 <ul>
@@ -29,32 +29,29 @@ if (isset($_SESSION['user_id'])) {
                     <li><a href="upload.php">DONATE BOOK</a></li>
                     <?php
 
-
-                    if($_SESSION['user_type'] == 'user'){
-                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
-                    }else{
-                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
-                    }
+                    $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
                     $result = mysqli_query($conn, $qu);
                     $row = mysqli_fetch_assoc($result)['username'];
 
                     ?>
                     <div class="dropdown">
-                    <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
-                    <div class="dropdown-content">
-                        <?php
-                        if ($_SESSION['user_type'] == 'admin'){
+                        <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+                        <div class="dropdown-content">
+                            <?php
+                            if ($_SESSION['user_type'] == 'admin') {
                             ?>
-                        <a href="report.php">REPORT PAGE</a>
-                        <?php
-                        }
-                        ?>
-                   <a href="../inc/logout.php">LOG OUT</a>
+                                <a href="report.php">REPORT PAGE</a>
+                            <?php
+                            } else {
+                            ?>
+                            <a href="profile.php">PROFILE</a>
+                            <?php } ?>
+                            <a href="../inc/logout.php">LOG OUT</a>
 
+                        </div>
                     </div>
-                    </div>
-                    
+
                 </ul>
             </div>
 
@@ -91,7 +88,7 @@ if (isset($_SESSION['user_id'])) {
 
             <div class="book-container">
 
-                
+
 
             </div>
 
