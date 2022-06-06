@@ -35,3 +35,10 @@ Mahlet Anbessie  -> ETS0500/12  ->  book_list page and book_description
 Mieraf Jejaw    ->  ETS0500/12  ->  home page 
 
 Namus Shukra    ->  ETS0500/12  ->  report page
+
+### Doubt that our website functionality may not work.
+**adding profile picture**
+**report page**
+**filter function(repeated user name and email)**
+
+
