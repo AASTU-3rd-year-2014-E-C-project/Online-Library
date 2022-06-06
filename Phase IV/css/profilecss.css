@@ -952,18 +952,6 @@ textarea.form-control {
   justify-content: space-between;
 }
 
-.select-gender-edit{
-  margin-top: 10px;
-  box-shadow: inset 0 rgba(0, 0, 0, .1);
-}
-.select-gender-edit select{
-  border: none;
-  font-size: medium;
-  padding: 12px;
-  width: 150px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%)
-}
 .navbar-nav {
   display: flex;
   flex-direction: column;
