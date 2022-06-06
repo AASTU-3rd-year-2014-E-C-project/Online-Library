@@ -33,7 +33,6 @@ if (!isset($_SESSION['user_id'])) {
           <ul>
             <li><a href="public/about_us.php">ABOUT</a></li>
             <li><a onclick="showPopUp()">SIGN IN</a></li>
-            <li><a href="inc/file_management.php">FILE MANAGEMENT</a></li>
           </ul>
         </div>
       </div>
