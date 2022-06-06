@@ -8,11 +8,15 @@ The project is worked in a team.
 we created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
 Sample Data
 
-# user Data   ->                  Admin Data
+# user Data               
 
-username:-> ETS0505/12->          username: NahomHabtamu@admin
+username:-> ETS0505/12         
 
-password:->123456789      ->      password: 123456789
+password:->123456789          
+#  Admin Data
+username: NahomHabtamu@admin
+password: 123456789
+
 
 Admin have a special privilage on looking for report pages.
 when the user sign in the the landing page will change to the book_list page so he/she can't get back to the login page unless he/she logs out.
