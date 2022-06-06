@@ -6,17 +6,20 @@ The project is worked in a team.
 ### The first page to open is index page.
 
 we created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
-Sample Data
 
-# user Data               
+# Sample Data
 
-username:-> ETS0505/12         
+## user Data               
 
-password:->123456789          
-#  Admin Data
-username: NahomHabtamu@admin
+**username:-> ETS0505/12**         
 
-password: 123456789
+**password:->123456789**         
+
+##  Admin Data
+
+**username: NahomHabtamu@admin**
+
+**password: 123456789**
 
 
 Admin have a special privilage on looking for report pages.
@@ -35,3 +38,13 @@ Mahlet Anbessie  -> ETS0500/12  ->  book_list page and book_description
 Mieraf Jejaw    ->  ETS0500/12  ->  home page 
 
 Namus Shukra    ->  ETS0500/12  ->  report page
+
+### Doubt that our website functionality may not work.
+
+**adding profile picture**
+
+**report page**
+
+**filter function(repeated user name and email)**
+
+
