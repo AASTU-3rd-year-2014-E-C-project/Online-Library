@@ -30,26 +30,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                 <ul>
                     <li><a href="book_list.php">BOOK LIST</a></li>
                     <li><a href="upload.php">ADD BOOK</a></li>
-                    <?php
-
-
-                    if($_SESSION['user_type'] == 'user'){
-                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
-                    }else{
-                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
-                    }
-
-                    $result = mysqli_query($conn, $qu);
-                    $username = mysqli_fetch_assoc($result)['username'];
-
-                    ?>
-                    <div class="dropdown">
-                    <li class="dropbtn"><?= $username ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
-                    <div class="dropdown-content">
-                   <a href="../inc/logout.php">LOG OUT</a>
-
-                    </div>
-                    </div>
+                    <li><a href="../inc/logout.php">LOG OUT</a></li>
                 </ul>
             </div>
             <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -98,151 +79,153 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                     <?php } ?>
                 </tbody>
             </table>
-
-            <div class="admins_report">
-            <h1>Admin Report</h1>
-            <table>
-                <thead>
-                    <th>Admin Full Name</th>
-                    <th>Admin Gender</th>
-                </thead>
-                <tbody>
-                    <?php
-                    $report_array = array(array('Admins fName', 'Admins lName', 'Admins Gender'));
-                    $query1 = "SELECT admin_id FROM $table_name2";
-                    $admin_result = mysqli_query($conn, $query1);
-                    while ($row = mysqli_fetch_assoc($admin_result)) {
-                        $current_admin_id = $row['admin_id'];
-                        $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM admin WHERE admin_id = $current_admin_id"));
-                        $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM admin WHERE admin_id  = $current_admin_id"));
-                        $Gender = mysqli_fetch_assoc(mysqli_query($conn, "SELECT gender FROM admin WHERE admin_id = $current_admin_id"));
-                        array_push($report_array, [$fName['first_name'], $lName['last_name'], $Gender['gender']]);
-                    ?>
-                        <tr>
-                            <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
-                            <td><?php echo $Gender['gender'] ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="donation_report">
-            <h1>Donation Report</h1>
-            <table>
-                <thead>
-                    <th>User Full Name</th>
-                    <th>Resource Name</th>
-                </thead>
-                <tbody>
-                    <?php
-                    $report_array = array(array('User fName', 'User lName', 'Resource Name'));
-                    $query2 = "SELECT user_id, resource_id FROM $table_name3";
-                    $donation_result = mysqli_query($conn, $query2);
-                    while ($row = mysqli_fetch_assoc($donation_result)) {
-                        $current_user_id = $row['user_id'];
-                        $current_resource_id = $row['resource_id'];
-                        $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id=$current_user_id"));
-                        $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id=$current_user_id"));
-                        $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
-                        array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
-                    ?>
-                        <tr>
-                            <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
-                            <td><?php echo $resourceName['resource_title'] ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="download_report">
-            <h1>Download Report</h1>
-            <table>
-                <thead>
-                    <th>User Full Name</th>
-                    <th>Resource Name</th>
-                </thead>
-                <tbody>
-                    <?php
-                    $report_array = array(array('User fName', 'User lName', 'Resource Name'));
-                    $query3 = "SELECT user_id, resource_id FROM $table_name4";
-                    $download_result = mysqli_query($conn, $query3);
-                    while ($row = mysqli_fetch_assoc($download_result)) {
-                        $current_user_id = $row['user_id'];
-                        $current_resource_id = $row['resource_id'];
-                        $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id=$current_user_id"));
-                        $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id=$current_user_id"));
-                        $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
-                        array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
-                    ?>
-                        <tr>
-                            <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
-                            <td><?php echo $resourceName['resource_title'] ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="read_report">
-            <h1>Read Report</h1>
-            <table>
-                <thead>
-                    <th>User Full Name</th>
-                    <th>Resource Name</th>
-                </thead>
-                <tbody>
-                    <?php
-                    $report_array = array(array('User fName', 'User lName', 'Resource Name'));
-                    $query4 = "SELECT user_id, resource_id FROM $table_name5";
-                    $read_result = mysqli_query($conn, $query4);
-                    while ($row = mysqli_fetch_assoc($read_result)) {
-                        $current_user_id = $row['user_id'];
-                        $current_resource_id = $row['resource_id'];
-                        $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id = $current_user_id"));
-                        $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id = $current_user_id"));
-                        $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
-                        array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
-                    ?>
-                        <tr>
-                            <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
-                            <td><?php echo $resourceName['resource_title'] ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <?php
-
-            if (isset($_POST['export_report'])) {
-                header('Content-Type: application/csv; charset=UTF-8');
-                header('Content-Disposition: attachment; filename="website_report.csv";');
-
-                // clean output buffer
-                ob_end_clean();
-
-                $handle = fopen('php://output', 'w');
-                
-                foreach ($report_array as $value) {
-                    fputcsv($handle, $value);
-                }
-
-                fclose($handle);
-
-                // use exit to get rid of unexpected output afterward
-                exit();
-            }
-
-            ?>
-
             <form method="POST">
                 <input type="submit" name="export_report" value="EXPORT" class="export-btn">
             </form>
-        </div>
+            <div class="admins_report">
+                <h1>Admin Report</h1>
+                <table>
+                    <thead>
+                        <th>Admin Full Name</th>
+                        <th>Admin Gender</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $report_array = array(array('Admins fName', 'Admins lName', 'Admins Gender'));
+                        $query1 = "SELECT admin_id FROM $table_name2";
+                        $admin_result = mysqli_query($conn, $query1);
+                        while ($row = mysqli_fetch_assoc($admin_result)) {
+                            $current_admin_id = $row['admin_id'];
+                            $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM admin WHERE admin_id = $current_admin_id"));
+                            $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM admin WHERE admin_id  = $current_admin_id"));
+                            $Gender = mysqli_fetch_assoc(mysqli_query($conn, "SELECT gender FROM admin WHERE admin_id = $current_admin_id"));
+                            array_push($report_array, [$fName['first_name'], $lName['last_name'], $Gender['gender']]);
+                        ?>
+                            <tr>
+                                <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
+                                <td><?php echo $Gender['gender'] ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="donation_report">
+                <h1>Donation Report</h1>
+                <table>
+                    <thead>
+                        <th>User Full Name</th>
+                        <th>Resource Name</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $report_array = array(array('User fName', 'User lName', 'Resource Name'));
+                        $query2 = "SELECT user_id, resource_id FROM $table_name3";
+                        $donation_result = mysqli_query($conn, $query2);
+                        while ($row = mysqli_fetch_assoc($donation_result)) {
+                            $current_user_id = $row['user_id'];
+                            $current_resource_id = $row['resource_id'];
+                            $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id=$current_user_id"));
+                            $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id=$current_user_id"));
+                            $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
+                            array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
+                        ?>
+                            <tr>
+                                <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
+                                <td><?php echo $resourceName['resource_title'] ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="download_report">
+                <h1>Download Report</h1>
+                <table>
+                    <thead>
+                        <th>User Full Name</th>
+                        <th>Resource Name</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $report_array = array(array('User fName', 'User lName', 'Resource Name'));
+                        $query3 = "SELECT user_id, resource_id FROM $table_name4";
+                        $download_result = mysqli_query($conn, $query3);
+                        while ($row = mysqli_fetch_assoc($download_result)) {
+                            $current_user_id = $row['user_id'];
+                            $current_resource_id = $row['resource_id'];
+                            $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id=$current_user_id"));
+                            $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id=$current_user_id"));
+                            $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
+                            array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
+                        ?>
+                            <tr>
+                                <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
+                                <td><?php echo $resourceName['resource_title'] ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="read_report">
+                <h1>Read Report</h1>
+                <table>
+                    <thead>
+                        <th>User Full Name</th>
+                        <th>Resource Name</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $report_array = array(array('User fName', 'User lName', 'Resource Name'));
+                        $query4 = "SELECT user_id, resource_id FROM $table_name5";
+                        $read_result = mysqli_query($conn, $query4);
+                        while ($row = mysqli_fetch_assoc($read_result)) {
+                            $current_user_id = $row['user_id'];
+                            $current_resource_id = $row['resource_id'];
+                            $fName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT first_name FROM user WHERE user_id = $current_user_id"));
+                            $lName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT last_name FROM user WHERE user_id = $current_user_id"));
+                            $resourceName = mysqli_fetch_assoc(mysqli_query($conn, "SELECT resource_title FROM resource WHERE resource_id = $current_resource_id"));
+                            array_push($report_array, [$fName['first_name'],  $lName['last_name'], $resourceName['resource_title']]);
+                        ?>
+                            <tr>
+                                <td><?php echo $fName['first_name'] . " " . $lName['last_name'] ?></td>
+                                <td><?php echo $resourceName['resource_title'] ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <?php
+
+                if (isset($_POST['export_report'])) {
+                    header('Content-Type: application/csv; charset=UTF-8');
+                    header('Content-Disposition: attachment; filename="website_report.csv";');
+
+                    // clean output buffer
+                    ob_end_clean();
+
+                    $handle = fopen('php://output', 'w');
+
+                    foreach ($report_array as $value) {
+                        fputcsv($handle, $value);
+                    }
+
+                    fclose($handle);
+
+                    // use exit to get rid of unexpected output afterward
+                    exit();
+                }
+
+                ?>
+
+                <div id='re_graph'><?php include "graph.php"; ?></div><br>
+                <div id='ra_pie'><?php include "piechart_rating.php"; ?></div><br>
+                <div id='d_graph'><?php include "graphd.php"; ?></div><br>
+            </div>
 
 
-        <script src="javascript/book_list.js"></script>
-        <script src="javascript/dropdown.js"> </script>
+            <script src="javascript/book_list.js"></script>
+            <script src="javascript/dropdown.js"> </script>
 
     </body>
 
