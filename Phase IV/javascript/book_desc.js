@@ -6,6 +6,30 @@ function commentPopup(){
     form.classList.add('show')
 }
 
+$(document).ready(function (){
+    console.log('before')
+    $.ajax({
+        url: "get-data.php",
+        type: "POST",
+        data: '{}',
+        contentType: "json",
+        success: function (data){
+            console.log(JSON.parse(data))
+                $('.bar-5').css('width', ((JSON.parse(data).r5/JSON.parse(data).total) * 100) + '%');
+                $('.bar-4').css('width', ((JSON.parse(data).r4/JSON.parse(data).total) * 100) + '%');
+                $('.bar-3').css('width', ((JSON.parse(data).r3/JSON.parse(data).total) * 100) + '%');
+                $('.bar-2').css('width', ((JSON.parse(data).r2/JSON.parse(data).total) * 100) + '%');
+                $('.bar-1').css('width', ((JSON.parse(data).r1/JSON.parse(data).total) * 100) + '%');
+
+                $('.count-rate-5').html(JSON.parse(data).r5)
+                $('.count-rate-4').html(JSON.parse(data).r4)
+                $('.count-rate-3').html(JSON.parse(data).r3)
+                $('.count-rate-2').html(JSON.parse(data).r2)
+                $('.count-rate-1').html(JSON.parse(data).r1)
+        }
+    })
+})
+
 function closePopup(){
     b.classList.remove('dark')
     form.classList.remove('show')
@@ -48,5 +72,6 @@ addBtn.addEventListener('click', () => {
 cancelBtn.addEventListener('click', () => {
     closePopup()
 })
+
 //////////////////////////// End of Add Comment //////////////////////
 
