@@ -252,7 +252,6 @@ if (isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                     </div>
-<<<<<<< HEAD
                     <!-- <div class="other related-container">
                         <h2>Related books</h2>
                         <hr>
@@ -260,104 +259,6 @@ if (isset($_SESSION['user_id'])) {
                             jj
                         </div>
                     </div> -->
-=======
-                    <style>
-                        .rating-label {
-                            font-weight: bold;
-                        }
-
-                        /* Rating bar width */
-                        .rating-bar {
-                            width: 300px;
-                            padding: 8px;
-                            border-radius: 5px;
-                        }
-
-                        /* The bar container */
-                        .bar-container {
-                            width: 100%;
-                            background-color: #f1f1f1;
-                            text-align: center;
-                            color: white;
-                            border-radius: 20px;
-                            cursor: pointer;
-                            margin-bottom: 5px;
-                        }
-
-                        /* Individual bars */
-                        .bar-5 {
-                            width: 70%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-
-                        .bar-4 {
-                            width: 30%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-
-                        .bar-3 {
-                            width: 20%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-
-                        .bar-2 {
-                            width: 10%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-
-                        .bar-1 {
-                            width: 0%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-                    </style>
-
-                    </form>
-                    <!-- rating progress end -->
-
-                    <div class="buttons">
-                        <form method="POST">
-                            <!-- <a href="book1.html" class="read-btn">Read Online</a> -->
-                            <input type="submit" name="read-online-btn" class="read-btn" value="Read Online" style="text-decoration: none;
-                color: #000;
-                border: 1px solid rgb(0, 157, 219);
-                background-color: rgb(0, 157, 219);
-                font-size: 19px;
-                border-radius: 7px;
-                cursor: pointer;
-                padding: 7px;
-                font-weight: bold;
-                margin-left: 8px;
-                color: #fff;">
-                            <!-- <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a> -->
-                            <input type="submit" name="download-btn" class="download-btn" value="Download" style="text-decoration: none;
-                color: #000;
-                border: 1px solid rgb(0, 157, 219);
-                background-color: rgb(0, 157, 219);
-                font-size: 19px;
-                border-radius: 7px;
-                cursor: pointer;
-                padding: 7px;
-                font-weight: bold;
-                margin-left: 8px;
-                color: #fff;">
-                        </form>
-                    </div>
->>>>>>> f0456b1af2f94746d6f0762b0d7accbced3d51ce
                 </div>
                 <div class="other comments-container">
                     <h2>Comments</h2>
