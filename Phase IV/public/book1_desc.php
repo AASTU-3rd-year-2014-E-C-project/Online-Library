@@ -9,8 +9,6 @@ if (array_key_exists('read-online-btn', $_POST)) {
 
 if (array_key_exists('download-btn', $_POST)) {
     $q = "SELECT resource_file FROM resource WHERE resource_id={$_GET['resource_id']}";
-    $add_query = "INSERT INTO download_record (date_downloaded, resource_id, user_id) VALUES (now(), '{$_GET['resource_id']}', '{$_SESSION['user_id']}')";
-    mysqli_query($conn, $add_query);
     $res = mysqli_query($conn, $q);
     $row = mysqli_fetch_assoc($res)['resource_file'];
     header("Location: ../uploads/resource_files/$row");
@@ -85,15 +83,41 @@ if (isset($_SESSION['user_id'])) {
             <div class="darkify">
                 <div class="header">
                     <div class="logo">
-                        <a href="../index.php"> AASTU Digital Library</a>
+                        <a href="../index.php"> My Library</a>
                     </div>
 
                     <div class="menu">
                         <ul>
                             <li><a href="../index.php">HOME</a></li>
                             <li><a href="../public/book_list.php">BOOK LIST</a></li>
-                            <li><a href="upload.php">SHARE</a></li>
-                            <li><a href="../inc/logout.php">LOG OUT</a></li>
+                            <li><a href="upload.php">DONATE BOOK</a></li>
+                            <?php
+
+
+                    if($_SESSION['user_type'] == 'user'){
+                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
+                    }else{
+                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
+                    }
+
+                    $result = mysqli_query($conn, $qu);
+                    $username = mysqli_fetch_assoc($result)['username'];
+
+                    ?>
+                    <div class="dropdown">
+                    <li class="dropbtn"><?= $username ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+                    <div class="dropdown-content">
+                        <?php
+                        if ($_SESSION['user_type'] == 'admin'){
+                            ?>
+                        <a href="report.php">REPORT PAGE</a>
+                        <?php
+                        }
+                        ?>
+                   <a href="../inc/logout.php">LOG OUT</a>
+
+                    </div>
+                    </div>
                         </ul>
                     </div>
                     <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -152,6 +176,7 @@ if (isset($_SESSION['user_id'])) {
                         }
 
                         ?>
+                        
                         <form action="../inc/rating.php?resource_id=<?= $resource_id ?>" method="POST">
                             <div class="rating-container">
                                 <div class="star-container" style="margin-top: 15px;">
@@ -170,224 +195,220 @@ if (isset($_SESSION['user_id'])) {
                                 </div>                          
                                 <input type="submit" name="rate-btn" class="rate-btn" value="Rate">
                             </div>
-                            <!-- rating progress -->
-                            <?php
-
-                            ?>
+              <!-- rating progress -->
+                         
                             <div class="container-fluid px-1 py-5 mx-auto">
 
-                                <div class="col-md-8">
-                                    <div class="rating-bar0 justify-content-center">
-                                        <table class="text-left mx-auto">
-                                            <tr>
-                                                <td class="rating-label">5 - Excellent</td>
-                                                <td class="rating-bar">
-                                                    <div class="bar-container">
-                                                        <div class="bar-5"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rating-label">4 - Good</td>
-                                                <td class="rating-bar">
-                                                    <div class="bar-container">
-                                                        <div class="bar-4"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rating-label">3 - Average</td>
-                                                <td class="rating-bar">
-                                                    <div class="bar-container">
-                                                        <div class="bar-3"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rating-label">2 - Poor</td>
-                                                <td class="rating-bar">
-                                                    <div class="bar-container">
-                                                        <div class="bar-2"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="rating-label">1 - Terrible</td>
-                                                <td class="rating-bar">
-                                                    <div class="bar-container">
-                                                        <div class="bar-1"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right"></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <style>
-                        .rating-label {
-                            font-weight: bold;
-                        }
+                    <div class="col-md-8">
+						<div class="rating-bar0 justify-content-center">
+							<table class="text-left mx-auto">
+								<tr>
+									<td class="rating-label">5 - Excellent</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-5"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-5">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">4 - Good</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-4"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-4">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">3 - Average</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-3"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-3">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">2 - Poor</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-2"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-2">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">1 - Terrible</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-1"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-1">0</span>)</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                        /* Rating bar width */
-                        .rating-bar {
-                            width: 300px;
-                            padding: 8px;
-                            border-radius: 5px;
-                        }
+    <style>
+    .rating-label {
+	font-weight: bold;
+}
 
-                        /* The bar container */
-                        .bar-container {
-                            width: 100%;
-                            background-color: #f1f1f1;
-                            text-align: center;
-                            color: white;
-                            border-radius: 20px;
-                            cursor: pointer;
-                            margin-bottom: 5px;
-                        }
+/* Rating bar width */
+.rating-bar {
+	width: 300px;
+	padding: 8px;
+	border-radius: 5px;
+}
 
-                        /* Individual bars */
-                        .bar-5 {
-                            width: 70%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
 
-                        }
+/* Individual bars */
+.bar-5 {
+	width: 70%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
 
-                        .bar-4 {
-                            width: 30%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
+}
+.bar-4 {
+	width: 30%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
 
-                        }
+}
+.bar-3 {
+	width: 20%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
 
-                        .bar-3 {
-                            width: 20%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
+}
+.bar-2 {
+	width: 10%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
 
-                        }
+}
+.bar-1 {
+	width: 0%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
 
-                        .bar-2 {
-                            width: 10%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
+}
+    </style>
 
-                        }
-
-                        .bar-1 {
-                            width: 0%;
-                            height: 13px;
-                            background-color: #FBC02D;
-                            border-radius: 20px;
-
-                        }
-                    </style>
-
-                    </form>
-                    <!-- rating progress end -->
-
-                    <div class="buttons">
-                        <form method="POST">
-                            <!-- <a href="book1.html" class="read-btn">Read Online</a> -->
-                            <input type="submit" name="read-online-btn" class="read-btn" value="Read Online" style="text-decoration: none;
-                color: #000;
-                border: 1px solid rgb(0, 157, 219);
-                background-color: rgb(0, 157, 219);
-                font-size: 19px;
-                border-radius: 7px;
-                cursor: pointer;
-                padding: 7px;
-                font-weight: bold;
-                margin-left: 8px;
-                color: #fff;">
-                            <!-- <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a> -->
-                            <input type="submit" name="download-btn" class="download-btn" value="Download" style="text-decoration: none;
-                color: #000;
-                border: 1px solid rgb(0, 157, 219);
-                background-color: rgb(0, 157, 219);
-                font-size: 19px;
-                border-radius: 7px;
-                cursor: pointer;
-                padding: 7px;
-                font-weight: bold;
-                margin-left: 8px;
-                color: #fff;">
                         </form>
+<!-- rating progress end -->
+
+                        <div class="buttons">
+                            <form method="POST">
+                                <!-- <a href="book1.html" class="read-btn">Read Online</a> -->
+                                <input type="submit" name="read-online-btn" class="read-btn" value="Read Online" style="text-decoration: none;
+                color: #000;
+                border: 1px solid rgb(0, 157, 219);
+                background-color: rgb(0, 157, 219);
+                font-size: 19px;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 7px;
+                font-weight: bold;
+                margin-left: 8px;
+                color: #fff;">
+                                <!-- <a href="resources/Books/the_philosophy_of_history.pdf " class="download-btn" Download>Download</a> -->
+                                <input type="submit" name="download-btn" class="download-btn" value="Download" style="text-decoration: none;
+                color: #000;
+                border: 1px solid rgb(0, 157, 219);
+                background-color: rgb(0, 157, 219);
+                font-size: 19px;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 7px;
+                font-weight: bold;
+                margin-left: 8px;
+                color: #fff;">
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="other comments-container">
-                    <h2>Comments</h2>
-                    <hr>
-                    <div class="comments">
+                    <div class="other comments-container">
+                        <h2>Comments</h2>
+                        <hr>
+                        <div class="comments">
 
-                        <?php
+                            <?php
 
-                        $comment_query = "SELECT * FROM comment WHERE resource_id=$resource_id";
-                        $comment_result = mysqli_query($conn, $comment_query);
+                            $comment_query = "SELECT * FROM comment WHERE resource_id=$resource_id";
+                            $comment_result = mysqli_query($conn, $comment_query);
 
-                        while ($comm_info = mysqli_fetch_assoc($comment_result)) {
+                            while ($comm_info = mysqli_fetch_assoc($comment_result)) {
 
-                        ?>
+                            ?>
 
 
-                            <div class="comment">
-                                <div class="profile-pic-container">
-                                    <img src="../image/login_icon.jpg" alt="" class="profile-pic">
+                                <div class="comment">
+                                    <div class="profile-pic-container">
+                                        <img src="../image/login_icon.jpg" alt="" class="profile-pic">
+                                    </div>
+                                    <div class="name-date">
+                                        <?php
+                                        $commenter_name_query = "SELECT first_name, last_name FROM user WHERE user_id={$comm_info['user_id']}";
+                                        $commenter_name_result = mysqli_query($conn, $commenter_name_query);
+                                        $commenter = mysqli_fetch_assoc($commenter_name_result);
+
+                                        ?>
+                                        <h3 class="comment-giver-name"><?= $commenter['first_name'] . ' ' . $commenter['last_name'] ?></h3>
+                                        <h4 class="date-and-time"><?= $comm_info['comment_date'] ?></h4>
+                                    </div>
+                                    <p class="comment-text"><?= $comm_info['comment'] ?></p>
                                 </div>
-                                <div class="name-date">
-                                    <?php
-                                    $commenter_name_query = "SELECT first_name, last_name FROM user WHERE user_id={$comm_info['user_id']}";
-                                    $commenter_name_result = mysqli_query($conn, $commenter_name_query);
-                                    $commenter = mysqli_fetch_assoc($commenter_name_result);
 
-                                    ?>
-                                    <h3 class="comment-giver-name"><?= $commenter['first_name'] . ' ' . $commenter['last_name'] ?></h3>
-                                    <h4 class="date-and-time"><?= $comm_info['comment_date'] ?></h4>
-                                </div>
-                                <p class="comment-text"><?= $comm_info['comment'] ?></p>
-                            </div>
-
-                        <?php } ?>
+                            <?php } ?>
 
 
+                        </div>
+                        <button id="addCommentBtn" onclick="commentPopup()">Add Comment</button>
                     </div>
-                    <button id="addCommentBtn" onclick="commentPopup()">Add Comment</button>
-                </div>
-                <div class="other related-container">
-                    <h2>Related books</h2>
-                    <hr>
-                    <div class="book-container related-books">
-                        jj
+                    <div class="other related-container">
+                        <h2>Related books</h2>
+                        <hr>
+                        <div class="book-container related-books">
+                            jj
+                        </div>
                     </div>
                 </div>
+
+                <form action="comment.inc.php" method="POST">
+                    <div class="add-comment-form">
+                        <h3 class="comment-add-title">Comment</h3>
+
+                        <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
+
+                        <div class="comment-add-btn">
+                            <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
+                            <button type="button" id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                    <script src="../javascript/jquery-3.6.0.min.js"></script>
+                    <script src="../javascript/book_desc.js"></script>
+                    <script src="../javascript/dropdown.js"></script>
+                    <script src="../javascript/book_list.js"></script>
             </div>
-
-            <form action="comment.inc.php" method="POST">
-                <div class="add-comment-form">
-                    <h3 class="comment-add-title">Comment</h3>
-
-                    <textarea name="comment" id="" cols="40" rows="10" class="comment-field comment-text-area"></textarea>
-
-                    <div class="comment-add-btn">
-                        <button type="submit" id="addCommBtn" class="comment-btn add-comment-btn" name="commentSubmit">Comment</button>
-                        <button type="button" id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
-                    </div>
-                </div>
-                <script src="../javascript/book_desc.js"></script>
-                <script src="../javascript/dropdown.js"></script>
-                <script src="../javascript/book_list.js"></script>
-                </div>
         </body>
         </form>
 

@@ -8,7 +8,7 @@ include_once("../inc/conn.php");
 <html>
 
 <head>
-    <title>Share book</title>
+    <title>Donate book</title>
     <meta charset="UTF-8">
     <meta name="description" content="Library Managment About us page">
     <meta name="keywords" content="Books">
@@ -30,32 +30,35 @@ include_once("../inc/conn.php");
         <div class="menu">
             <ul>
                 <li> <a href="../index.php">HOME</a></li>
-               
+                <li> <a href="../public/book_list.php">BOOK LIST</a></li>
                 <li><a href="about_us.php">ABOUT US</a></li>
-                <?php
+               <?php
 
-$qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
-$result = mysqli_query($conn, $qu);
-$row = mysqli_fetch_assoc($result)['username'];
+                    if($_SESSION['user_type'] == 'user'){
+                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
+                    }else{
+                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
+                    }
 
-?>
-<div class="dropdown">
-    <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
-    <div class="dropdown-content">
-        <?php
-        if ($_SESSION['user_type'] == 'admin') {
-        ?>
-            <a href="report.php">REPORT PAGE</a>
-        <?php
-        } else {
-        ?>
-        <a href="profile.php">PROFILE</a>
-        <?php } ?>
-        <a href="../inc/logout.php">LOG OUT</a>
+                    $result = mysqli_query($conn, $qu);
+                    $row = mysqli_fetch_assoc($result)['username'];
 
-    </div>
-</div>
+                    ?>
+                    <div class="dropdown">
+                    <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+                    <div class="dropdown-content">
+                        <?php
+                        if ($_SESSION['user_type'] == 'admin'){
+                            ?>
+                        <a href="report.php">REPORT PAGE</a>
+                        <?php
+                        }
+                        ?>
+                   <a href="../inc/logout.php">LOG OUT</a>
+
+                    </div>
+                    </div>
             </ul>
         </div>
         <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -63,7 +66,7 @@ $row = mysqli_fetch_assoc($result)['username'];
     <script src="../javascript/dropdown.js"> </script>
     <section class="top">
         <div class="text-box">
-            <h1>Share to Us</h1>
+            <h1>Donate Us</h1>
             <h3>Dear AASTU online library partners</h3>
             <p>Right now, we need your help. As a project of the Internet Archive—a nonprofit internet library dedicated
                 to promoting
@@ -75,7 +78,7 @@ $row = mysqli_fetch_assoc($result)['username'];
                 what ever you
                 have.
             </p>
-            <a href="#donate_1" class="donate-button">I will Share</a>
+            <a href="#donate_1" class="donate-button">I will Donate</a>
         </div>
 
     </section>
@@ -86,11 +89,11 @@ $row = mysqli_fetch_assoc($result)['username'];
             <div class="form">
 
 
-                <h2 id="donate_1">To Share to us Please enter the below information</h2>
+                <h2 id="donate_1">To Donate us Please enter the below information</h2>
                 <br>
 
                 <div id="browse">
-                    &nbsp Enter the file to be Shared here:
+                    &nbsp Enter the file to be Donated here:
                     <input type="file" id="myfile1" name="myfile" accept=".pdf" required><br><br>
                 </div>
                 <?php
@@ -115,9 +118,7 @@ $row = mysqli_fetch_assoc($result)['username'];
                     <span class="checkmark"></span>
                 </label>
                 <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
-                <?php if($_SESSION['user_type'] != 'user'){ ?>
                 <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
-                <?php } ?>
                 Genre:
                 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
                 <!-- <div class="custom-select" style="width:95%;"> -->
@@ -229,7 +230,7 @@ $row = mysqli_fetch_assoc($result)['username'];
                 <div id="overlay" onclick="off()">
                     <div id="text">We Thank you very much for your book Donation</div>
                 </div>
-                <button type="submit" name="submit" class="btn_donate" onclick="on()">Share</button>
+                <button type="submit" name="submit" class="btn_donate" onclick="on()">Donate</button>
             </div>
         </form>
 
