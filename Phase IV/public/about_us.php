@@ -32,7 +32,7 @@ include_once('../inc/conn.php');
                 
                 ?>
 
-                <li><a href="upload.php">DONATE BOOK</a></li>
+                <li><a href="upload.php">SHARE</a></li>
                  <?php
                     $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
@@ -98,7 +98,7 @@ include_once('../inc/conn.php');
             </div>
             <div class="content">
                 <a href="upload.php">
-                    <h3>Donate US</h3>
+                    <h3>Share US</h3>
                     <br>
                 </a>
                 <a href="upload.php">
