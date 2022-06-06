@@ -176,6 +176,7 @@ if (isset($_SESSION['user_id'])) {
                         }
 
                         ?>
+                        
                         <form action="../inc/rating.php?resource_id=<?= $resource_id ?>" method="POST">
                             <div class="rating-container">
                                 <div class="star-container" style="margin-top: 15px;">
@@ -191,13 +192,130 @@ if (isset($_SESSION['user_id'])) {
                                         <input type="radio" name="rate" id="rate-1" value="1" <?php echo $rating_no == 1 ? 'checked' : '' ?>>
                                         <label for="rate-1" class="fa fa-star"></label>
                                     </div>
-                                </div>
-
+                                </div>                          
                                 <input type="submit" name="rate-btn" class="rate-btn" value="Rate">
                             </div>
+              <!-- rating progress -->
+                         
+                            <div class="container-fluid px-1 py-5 mx-auto">
+
+                    <div class="col-md-8">
+						<div class="rating-bar0 justify-content-center">
+							<table class="text-left mx-auto">
+								<tr>
+									<td class="rating-label">5 - Excellent</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-5"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-5">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">4 - Good</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-4"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-4">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">3 - Average</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-3"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-3">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">2 - Poor</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-2"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-2">0</span>)</td>
+								</tr>
+								<tr>
+									<td class="rating-label">1 - Terrible</td>
+									<td class="rating-bar">
+										<div class="bar-container">
+									      <div class="bar-1"></div>
+									    </div>
+									</td>
+									<td class="text-right">(<span class="count-rate-1">0</span>)</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    <style>
+    .rating-label {
+	font-weight: bold;
+}
+
+/* Rating bar width */
+.rating-bar {
+	width: 300px;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+/* Individual bars */
+.bar-5 {
+	width: 70%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
+
+}
+.bar-4 {
+	width: 30%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
+
+}
+.bar-3 {
+	width: 20%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
+
+}
+.bar-2 {
+	width: 10%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
+
+}
+.bar-1 {
+	width: 0%;
+	height: 13px;
+	background-color: #FBC02D; 
+	border-radius: 20px;
+
+}
+    </style>
 
                         </form>
-
+<!-- rating progress end -->
 
                         <div class="buttons">
                             <form method="POST">
@@ -286,6 +404,7 @@ if (isset($_SESSION['user_id'])) {
                             <button type="button" id="cancelCommBtn" class="comment-btn cancel-btn">Cancel</button>
                         </div>
                     </div>
+                    <script src="../javascript/jquery-3.6.0.min.js"></script>
                     <script src="../javascript/book_desc.js"></script>
                     <script src="../javascript/dropdown.js"></script>
                     <script src="../javascript/book_list.js"></script>
