@@ -93,12 +93,7 @@ if (isset($_SESSION['user_id'])) {
                             <li><a href="upload.php">DONATE BOOK</a></li>
                             <?php
 
-
-                    if($_SESSION['user_type'] == 'user'){
                         $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
-                    }else{
-                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
-                    }
 
                     $result = mysqli_query($conn, $qu);
                     $username = mysqli_fetch_assoc($result)['username'];
@@ -124,6 +119,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="main">
                     <div class="book">
+                        <div class="flex-book">
                         <div class="cover-container">
                             <img src="../uploads/resource_covers/<?= !empty($row['resource_cover']) ? $row['resource_cover'] : "no_cover.jpg" ?>" alt="
                     <?= strtolower(str_replace(' ', '_', $row['resource_title'])) ?>_cover">
@@ -132,6 +128,7 @@ if (isset($_SESSION['user_id'])) {
                             <h1 class="book_title "><?= $row['resource_title'] ?></h1>
                             <p class=" book_desc "><?= $row['resource_desc'] ?></p>
                         </div>
+                    </div>
 
 
                         <h3 class="book_author">Author: <span style="font-weight: normal;"><?= $row['resource_author'] ?></span></h3>
@@ -384,13 +381,13 @@ if (isset($_SESSION['user_id'])) {
                         </div>
                         <button id="addCommentBtn" onclick="commentPopup()">Add Comment</button>
                     </div>
-                    <div class="other related-container">
+                    <!-- <div class="other related-container">
                         <h2>Related books</h2>
                         <hr>
                         <div class="book-container related-books">
                             jj
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <form action="comment.inc.php" method="POST">
