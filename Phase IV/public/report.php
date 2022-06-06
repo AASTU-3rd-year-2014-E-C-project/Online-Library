@@ -79,9 +79,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                     <?php } ?>
                 </tbody>
             </table>
-            <form method="POST">
-                <input type="submit" name="export_report" value="EXPORT" class="export-btn">
-            </form>
+
             <div class="admins_report">
                 <h1>Admin Report</h1>
                 <table>
@@ -221,6 +219,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
                 <div id='re_graph'><?php include "graph.php"; ?></div><br>
                 <div id='ra_pie'><?php include "piechart_rating.php"; ?></div><br>
                 <div id='d_graph'><?php include "graphd.php"; ?></div><br>
+
+                <form method="POST">
+                    <input type="submit" name="export_report" value="EXPORT" class="export-btn">
+                </form>
             </div>
 
 
