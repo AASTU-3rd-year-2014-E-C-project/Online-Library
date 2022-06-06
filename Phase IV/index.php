@@ -53,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
             of fantastic programmers <br> who have accomplished a lot, but we can't do it alone!</p>
           <br>
 
-          <button id="cn" class="signup" onclick="showPopUp()">LOG IN</button>
+          <button id="cn" class="signup" style="color: white;" onclick="showPopUp()">LOG IN</button>
         </div>
       </div>
       <div class="pop" id="popup">
