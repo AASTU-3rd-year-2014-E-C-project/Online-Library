@@ -34,13 +34,7 @@ include_once('../inc/conn.php');
 
                 <li><a href="upload.php">DONATE BOOK</a></li>
                  <?php
-
-
-                    if($_SESSION['user_type'] == 'user'){
-                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
-                    }else{
-                        $qu = "SELECT username FROM admin WHERE admin_id={$_SESSION['user_id']}";
-                    }
+                    $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
                     $result = mysqli_query($conn, $qu);
                     $row = mysqli_fetch_assoc($result)['username'];
