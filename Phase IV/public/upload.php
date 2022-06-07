@@ -30,31 +30,31 @@ include_once("../inc/conn.php");
         <div class="menu">
             <ul>
                 <li> <a href="../index.php">HOME</a></li>
-               
+
                 <li><a href="about_us.php">ABOUT US</a></li>
                 <?php
 
-$qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
+                $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
-                        $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
+                $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
-?>
-<div class="dropdown">
-    <li class="dropbtn"><?= mysqli_fetch_assoc(mysqli_query($conn, $qu))['username'] ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
-    <div class="dropdown-content">
-        <?php
-        if ($_SESSION['user_type'] == 'admin') {
-        ?>
-            <a href="report.php">REPORT PAGE</a>
-        <?php
-        } else {
-        ?>
-        <a href="profile.php">PROFILE</a>
-        <?php } ?>
-        <a href="../inc/logout.php">LOG OUT</a>
+                ?>
+                <div class="dropdown">
+                    <li class="dropbtn"><?= mysqli_fetch_assoc(mysqli_query($conn, $qu))['username'] ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+                    <div class="dropdown-content">
+                        <?php
+                        if ($_SESSION['user_type'] == 'admin') {
+                        ?>
+                            <a href="report.php">REPORT PAGE</a>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="profile.php">PROFILE</a>
+                        <?php } ?>
+                        <a href="../inc/logout.php">LOG OUT</a>
 
-    </div>
-</div>
+                    </div>
+                </div>
             </ul>
         </div>
         <i class="fas fa-bars" id="menu-dropdown-btn"></i>
@@ -114,8 +114,8 @@ $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
                     <span class="checkmark"></span>
                 </label>
                 <input type="text" name="Title" id="donateTitle" placeholder="Title" required><br><br>
-                <?php if($_SESSION['user_type'] != 'user'){ ?>
-                <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
+                <?php if ($_SESSION['user_type'] != 'user') { ?>
+                    <input type="text" name="Author" id="donateAuthor" placeholder="Author" required><br><br>
                 <?php } ?>
                 Genre:
                 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
