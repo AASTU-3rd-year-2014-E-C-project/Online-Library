@@ -203,7 +203,7 @@ if (isset($_SESSION['user_id'])) {
 									<td class="rating-label">5 - Excellent</td>
 									<td class="rating-bar">
 										<div class="bar-container">
-									      <div class="bar-5"></div>
+									      <div class="bar-5" style="width: 0%";"></div>
 									    </div>
 									</td>
 									<td class="text-right">(<span class="count-rate-5">0</span>)</td>
@@ -212,7 +212,7 @@ if (isset($_SESSION['user_id'])) {
 									<td class="rating-label">4 - Good</td>
 									<td class="rating-bar">
 										<div class="bar-container">
-									      <div class="bar-4"></div>
+									      <div class="bar-4" style="width: 0%";"></div>
 									    </div>
 									</td>
 									<td class="text-right">(<span class="count-rate-4">0</span>)</td>
@@ -221,7 +221,7 @@ if (isset($_SESSION['user_id'])) {
 									<td class="rating-label">3 - Average</td>
 									<td class="rating-bar">
 										<div class="bar-container">
-									      <div class="bar-3"></div>
+									      <div class="bar-3" style="width: 0%";"></div>
 									    </div>
 									</td>
 									<td class="text-right">(<span class="count-rate-3">0</span>)</td>
@@ -230,7 +230,7 @@ if (isset($_SESSION['user_id'])) {
 									<td class="rating-label">2 - Poor</td>
 									<td class="rating-bar">
 										<div class="bar-container">
-									      <div class="bar-2"></div>
+									      <div class="bar-2" style="width: 0%";"></div>
 									    </div>
 									</td>
 									<td class="text-right">(<span class="count-rate-2">0</span>)</td>
@@ -239,7 +239,7 @@ if (isset($_SESSION['user_id'])) {
 									<td class="rating-label">1 - Terrible</td>
 									<td class="rating-bar">
 										<div class="bar-container">
-									      <div class="bar-1"></div>
+									      <div class="bar-1" style="width: 0%";"></div>
 									    </div>
 									</td>
 									<td class="text-right">(<span class="count-rate-1">0</span>)</td>
