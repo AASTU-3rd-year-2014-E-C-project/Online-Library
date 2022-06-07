@@ -40,7 +40,7 @@ $qu = "SELECT username FROM user WHERE user_id={$_SESSION['user_id']}";
 
 ?>
 <div class="dropdown">
-    <li class="dropbtn"><?= $row ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
+    <li class="dropbtn"><?= mysqli_fetch_assoc(mysqli_query($conn, $qu))['username'] ?> <i class="fas fa-caret-down" style="margin-left: 10px; font-size: 20px;"></i></li>
     <div class="dropdown-content">
         <?php
         if ($_SESSION['user_type'] == 'admin') {
