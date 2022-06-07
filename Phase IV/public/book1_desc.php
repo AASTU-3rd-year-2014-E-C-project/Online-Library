@@ -83,7 +83,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="darkify">
                 <div class="header">
                     <div class="logo">
-                        <a href="../index.php"> My Library</a>
+                        <a href="../index.php"> AASTU Digital Library</a>
                     </div>
 
                     <div class="menu">
