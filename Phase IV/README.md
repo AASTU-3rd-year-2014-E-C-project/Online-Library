@@ -60,5 +60,7 @@ Namus Shukra    ->  ETS0500/12  ->  report page
 ### Dependancies
 
 **Bootstrap 4 (offline)
+
 **Fontawesome (offline)
+
 **Piechart (needs internet connection)
