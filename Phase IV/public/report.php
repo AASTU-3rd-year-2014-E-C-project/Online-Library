@@ -27,22 +27,22 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="stylesheet" href="../css/report_style.css">
     <link rel="icon" type="image/png" href="../image/index.png">
     <title>
       AASTU Digital Library Stats
     </title>
     <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/page_structure_style.css">
     <link href="../css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -
-  <link href="../assets/demo/demo.css" rel="stylesheet" />-->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
 
   <body class="">
     <div class="wrapper">
       <div class="main-panel" id="main-background-panel">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-absolute" id="nav-id">
+        <!-- <nav class="navbar navbar-expand-lg navbar-absolute" id="nav-id">
           <div class="container-fluid">
             <div class="navbar-wrapper">
               <div class="navbar-toggle d-inline">
@@ -103,7 +103,20 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav> -->
+        <div class="header">
+            <div class="logo">
+                <a href="../index.php"> AASTU Digital Library</a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="book_list.php">BOOK LIST</a></li>
+                    <li><a href="upload.php">ADD BOOK</a></li>
+                    <li><a href="../inc/logout.php">LOG OUT</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" id="menu-dropdown-btn"></i>
+        </div>
         <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -204,73 +217,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'admin') {
             </div>
           </div>
           <div class="row">
-            <div class="users_report">
-              <h1>Users Report</h1>
-              <table>
-                <thead>
-                  <th>Username</th>
-                  <th>Downloaded</th>
-                  <th>Read</th>
-                  <th>Uploaded</th>
-                </thead>
-                <tbody>
-                  <?php
-
-                  $report_array = array(array('Username', 'Downloaded', 'Read', 'Uploaded'));
-
-                  $query = "SELECT user_id, username FROM $table_name1";
-
-                  $user_result = mysqli_query($conn, $query);
-
-                  while ($row = mysqli_fetch_assoc($user_result)) {
-
-                    $current_user_id = $row['user_id'];
-
-                    $downloaded = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM download_record WHERE user_id=$current_user_id"));
-
-                    $read = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM read_record WHERE user_id=$current_user_id"));
-
-                    $uploaded = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) FROM donate_record WHERE user_id=$current_user_id"));
-
-                    array_push($report_array, [$row['username'], $downloaded['COUNT(*)'], $read['COUNT(*)'], $uploaded['COUNT(*)']]);
-
-                  ?>
-                    <tr>
-                      <td><?php echo $row['username'] ?></td>
-                      <td><?php echo $downloaded['COUNT(*)'] ?></td>
-                      <td><?php echo $read['COUNT(*)'] ?></td>
-                      <td><?php echo $uploaded['COUNT(*)'] ?></td>
-                    </tr>
-
-                  <?php } ?>
-                </tbody>
-              </table>
-              <form method="POST">
-                <input type="button" id="export-btn" name="export_report" value="EXPORT" class="export-btn">
-              </form>
-              <?php
-
-              if (isset($_POST['export_report'])) {
-                header('Content-Type: application/csv; charset=UTF-8');
-                header('Content-Disposition: attachment; filename="website_report.csv";');
-
-                // clean output buffer
-                ob_end_clean();
-
-                $handle = fopen('php://output', 'w');
-
-                foreach ($report_array as $value) {
-                  fputcsv($handle, $value);
-                }
-
-                fclose($handle);
-
-                // use exit to get rid of unexpected output afterward
-                exit();
-              }
-
-              ?>
-            </div>
+            <?php include "piechart.php" ?>
           </div>
         </div>
       </div>
