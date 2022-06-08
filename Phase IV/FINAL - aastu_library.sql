@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 10:13 PM
+-- Generation Time: Jun 08, 2022 at 09:04 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -73,7 +73,8 @@ CREATE TABLE `donate_record` (
 --
 
 INSERT INTO `donate_record` (`record_id`, `donate_date`, `user_id`, `resource_id`) VALUES
-(14, '2022-06-06 20:59:01', 1, 45);
+(14, '2022-06-06 20:59:01', 1, 45),
+(15, '2022-06-08 21:24:50', 15, 50);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,12 @@ CREATE TABLE `download_record` (
 
 INSERT INTO `download_record` (`download_record_id`, `date_downloaded`, `resource_id`, `user_id`) VALUES
 (6, '2022-06-06 19:53:05', 14, 1),
-(7, '2022-06-06 19:53:08', 14, 1);
+(7, '2022-06-06 19:53:08', 14, 1),
+(8, '2022-06-08 19:30:38', 14, 1),
+(9, '2022-06-08 19:30:50', 14, 1),
+(10, '2022-06-08 19:30:53', 14, 1),
+(11, '2022-06-08 21:21:57', 14, 5),
+(12, '2022-06-08 21:26:34', 50, 15);
 
 -- --------------------------------------------------------
 
@@ -114,15 +120,18 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`rating_id`, `rating`, `user_id`, `resource_id`) VALUES
-(1, 1, 1, 12),
+(1, 5, 1, 12),
 (2, 3, 3, 12),
-(3, 5, 1, 14),
+(3, 4, 1, 14),
 (4, 3, 1, 36),
 (5, 4, 1, 5),
 (6, 4, 1, 37),
 (7, 4, 10, 14),
 (8, 4, 1, 4),
-(9, 4, 1, 44);
+(9, 4, 1, 44),
+(10, 4, 5, 12),
+(11, 5, 5, 14),
+(12, 5, 15, 50);
 
 -- --------------------------------------------------------
 
@@ -208,7 +217,25 @@ INSERT INTO `read_record` (`read_record_id`, `date_read`, `resource_id`, `user_i
 (71, '2022-06-06 19:51:02', 14, 1),
 (72, '2022-06-06 19:51:35', 14, 1),
 (73, '2022-06-06 20:23:35', 38, 1),
-(74, '2022-06-06 20:50:20', 44, 1);
+(74, '2022-06-06 20:50:20', 44, 1),
+(75, '2022-06-07 20:14:27', 12, 1),
+(76, '2022-06-07 20:14:33', 12, 1),
+(77, '2022-06-07 20:14:34', 12, 1),
+(78, '2022-06-07 21:05:29', 12, 1),
+(79, '2022-06-08 19:14:29', 12, 1),
+(80, '2022-06-08 19:14:40', 14, 1),
+(81, '2022-06-08 21:21:06', 2, 5),
+(82, '2022-06-08 21:21:42', 14, 5),
+(83, '2022-06-08 21:26:26', 50, 15),
+(84, '2022-06-08 21:32:48', 4, 1),
+(85, '2022-06-08 21:37:13', 4, 1),
+(86, '2022-06-08 21:40:54', 4, 1),
+(87, '2022-06-08 21:40:56', 4, 1),
+(88, '2022-06-08 21:41:19', 4, 1),
+(89, '2022-06-08 21:41:48', 4, 1),
+(90, '2022-06-08 21:47:25', 12, 1),
+(91, '2022-06-08 21:51:54', 12, 1),
+(92, '2022-06-08 22:00:10', 43, 1);
 
 -- --------------------------------------------------------
 
@@ -221,7 +248,7 @@ CREATE TABLE `resource` (
   `resource_type` varchar(15) NOT NULL,
   `resource_title` varchar(60) NOT NULL,
   `resource_author` varchar(30) NOT NULL,
-  `resource_desc` varchar(300) NOT NULL,
+  `resource_desc` longtext NOT NULL,
   `resource_cover` varchar(60) NOT NULL,
   `resource_file` varchar(60) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -232,38 +259,27 @@ CREATE TABLE `resource` (
 --
 
 INSERT INTO `resource` (`resource_id`, `resource_type`, `resource_title`, `resource_author`, `resource_desc`, `resource_cover`, `resource_file`, `user_id`) VALUES
-(2, 'Assignment', 'Harry Potter', 'J.K. Rowling', 'this is the book\'s description', 'cover.jpg', '', 1),
-(4, 'Assignment', 'The Client', 'John Grisham', 'this is the description.', 'the_client.jpg', '', 1),
-(5, 'Book', 'My Title', 'Nahom Habtamu', 'My Description', '', '62781ba2a62a89.52888877.pdf', 1),
-(12, 'Book', 'fsad', 'sdaf', 'asdfdsa', '62782151927981.26080913.jpg', '62782151904383.71371888.pdf', 1),
+(2, 'Book', 'Harry Potter and The Sorcerer\'s Stone', 'J.K. Rowling', 'Harry Potter has never been the star of a Quidditch team, scoring points while riding a broom far above the ground. He knows no spells, has never helped to hatch a dragon, and has never worn a cloak of invisibility. All he knows is a miserable life with the Dursleys, his horrible aunt and uncle, and their abominable son, Dudley-a great big swollen spoiled bully. Harry\'s room is a tiny closet at the foot of the stairs, and he hasn\'t had a birthday party in eleven years. But all that is about to change when a mysterious letter arrives by owl messenger: a letter with an invitation to an incredible place that Harry-and anyone who reads about him-will find unforgettable. For it\'s there that he finds not only friends, aerial sports, and magic in everything from classes to meals, but a great destiny that\'s been waiting for him... if Harry can survive the encounter.', 'cover.jpg', 'harry-potter-sorcerer-stone.pdf', 1),
+(4, 'Book', 'The Client', 'John Grisham', 'An eleven-year-old has discovered a secret that not even an adult should know. A US State Senator is dead, and Mark Sway is the only one who knows where the body is hidden. The FBI want him to tell them where it is at whatever cost to Mark and his family. The killer wants him silenced forever. Reggie Love has been practising law for less than five years. Only she can save Mark from these twin threats. Together, they must take on the might of the State and the wiles of a cold-blooded killer.', 'the_client.jpg', 'the-client-john-grisham.pdf', 1),
+(5, 'Book', 'My Test', 'Nahom Habtamu', 'My Description', '', '62781ba2a62a89.52888877.pdf', 1),
+(12, 'Book', 'Requirements Engineering for Software and Systems', 'Phillip A. Laplante', 'Solid requirements engineering has increasingly been recognized as the key to improved, on-time, and on-budget delivery of software and systems projects. This textbook provides a comprehensive treatment of the theoretical and practical aspects of discovering, analyzing, modeling, validating, testing, and writing requirements for systems of all kinds, with an intentional focus on software-intensive systems. It brings into play a variety of formal methods, social models, and modern requirements for writing techniques to be useful to the practicing engineer.', 'req-eng-cover.jpg', 'req-eng-book-resource.pdf', 1),
 (13, 'Assignment', 'SRE Phase I', 'Nahom Habtamu', 'this is SRE phase I assignment', '6278225f008521.76565102.jpg', '6278225f005fd5.97197232.pdf', 1),
 (14, 'Book', 'PHP: Learn PHP in One Day', 'Jamie Chan', 'Learn PHP Fast and Learn It Well. Master PHP Programming with a unique Hands-On Project New Book by Best Selling Author Jamie Chan. Book 6 of the Learn Coding Fast Series.  Do you want to learn PHP fast but are overwhelmed by all the information you find online? Or perhaps you have completed numerou', '627836b7355684.07623968.jpg', '627836b7352e37.06056031.pdf', 1),
 (15, 'Assignment', 'SRE Phase I', 'Nahom', 'this is SRE phase I assignment', '62783a58699897.22805597.jpg', '62783a58696390.73583105.pdf', 1),
 (19, 'Test and Quiz', 'fds', 'fds', 'dsf', '', '6282bbfe969725.40108911.pdf', 1),
-(21, 'Research', 'sdfds', 'sdf', 'dsaf', '', '', 1),
 (22, 'Research', 'sdfds', 'sdf', 'dsaf', '', '62834155383722.56455617.pdf', 1),
-(23, 'Research', 'sdfds', 'sdf', 'dsaf', '', '628341c4080963.49610190.pdf', 1),
-(24, 'Research', 'sdfds', 'sdf', 'dsaf', '', '628341ef167489.36152558.pdf', 1),
-(25, 'Research', 'sdfds', 'sdf', 'dsaf', '', '6283420b3f2d99.70057517.pdf', 1),
-(26, 'Research', 'sdfds', 'sdf', 'dsaf', '628342193e9a54.95797933.jpg', '628342193e5643.98436004.pdf', 1),
-(27, 'Research', 'sdfds', 'sdf', 'dsaf', '6283427369a252.93996650.jpg', '62834273696046.52318042.pdf', 1),
-(28, 'Research', 'sdfds', 'sdf', 'dsaf', '628342be381475.57399515.jpg', '628342be37c013.16910574.pdf', 1),
-(29, 'Research', 'sdfds', 'sdf', 'dsaf', '62834304159640.27072802.jpg', '62834304145825.42458050.pdf', 1),
 (35, 'Test and Quiz', 'sdf', 'sdf', 'My Description', '62834695d31ae8.24236180.jpg', '62834695d2f102.51230121.pdf', 1),
 (36, 'Test and Quiz', 'Civil Engineering Book', 'Nahom Hailu (Babi)', 'This is civil engineering book.', '628620ea6cf589.14289003.jpg', '628620ea6cb3a0.68309031.pdf', 1),
 (37, 'Test and Quiz', 'kjhj', 'klhkln', 'lkjli', '628c7878450946.67315253.png', '628c78784495b7.95200861.pdf', 1),
 (38, 'Test and Quiz', 'Final Test Schedule', 'ETS0505/12', 'this is SRE phase I assignment.', '629e37ee99e263.23901956.png', '629e37ee99a0f3.53970250.pdf', 1),
-(39, 'Test and Quiz', 'Title', 'ETS0505/12', 'this is SRE phase I assignment.', '629e3b11d207e5.54151640.png', '629e3b11d03359.34156165.pdf', 1),
 (40, 'Test and Quiz', 'Resource Title', 'ETS0505/12', 'My Description.', '629e3bd01d6e61.42263465.png', '629e3bd01bb252.04369283.pdf', 1),
-(41, 'Test and Quiz', 'Resource Title', 'ETS0505/12', 'My Description.', '629e3c20343f18.20112965.png', '629e3c20302090.35429735.pdf', 1),
 (42, 'Test and Quiz', 'Resource Title', 'ETS0505/12', 'My Description.', '629e3d59414ac8.44739966.png', '629e3d593d8001.90050653.pdf', 1),
 (43, 'Test and Quiz', 'Resource Title', 'ETS0505/12', 'My Description.', '629e3d7ed22964.30930092.png', '629e3d7ed0fbe8.86769132.pdf', 1),
 (44, 'Test and Quiz', 'hellloooooo, can you hear me, iw as', 'ETS0505/12', 'this is SRE phase I assignment', '629e3e46dee7d1.26022150.png', '629e3e46ddbdb5.71595180.pdf', 1),
 (45, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e3f443b0ec4.66541936.png', '629e3f44386607.45727747.pdf', 1),
-(46, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e400d49fcf6.13848384.png', '629e400d477803.39640005.pdf', 1),
-(47, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e402778c972.02822992.png', '629e402777d123.28125557.pdf', 1),
 (48, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e403746ec12.34147098.png', '629e403745c906.65839518.pdf', 1),
-(49, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e40655d0f97.46731446.png', '629e40655caf42.45951459.pdf', 1);
+(49, 'Test and Quiz', 'ukyfyj', 'ETS0505/12', 'this is SRE phase I assignment.', '629e40655d0f97.46731446.png', '629e40655caf42.45951459.pdf', 1),
+(50, 'Assignment', 'Frameworks Presentation', 'mahletAnbessie', 'This is 3rd year IP group assignment - prepare a presentation on Frameworks.', '', '62a0e972a17829.72693467.pdf', 15);
 
 -- --------------------------------------------------------
 
@@ -352,7 +368,8 @@ INSERT INTO `user` (`user_id`, `user_type`, `first_name`, `last_name`, `gender`,
 (4, 'user', 'Nahom', 'Getachew', 'M', 'nahomgetachew', 'NA606496', 'nahigetachew@gmail.com', '0941606496'),
 (5, 'admin', 'Nahom', 'Habtamu', 'M', 'NahomHabtamu@admin', '$2y$10$rGSvnsfzqL1sx5xaiVKWcOcl8iC/xnCEzGF0epbGfEb2GWd3ldLWW', 'nhabtamu42@gmail.com', '0939656144'),
 (9, 'user', 'Jack', 'Bauer', 'M', 'Jack24', '$2y$10$3jRXa1qAI1so0B330kwDF.cLH8Q1gCfnZhubSbcAKSZWhuIYQna3.', '24@gmail.com', '0911111111'),
-(10, 'user', 'Ethan', 'Hunt', 'M', 'IMF', '$2y$10$/hMeNsU2w2KGM9n3e08UQetpr5hBuxTlE3PQ5obVaj4lx5m20mhsG', 'missionimpossible@gmail.com', '0911111111');
+(10, 'user', 'Ethan', 'Hunt', 'M', 'IMF', '$2y$10$/hMeNsU2w2KGM9n3e08UQetpr5hBuxTlE3PQ5obVaj4lx5m20mhsG', 'missionimpossible@gmail.com', '0911111111'),
+(15, 'user', 'Mahlet', 'Anbessie', 'F', 'mahletAnbessie', '$2y$10$Nqs0z3cl.i/fvHOFZPml0OYT8H0aj0etH3vbe3s/nFizgeoAZEWsm', 'test@gmail.com', '0900111111');
 
 --
 -- Indexes for dumped tables
@@ -438,31 +455,31 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `donate_record`
 --
 ALTER TABLE `donate_record`
-  MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `download_record`
 --
 ALTER TABLE `download_record`
-  MODIFY `download_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `download_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `read_record`
 --
 ALTER TABLE `read_record`
-  MODIFY `read_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `read_record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `resource_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `resource_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tag`
@@ -474,7 +491,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
