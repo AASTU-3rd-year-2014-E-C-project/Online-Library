@@ -7,7 +7,6 @@ The project is worked in a team.
 
 we created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
 
-## The Exported final Database file name is 'aastu_library (2).sql' on root folder(phase IV)
 # Sample Data
 
 ## user Data               
