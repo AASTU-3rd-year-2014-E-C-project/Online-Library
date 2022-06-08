@@ -40,7 +40,7 @@ We created and export a My SQL query and this query have a sample data to log in
 4. Our index.php (landing page) is found in folder called "Phase IV"
 
 
-## Group Members  ->   Id    ->        contribution
+## Group Members  ->   Id    ->      Responsibilities
 Nahom Getachew  ->  ETS0500/12   -> upload page 
 
 Nahom Habtamu  ->   ETS0500/12  ->  book_list page and book_description
