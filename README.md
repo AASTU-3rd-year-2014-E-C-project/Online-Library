@@ -15,7 +15,7 @@ We created and export a My SQL query and this query have a sample data to log in
 
 **password:->123456789**   
 
-**unique privilages:-> profile page
+**unique privilages:-> profile page**
 
 ##  Admin Data
 
@@ -23,12 +23,12 @@ We created and export a My SQL query and this query have a sample data to log in
 
 **password: 123456789**
 
-**unique privilages:-> report page, adding copyrighted books
+**unique privilages:-> report page, adding copyrighted books**
 
 ## Database info
-**database name: aastu_library
+**database name: aastu_library**
 
-**tables found: comment, donate_record, download_record, rating, read_record, resource, resource_tag, tag, user
+**tables found: comment, donate_record, download_record, rating, read_record, resource, resource_tag, tag, user**
 
 ## Project setup procedure
 1. Create database called "aastu_library"
@@ -63,8 +63,8 @@ Namus Shukra    ->  ETS0500/12  ->  report page
 
 ### Dependancies
 
-**Bootstrap 4 (offline)
+**Bootstrap 4 (offline)**
 
-**Fontawesome (offline)
+**Fontawesome (offline)**
 
-**Piechart (needs internet connection)
+**Piechart (needs internet connection)**
