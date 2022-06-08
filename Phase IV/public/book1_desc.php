@@ -8,6 +8,7 @@ if (array_key_exists('read-online-btn', $_POST)) {
 }
 
 if (array_key_exists('download-btn', $_POST)) {
+    mysqli_query($conn, "INSERT INTO download_record (date_downloaded, resource_id, user_id) VALUES (now(), '{$_GET['resource_id']}', '{$_SESSION['user_id']}')");
     $q = "SELECT resource_file FROM resource WHERE resource_id={$_GET['resource_id']}";
     $res = mysqli_query($conn, $q);
     $row = mysqli_fetch_assoc($res)['resource_file'];
