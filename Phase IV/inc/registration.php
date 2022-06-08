@@ -1,6 +1,7 @@
 <?php
 
 include_once("conn.php");
+session_start();
 
 // user registration input
 $fName = $_POST['fname'];
@@ -29,28 +30,17 @@ while ($row = mysqli_fetch_assoc($r)) {
 }
 
 $gender = $_POST['radSize'];
-
-
-// if (isset($_POST['submit'])) {
-
-//     $query = "INSERT INTO $table_name(first_name, last_name, gender, username, password, email, phone, profile_pic) VALUES ('$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone', 'NULL')";
-
-//     mysqli_query($conn, $query);
-// } else {
-//     echo "submission Error";
-// }
-
-// header("Location: ../index.php");
-
-
-
 $phone = $_POST['phone'];
 $password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
 
 $query = "INSERT INTO user (user_type, first_name, last_name, gender, username, password, email, phone) VALUES ('user', '$fName', '$lName', '$gender', '$username', '$password', '$email', '$phone')";
 
-if (true) {
+if ($validEmail && $validUsername) {
     mysqli_query($conn, $query);
+    $user_id = mysqli_fetch_assoc(mysqli_query($conn, "SELECT user_id FROM user WHERE user_type = 'user' AND username = '$username'"))['user_id'];
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_type'] = 'user';
+    header('Location: public/book_list.php');
     header("location: ../index.php");
 } else
     header("location: ../index.php?error=invalid_signup");
