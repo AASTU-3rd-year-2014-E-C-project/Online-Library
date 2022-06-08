@@ -1,11 +1,11 @@
 # **AASTU Digital Library**
 
-This is web library for aastu university students.
+This is web library for AASTU University students.
 we think this site makes easy access of subject materials also assignments tests.
 The project is worked in a team.
-### The first page to open is index page.
+### The first page to open is index.php found in "./Phase IV/index.php".
 
-we created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
+We created and export a My SQL query and this query have a sample data to log in as user and as an admin. especialy for the admin there is no way to sign up so this sample data is impotant.
 
 # Sample Data
 
@@ -15,7 +15,7 @@ we created and export a My SQL query and this query have a sample data to log in
 
 **password:->123456789**   
 
-**unique privilages:-> profile page
+**unique privilages:-> profile page**
 
 ##  Admin Data
 
@@ -23,19 +23,24 @@ we created and export a My SQL query and this query have a sample data to log in
 
 **password: 123456789**
 
-**unique privilages:-> report page, adding copyrighted books
+**unique privilages:-> report page, adding copyrighted books**
+
+## Database info
+**database name: aastu_library**
+
+**tables found: comment, donate_record, download_record, rating, read_record, resource, resource_tag, tag, user**
 
 ## Project setup procedure
 1. Create database called "aastu_library"
 
-2. Import tables from "FINAL - aastu_library.sql"
+2. Import tables from "FINAL - aastu_library.sql" found in root of repository
 
 3. Start XAMPP server
 
 4. Our index.php (landing page) is found in folder called "Phase IV"
 
 
-## Group Members  ->   Id    ->        contribution
+## Group Members  ->   Id    ->      Responsibilities
 Nahom Getachew  ->  ETS0500/12   -> upload page 
 
 Nahom Habtamu  ->   ETS0500/12  ->  book_list page and book_description
@@ -58,8 +63,8 @@ Namus Shukra    ->  ETS0500/12  ->  report page
 
 ### Dependancies
 
-**Bootstrap 4 (offline)
+**Bootstrap 4 (offline)**
 
-**Fontawesome (offline)
+**Fontawesome (offline)**
 
-**Piechart (needs internet connection)
+**Piechart (needs internet connection)**
