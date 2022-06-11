@@ -3,11 +3,12 @@ include_once("../inc/conn.php");
 // Connection Created Successfully
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\OAuth;
+use League\OAuth2\Client\Provider\Google;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+
+require_once 'vendor/autoload.php';
 
 session_start();
 
@@ -57,41 +58,58 @@ if (isset($_POST['forgot_password'])) {
             $_SESSION['code'] = $code;
             if (isset($_SESSION['code'])) {
                 $subject = 'Email Verification Code';
-                $message = "Our verification code is $code";
-                $sender = 'From: aastulibraryproject@gmail.com';
+                $message = "<h3>Your verification code is <strong>$code</strong></h3>";
+                $sender = 'From: AASTU Digital Library';
 
                 if (1) {
 
-                    $mail = new PHPMailer(true);
-
-                    //Enable SMTP debugging.
-                    $mail->SMTPDebug = false;
-                    //Set PHPMailer to use SMTP.
+                    $mail = new PHPMailer();
                     $mail->isSMTP();
-                    //Set SMTP host name                          
-                    $mail->Host = "smtp.gmail.com";
-                    //Set this to true if SMTP host requires authentication to send email
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->Port = 465;
+
+                    //Set the encryption mechanism to use:
+                    // - SMTPS (implicit TLS on port 465) or
+                    // - STARTTLS (explicit TLS on port 587)
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+
                     $mail->SMTPAuth = true;
-                    //Provide username and password     
-                    $mail->Username = "aastulibraryproject@gmail.com";
-                    $mail->Password = "1234Abcd";
-                    //If SMTP requires TLS encryption then set it
-                    $mail->SMTPSecure = "tls";
-                    //Set TCP port to connect to
-                    $mail->Port = 587;
+                    $mail->AuthType = 'XOAUTH2';
 
-                    $mail->From = "aastulibraryproject@gmail.com";
-                    $mail->FromName = $sender;
+                    $email = 'aastulibraryproject@gmail.com'; // the email used to register google app
+                    $clientId = '46045524555-vn630te1l9ik5snnvakecmt6s447rvkf.apps.googleusercontent.com';
+                    $clientSecret = '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';
+                    $refreshToken = '1//03wX6wUllkIZNCgYIARAAGAMSNwF-L9IroXCr3SyqSaZOnk12Dtq8X0acVyxKuN1z3QgeGWXLfA2tgCGY09IeNdbHLYyimEaNteU';
 
-                    $mail->addAddress($email, "Recepient Name");
+                    //Create a new OAuth2 provider instance
+                    $provider = new Google(
+                        [
+                            'clientId' => $clientId,
+                            'clientSecret' => $clientSecret,
+                        ]
+                    );
 
+                    //Pass the OAuth provider instance to PHPMailer
+                    $mail->setOAuth(
+                        new OAuth(
+                            [
+                                'provider' => $provider,
+                                'clientId' => $clientId,
+                                'clientSecret' => $clientSecret,
+                                'refreshToken' => $refreshToken,
+                                'userName' => $email,
+                            ]
+                        )
+                    );
+
+                    $mail->setFrom($email, $sender);
+                    $mail->addAddress('nhabtamu42@gmail.com', 'AASTU Digital Library User');
                     $mail->isHTML(true);
-
                     $mail->Subject = $subject;
                     $mail->Body = $message;
-                    $mail->AltBody = "This is the plain text version of the email content";
 
                     $mail->send();
+
                     header("Location: verifyEmail.php");
                 } else {
                     $errors['otp_errors'] = 'Failed while sending code!';
@@ -108,11 +126,11 @@ if (isset($_POST['forgot_password'])) {
 }
 if (isset($_POST['verifyEmail'])) {
     $_SESSION['message'] = "";
-        if ($_SESSION['code'] == $_POST['OTPverify']) {
-            header("location: newPassword.php");
-        } else {
-            $errors['verification_error'] = "Invalid Verification Code";
-        }
+    if ($_SESSION['code'] == $_POST['OTPverify']) {
+        header("location: newPassword.php");
+    } else {
+        $errors['verification_error'] = "Invalid Verification Code";
+    }
 }
 
 // change Password
@@ -133,7 +151,7 @@ if (isset($_POST['changePassword'])) {
             session_unset($email);
             session_unset($_SESSION['code']);
             session_destroy();
-            header('location: ../index.php');  
+            header('location: ../index.php');
         }
     }
 }
