@@ -103,7 +103,7 @@ if (isset($_POST['forgot_password'])) {
                     );
 
                     $mail->setFrom($email, $sender);
-                    $mail->addAddress('nhabtamu42@gmail.com', 'AASTU Digital Library User');
+                    $mail->addAddress($email, 'AASTU Digital Library User');
                     $mail->isHTML(true);
                     $mail->Subject = $subject;
                     $mail->Body = $message;
