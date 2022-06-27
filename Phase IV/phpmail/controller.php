@@ -63,54 +63,83 @@ if (isset($_POST['forgot_password'])) {
 
                 if (1) {
 
-                    $mail = new PHPMailer();
+                    // $mail = new PHPMailer();
+                    // $mail->isSMTP();
+                    // $mail->Host = 'smtp.gmail.com';
+                    // $mail->Port = 465;
+
+                    // //Set the encryption mechanism to use:
+                    // // - SMTPS (implicit TLS on port 465) or
+                    // // - STARTTLS (explicit TLS on port 587)
+                    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+
+                    // $mail->SMTPAuth = true;
+                    // $mail->AuthType = 'XOAUTH2';
+
+                    // $email = 'aastulibraryproject@gmail.com'; // the email used to register google app
+                    // $clientId = '46045524555-vn630te1l9ik5snnvakecmt6s447rvkf.apps.googleusercontent.com';
+                    // $clientSecret = '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';
+                    // $refreshToken = '1//03wX6wUllkIZNCgYIARAAGAMSNwF-L9IroXCr3SyqSaZOnk12Dtq8X0acVyxKuN1z3QgeGWXLfA2tgCGY09IeNdbHLYyimEaNteU';
+
+                    // //Create a new OAuth2 provider instance
+                    // $provider = new Google(
+                    //     [
+                    //         'clientId' => $clientId,
+                    //         'clientSecret' => $clientSecret,
+                    //     ]
+                    // );
+
+                    // //Pass the OAuth provider instance to PHPMailer
+                    // $mail->setOAuth(
+                    //     new OAuth(
+                    //         [
+                    //             'provider' => $provider,
+                    //             'clientId' => $clientId,
+                    //             'clientSecret' => $clientSecret,
+                    //             'refreshToken' => $refreshToken,
+                    //             'userName' => $email,
+                    //         ]
+                    //     )
+                    // );
+
+                    // $mail->setFrom($email, $sender);
+                    // $mail->addAddress($email, 'AASTU Digital Library User');
+                    // $mail->isHTML(true);
+                    // $mail->Subject = $subject;
+                    // $mail->Body = $message;
+
+                    // $mail->send();
+
+                    $mail = new PHPMailer(true);
+                    // Server settings
                     $mail->isSMTP();
+                    $mail->SMTPDebug = 0;
+                    $mail->Debugoutput = 'html';
                     $mail->Host = 'smtp.gmail.com';
-                    $mail->Port = 465;
-
-                    //Set the encryption mechanism to use:
-                    // - SMTPS (implicit TLS on port 465) or
-                    // - STARTTLS (explicit TLS on port 587)
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-
                     $mail->SMTPAuth = true;
-                    $mail->AuthType = 'XOAUTH2';
-
-                    $email = 'aastulibraryproject@gmail.com'; // the email used to register google app
-                    $clientId = '46045524555-vn630te1l9ik5snnvakecmt6s447rvkf.apps.googleusercontent.com';
-                    $clientSecret = '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';
-                    $refreshToken = '1//03wX6wUllkIZNCgYIARAAGAMSNwF-L9IroXCr3SyqSaZOnk12Dtq8X0acVyxKuN1z3QgeGWXLfA2tgCGY09IeNdbHLYyimEaNteU';
-
-                    //Create a new OAuth2 provider instance
-                    $provider = new Google(
-                        [
-                            'clientId' => $clientId,
-                            'clientSecret' => $clientSecret,
-                        ]
-                    );
-
-                    //Pass the OAuth provider instance to PHPMailer
-                    $mail->setOAuth(
-                        new OAuth(
-                            [
-                                'provider' => $provider,
-                                'clientId' => $clientId,
-                                'clientSecret' => $clientSecret,
-                                'refreshToken' => $refreshToken,
-                                'userName' => $email,
-                            ]
-                        )
-                    );
-
-                    $mail->setFrom($email, $sender);
-                    $mail->addAddress($email, 'AASTU Digital Library User');
+                    $mail->SMTPSecure = 'tls';
+                    $mail->Port = 587;
+                    $mail->Username = 'aastulibraryproject@gmail.com';
+                    $mail->Password = 'uzpankczzlcdjhht';
+                    // Sender &amp; Recipient
+                    $mail->From = 'aastulibraryproject@gmail.com';
+                    $mail->FromName = 'AASTU DIGITAL LIBRARY';
+                    $mail->addAddress($email);
+                    // Content
                     $mail->isHTML(true);
+                    $mail->CharSet = 'UTF-8';
+                    $mail->Encoding = 'base64';
                     $mail->Subject = $subject;
-                    $mail->Body = $message;
+                    $body = $message;
+                    $mail->Body = $body;
+                    if ($mail->send()) {
+                        header("Location: verifyEmail.php");
+                        exit;
+                    } else {
+                        header("Location: ../index.php?error=invalid_verification_error");
+                        exit;
+                    }
 
-                    $mail->send();
-
-                    header("Location: verifyEmail.php");
                 } else {
                     $errors['otp_errors'] = 'Failed while sending code!';
                 }
