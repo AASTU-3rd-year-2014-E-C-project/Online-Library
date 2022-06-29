@@ -59,6 +59,7 @@ $(document).ready(function () {
     // reset button clicked
     $('.reset-search-btn').on('click', function () {
         const resource_type = document.querySelector('.click').innerHTML;
+        $('#search-box').val('');
         $.ajax({
             type: "GET",
             url: "../inc/booklist_ajax.php",
