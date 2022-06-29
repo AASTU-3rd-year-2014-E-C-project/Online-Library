@@ -44,10 +44,10 @@ if (isset($_POST['verify'])) {
 
 // if forgot button will clicked
 if (isset($_POST['forgot_password'])) {
-    $email = $_POST['email'];
-    $_SESSION['email'] = $email;
+    $email_to = $_POST['email'];
+    $_SESSION['email'] = $email_to;
 
-    $emailCheckQuery = "SELECT * FROM user WHERE email = '$email'";
+    $emailCheckQuery = "SELECT * FROM user WHERE email = '$email_to'";
     $emailCheckResult = mysqli_query($conn, $emailCheckQuery);
 
     // if query run
@@ -103,7 +103,7 @@ if (isset($_POST['forgot_password'])) {
                     // );
 
                     // $mail->setFrom($email, $sender);
-                    // $mail->addAddress($email, 'AASTU Digital Library User');
+                    // $mail->addAddress($email_to, 'AASTU Digital Library User');
                     // $mail->isHTML(true);
                     // $mail->Subject = $subject;
                     // $mail->Body = $message;
@@ -120,11 +120,12 @@ if (isset($_POST['forgot_password'])) {
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
                     $mail->Username = 'aastulibraryproject@gmail.com';
+                    //$mail->Password = '1234Abcd';
                     $mail->Password = 'uzpankczzlcdjhht';
                     // Sender &amp; Recipient
                     $mail->From = 'aastulibraryproject@gmail.com';
                     $mail->FromName = 'AASTU DIGITAL LIBRARY';
-                    $mail->addAddress($email);
+                    $mail->addAddress($email_to);
                     // Content
                     $mail->isHTML(true);
                     $mail->CharSet = 'UTF-8';
