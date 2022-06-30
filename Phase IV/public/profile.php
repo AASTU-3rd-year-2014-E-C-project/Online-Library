@@ -9,7 +9,8 @@ if (isset($_POST['updateProfile'])) {
   $lName = $_POST['lName'];
   $phone = $_POST['phone'];
   $gender = $_POST['gender'];
-  $password = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user WHERE username = '$username'"))['password'];
+  if (isset(mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user WHERE username = '$username'"))['password']))
+    $password = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user WHERE username = '$username'"))['password'];
 
 
   if (!empty($nPassword) && !empty($cPassword)) {
@@ -23,7 +24,7 @@ if (isset($_POST['updateProfile'])) {
     $update_profile_query = "UPDATE user SET username='$username', email='$email', password='$hashedPassword', gender='$gender', phone='$phone', first_name='$fName', last_name='$lName' WHERE user_id = '$user_id'";
     mysqli_query($conn, $update_profile_query);
   }
-  if(empty($nPassword) && empty($cPassword)){
+  if (empty($nPassword) && empty($cPassword)) {
     $update_profile_query = "UPDATE user SET username='$username', email='$email', gender='$gender', phone='$phone', first_name='$fName', last_name='$lName' WHERE user_id = '{$_SESSION['user_id']}'";
     mysqli_query($conn, $update_profile_query);
   }

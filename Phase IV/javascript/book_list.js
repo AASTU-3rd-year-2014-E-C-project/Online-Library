@@ -34,6 +34,7 @@ bookCards.forEach(card => {
 /****************************** jQuery for AJAX implementation *************************************/
 
 $(document).ready(function () {
+    //onclick for book card
     $(".book-container").on("click", ".book-card", function () {
         console.log($(this)[0].classList[1])
         location.href = '../public/book1_desc.php?resource_id=' + $(this)[0].classList[1];

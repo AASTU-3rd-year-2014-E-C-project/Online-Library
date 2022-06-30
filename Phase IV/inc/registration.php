@@ -40,7 +40,6 @@ if ($validEmail && $validUsername) {
     $user_id = mysqli_fetch_assoc(mysqli_query($conn, "SELECT user_id FROM user WHERE user_type = 'user' AND username = '$username'"))['user_id'];
     $_SESSION['user_id'] = $user_id;
     $_SESSION['user_type'] = 'user';
-    header('Location: public/book_list.php');
-    header("location: ../index.php");
+    header('Location: ../public/book_list.php');
 } else
     header("location: ../index.php?error=invalid_signup");
