@@ -6,15 +6,6 @@ $resource_type = $_REQUEST['resource_type'];
 $query = "SELECT * FROM resource WHERE resource_type=\"{$resource_type}\"";
 if (isset($_REQUEST['search'])) {
     $query .= " AND (resource_title LIKE \"%{$_REQUEST['search']}%\"";
-
-    $searchTerm = $_REQUEST['search'];
-
-    // Check if the search term is a valid year (numeric with 4 digits)
-    if (ctype_digit($searchTerm) && strlen($searchTerm) === 4) {
-        $query .= " OR YEAR(created_at) = {$searchTerm}";
-    }
-
-    $query .= ")";
 }
 
 $result = mysqli_query($conn, $query);
