@@ -65,13 +65,6 @@ if (isset($_SESSION['user_id'])) {
                 <div id="list1" class="dropdown-check-list" tabindex="100" style="display: none;">
                     <span class="anchor">Select Fruits</span>
                     <ul id="items" class="items">
-                        <li><input type="checkbox" />Apple </li>
-                        <li><input type="checkbox" />Orange</li>
-                        <li><input type="checkbox" />Grapes </li>
-                        <li><input type="checkbox" />Berry </li>
-                        <li><input type="checkbox" />Mango </li>
-                        <li><input type="checkbox" />Banana </li>
-                        <li><input type="checkbox" />Tomato</li>
                     </ul>
                 </div>
                 <input type="button" class="search-input-btn btn" value="Search">

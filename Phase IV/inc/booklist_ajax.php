@@ -5,7 +5,16 @@ include_once("../inc/conn.php");
 $resource_type = $_REQUEST['resource_type'];
 $query = "SELECT * FROM resource WHERE resource_type=\"{$resource_type}\"";
 if (isset($_REQUEST['search'])) {
-    $query .= " AND resource_title LIKE \"%{$_REQUEST['search']}%\"";
+    $query .= " AND (resource_title LIKE \"%{$_REQUEST['search']}%\"";
+
+    $searchTerm = $_REQUEST['search'];
+
+    // Check if the search term is a valid year (numeric with 4 digits)
+    if (ctype_digit($searchTerm) && strlen($searchTerm) === 4) {
+        $query .= " OR YEAR(created_at) = {$searchTerm}";
+    }
+
+    $query .= ")";
 }
 
 $result = mysqli_query($conn, $query);
@@ -64,7 +73,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     // $resource_rating_avg = mysqli_fetch_assoc($rating_avg_result);
 
     $res .= $avg . "/5</em> <span class=\"rated-people-num\">(";
-    
+
     $rated_people_num_query = "SELECT COUNT(*) as num FROM rating WHERE resource_id=$resource_id";
     $rated_people_num_res = mysqli_query($conn, $rated_people_num_query);
     $rated_people_num = mysqli_fetch_assoc($rated_people_num_res)['num'];
