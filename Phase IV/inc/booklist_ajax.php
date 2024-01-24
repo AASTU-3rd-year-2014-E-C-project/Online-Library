@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $avg = number_format(mysqli_fetch_assoc($rating_avg_result)['avg'], 1);
     // $resource_rating_avg = mysqli_fetch_assoc($rating_avg_result);
 
-    $res .= $avg . "/5</em> <span class=\"rated-people-num\">(";
+    $res .= $avg . "</em> <span class=\"rated-people-num\">(";
 
     $rated_people_num_query = "SELECT COUNT(*) as num FROM rating WHERE resource_id=$resource_id";
     $rated_people_num_res = mysqli_query($conn, $rated_people_num_query);
